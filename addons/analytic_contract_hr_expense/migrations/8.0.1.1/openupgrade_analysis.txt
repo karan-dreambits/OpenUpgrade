@@ -1,3 +1,0 @@
----Fields in module 'analytic_contract_hr_expense'---
----XML records in module 'analytic_contract_hr_expense'---
--- nothing has changed in this module

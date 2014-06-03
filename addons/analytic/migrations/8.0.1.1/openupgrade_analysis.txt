@@ -1,3 +1,0 @@
----Fields in module 'analytic'---
-analytic     / account.analytic.account / message_last_post (datetime)  : NEW 
----XML records in module 'analytic'---

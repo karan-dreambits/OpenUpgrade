@@ -1,3 +1,0 @@
----Fields in module 'subscription'---
----XML records in module 'subscription'---
--- nothing has changed in this module

@@ -1,3 +1,0 @@
----Fields in module 'project_issue_sheet'---
----XML records in module 'project_issue_sheet'---
--- nothing has changed in this module

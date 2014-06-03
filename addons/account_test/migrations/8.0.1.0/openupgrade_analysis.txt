@@ -1,3 +1,0 @@
----Fields in module 'account_test'---
----XML records in module 'account_test'---
-NEW ir.ui.view: account_test.report_accounttest

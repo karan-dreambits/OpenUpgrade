@@ -1,3 +1,0 @@
----Fields in module 'pad'---
----XML records in module 'pad'---
-NEW ir.ui.view: pad.assets_backend

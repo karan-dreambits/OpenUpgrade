@@ -1,3 +1,0 @@
----Fields in module 'base_gengo'---
-base_gengo   / res.company              / gengo_sandbox (boolean)       : NEW 
----XML records in module 'base_gengo'---

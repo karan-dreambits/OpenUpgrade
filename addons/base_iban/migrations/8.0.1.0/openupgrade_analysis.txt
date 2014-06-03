@@ -1,3 +1,0 @@
----Fields in module 'base_iban'---
----XML records in module 'base_iban'---
--- nothing has changed in this module
