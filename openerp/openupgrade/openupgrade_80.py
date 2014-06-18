@@ -99,7 +99,7 @@ def update_aliases(
         alias_defaults = {}
     res_ids = registry[model_name].search(
         cr, SUPERUSER_ID, [], context={'active_test': False})
-    for res in registry[model_name].search(
+    for res in registry[model_name].browse(
             cr, SUPERUSER_ID, res_ids):
         if set_parent_thread_id:
             vals['alias_parent_thread_id'] = res.id
