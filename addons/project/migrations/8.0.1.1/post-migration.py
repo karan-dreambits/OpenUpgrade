@@ -32,7 +32,7 @@ def migrate(cr, version):
         cr,
         openupgrade.get_legacy_name('priority'),
         'priority',
-        [(4, 0), (3, 0), (2, 1), (1, 2), (0, 2)],
+        [('4', '0'), ('3', '0'), ('2', '1'), ('1', '2'), ('0', '2')],
         table='project_task', write='sql')
 
     openupgrade_80.update_aliases(
