@@ -38,7 +38,7 @@ def migrate(cr, version):
     openupgrade_80.update_aliases(
         cr, registry, 'project.project',
         set_parent_thread_id=True,
-        default_id_key='project_id')
+        defaults_id_key='project_id')
 
     openupgrade_80.set_message_last_post(
         cr, uid, registry, ['project.project', 'project.task']
