@@ -367,10 +367,15 @@ def set_defaults(cr, pool, default_spec, force=False):
 
 def logged_query(cr, query, args=None):
     """
-    Logs query and affected rows at level DEBUG
+    Logs query and affected rows at level DEBUG.
+
+    :param query: a query string suitable to pass to cursor.execute()
+    :param args: a list, tuple or dictionary passed as substitution values \
+to cursor.execute().
     """
     if args is None:
-        args = []
+        args = ()
+    args = tuple(args) if type(args) == list else args
     cr.execute(query, args)
     logger.debug('Running %s', query % args)
     logger.debug('%s rows affected', cr.rowcount)
