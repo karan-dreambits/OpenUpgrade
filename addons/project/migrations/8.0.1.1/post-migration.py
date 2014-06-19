@@ -32,13 +32,13 @@ def migrate(cr, version):
         cr,
         openupgrade.get_legacy_name('priority'),
         'priority',
-        [(4, 0), (3, 0), (2, 1), (1, 2), (0, 2)],
+        [('4', '0'), ('3', '0'), ('2', '1'), ('1', '2'), ('0', '2')],
         table='project_task', write='sql')
 
     openupgrade_80.update_aliases(
         cr, registry, 'project.project',
         set_parent_thread_id=True,
-        default_id_key='project_id')
+        defaults_id_key='project_id')
 
     openupgrade_80.set_message_last_post(
         cr, uid, registry, ['project.project', 'project.task']
