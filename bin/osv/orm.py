@@ -273,7 +273,15 @@ def get_pg_type(f):
 	return f_type
 
 
+# http://stackoverflow.com/questions/739882/iterating-over-object-instances-of-a-given-class-in-python
+class IterRegistry(type):
+    def __iter__(cls):
+        return iter(cls._registry)
+
 class orm(object):
+        __metaclass__ = IterRegistry
+        _registry = []
+
 	_columns = {}
 	_sql_constraints = []
 	_constraints = []
@@ -530,6 +538,7 @@ class orm(object):
 						cr.commit()
 
 	def __init__(self):
+                self._registry.append(self)
 		if not self._table:
 			self._table=self._name.replace('.','_')
 		if not self._description:

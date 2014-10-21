@@ -14,6 +14,8 @@ from config import config
 import logging
 
 
+from openupgrade import openupgrade_log
+
 class ConvertError(Exception):
 	def __init__(self, doc, orig_excpt):
 		self.d = doc
@@ -198,6 +200,7 @@ class xml_import(object):
 			base, id = xml_id.split('.')
 		if len(id) > 64:
 			self.logger.notifyChannel('init', netsvc.LOG_ERROR, 'id: %s is to long (max: 64)'%xml_id)
+                openupgrade_log.log_xml_id(self.cr, self.module, xml_id)
 	def _tag_delete(self, cr, rec, data_node=None):
 		d_model = rec.getAttribute("model")
 		d_search = rec.getAttribute("search")
