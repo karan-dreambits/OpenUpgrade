@@ -2,7 +2,7 @@
 ##############################################################################
 #
 #    OpenERP, Open Source Management Solution
-#    This module Copyright (C) 2012 OpenUpgrade community
+#    This module Copyright (C) 2012-2014 OpenUpgrade community
 #    https://launchpad.net/~openupgrade-committers
 #
 #    Contributors:
@@ -43,12 +43,12 @@ This module depends on OpenERP client lib:
     'depends': [],
     'init_xml': [],
     'update_xml': [
-        'view/openupgrade_record.xml',
-        'view/comparison_config.xml',
-        'view/analysis_wizard.xml',
-        'view/generate_records_wizard.xml',
-        'view/install_all_wizard.xml',
-        'security/ir.model.access.csv',
+        #'view/openupgrade_record.xml',
+        #'view/comparison_config.xml',
+        #'view/analysis_wizard.xml',
+        #'view/generate_records_wizard.xml',
+        #'view/install_all_wizard.xml',
+        #'security/ir.model.access.csv',
         ],
     'demo_xml': [
     ],
