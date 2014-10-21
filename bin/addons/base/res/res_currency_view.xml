@@ -1,0 +1,60 @@
+<?xml version="1.0"?>
+<terp>
+<data>
+
+	<menuitem name="Financial Management" icon="terp-account" id="menu_finance_main"/>
+	<menuitem name="Financial Management/Configuration" groups="admin" sequence="1"/>
+
+	<record model="ir.ui.view" id="view_currency_tree">
+		<field name="name">res.currency.tree</field>
+		<field name="model">res.currency</field>
+		<field name="type">tree</field>
+		<field name="arch" type="xml">
+			<tree string="Currencies">
+				<field name="name"/>
+				<field name="code"/>
+				<field name="rate"/>
+				<field name="rounding"/>
+				<field name="accuracy"/>
+				<field name="active" />
+			</tree>
+		</field>
+	</record>
+	<record model="ir.ui.view" id="view_currency_form">
+		<field name="name">res.currency.form</field>
+		<field name="model">res.currency</field>
+		<field name="type">form</field>
+		<field name="arch" type="xml">
+			<form string="Currency">
+				<field name="name" select="1" colspan="4"/>
+				<field name="code" select="1"/>
+				<field name="rate"/>
+				<field name="rounding"/>
+				<field name="accuracy"/>
+				<field name="active"  select="1"/>
+				<field name="rate_ids" colspan="4" nolabel="1" mode="tree,form">
+					<form string="Rates">
+						<field name="name"/>
+						<field name="rate"/>
+					</form>
+					<tree string="Rates">
+						<field name="name"/>
+						<field name="rate"/>
+					</tree>
+				</field>
+			</form>
+		</field>
+	</record>
+	<record model="ir.actions.act_window" id="action_currency_form">
+		<field name="res_model">res.currency</field>
+		<field name="view_type">form</field>
+		<field name="view_mode">tree,form</field>
+	</record>
+
+	<menuitem name="Financial Management/Configuration/Currencies" action="action_currency_form" sequence="11" id="menu_action_currency_form"/>
+
+	<menuitem name="Administration/Configuration/Base/Define Currencies" action="action_currency_form" sequence="1" id="menu_currency_def"/>
+
+</data>
+</terp>
+

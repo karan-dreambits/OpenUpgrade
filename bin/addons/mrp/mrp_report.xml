@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<terp>
+	<data>
+
+		<report
+			id="report_bom_structure"
+			string="BOM Structure"
+			model="mrp.bom"
+			name="bom.structure"
+			rml="mrp/report/bom_structure.rml"
+			auto="True"
+			header="False"/>
+
+	</data>
+</terp>

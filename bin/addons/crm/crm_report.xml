@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<terp>
+	<data>
+		<report
+			string="Business Opportunities"
+			model="crm.case"
+			name="crm.case"
+			auto="False"
+			keyword="client_print_multi"
+			multi="True"
+			menu="True"
+			id="crm_business_opportunities_report"/>
+	</data>
+</terp>

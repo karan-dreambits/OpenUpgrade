@@ -1,0 +1,203 @@
+<?xml version="1.0"?>
+<terp>
+	<data>
+		<menuitem name="Financial Management" icon="terp-account"/>
+
+		<wizard
+			string="Refund invoice"
+			model="account.invoice"
+			name="account.invoice.refund"
+			id="wizard_invoice_refund"/>
+
+		<wizard
+			string="Pay invoice"
+			model="account.invoice"
+			name="account.invoice.pay"
+			id="wizard_invoice_pay"/>
+
+		<wizard
+			string="Spread amount"
+			model="account.budget.post"
+			name="account.budget.spread"
+			menu="False"
+			id="wizard_budget_spread"/>
+			
+		<!-- close year, period, journal -->
+		<wizard
+			string="Close a fiscal year"
+			model="account.fiscalyear"
+			name="account.fiscalyear.close"
+			menu="False"
+			id="wizard_fiscalyear_close"/>
+		<menuitem
+			name="Financial Management/End of Year Treatments/Close a Fiscal Year"
+			action="wizard_fiscalyear_close"
+			type="wizard"
+			id="menu_wizard_fy_close"/>
+
+		<wizard
+			string="Close Period"
+			model="account.period"
+			name="account.period.close"
+			id="wizard_period_close"/>
+
+		<!-- automatic reconcile -->
+		<wizard
+			string="Automatic reconciliation"
+			model="account.account"
+			name="account.automatic.reconcile"
+			menu="False"
+			id="wizard_automatic_reconcile"/>
+		<menuitem name="Financial Management/Periodical Processing/Reconciliation/Automatic Reconciliation"
+			action="wizard_automatic_reconcile"
+			type="wizard"
+			id="menu_automatic_reconcile"/>
+			
+		<!-- Import entry in statement -->
+		<wizard
+				string="Import invoices"
+				model="account.bank.statement"
+				name="populate_payment_from_inv"
+				menu="False"
+				id="wizard_populate_payment_from_inv"/>
+			
+		<!-- manual reconcile -->
+		<wizard
+			string="Reconcile Entries"
+			model="account.move.line"
+			name="account.move.line.reconcile"
+			id="wizard_reconcile"/>
+
+		<wizard
+			string="Unreconcile Entries"
+			model="account.move.reconcile"
+			name="account.reconcile.unreconcile"
+			id="wizard_reconcile_unreconcile"/>
+
+
+		<wizard
+			string="Reconcile entries"
+			model="account.move.line"
+			name="account.move.line.reconcile.select"
+			menu="False"
+			id="wizard_reconcile_select"/>
+		<menuitem
+			name="Financial Management/Periodical Processing/Reconciliation/Manual Reconciliation"
+			action="wizard_reconcile_select"
+			type="wizard"
+			id="menu_reconcile_select"/>
+
+		<!-- unreconcile -->
+		<wizard
+			string="Unreconcile Entries"
+			model="account.move.line"
+			name="account.move.line.unreconcile"
+			id="wizard_unreconcile"/>
+
+		<wizard
+			string="Unreconcile entries"
+			model="account.move.line"
+			name="account.move.line.unreconcile.select"
+			menu="False"
+			id="wizard_unreconcile_select"/>
+		<menuitem
+			name="Financial Management/Periodical Processing/Reconciliation/Manual Unreconciliation"
+			action="wizard_unreconcile_select"
+			type="wizard"
+			id="menu_unreconcile_select"/>
+
+		<!-- subscriptions -->
+		<wizard
+			string="Create subscription entries"
+			model="account.subscription"
+			name="account.subscription.generate"
+			menu="False"
+			id="wizard_generate_subscription"/>
+		<menuitem
+			name="Financial Management/Periodical Processing/Create Subscription Entries"
+			action="wizard_generate_subscription"
+			type="wizard"
+			id="menu_generate_subscription"/>
+
+		<!-- Aged partner balance -->
+		<wizard 
+			string="Aged partner balance"
+			model="res.partner"
+			name="account.aged.trial.balance"
+			menu="False"
+			id="wizard_aged_trial_balance"/>
+		<menuitem
+			name="Financial Management/Reporting/Partner Accounts/Aged Partner Balance"
+			action="wizard_aged_trial_balance"
+			type="wizard"
+			id="menu_aged_trial_balance"/>
+	
+		<!-- report-related wizards -->
+		<wizard 
+			string="Partner balance"
+			model="res.partner"
+			name="account.partner.balance.report"
+			menu="False"
+			id="wizard_partner_balance_report"/>
+		<menuitem
+			name="Financial Management/Reporting/Partner Accounts/Partner Balance"
+			action="wizard_partner_balance_report"
+			type="wizard"
+			id="menu_partner_balance"/>
+			
+		<wizard 
+			string="Partner ledger"
+			model="res.partner"
+			name="account.third_party_ledger.report"
+			menu="False"
+			id="wizard_third_party_ledger"/>
+		<menuitem
+			name="Financial Management/Reporting/Partner Accounts/Partner Ledger"
+			action="wizard_third_party_ledger"
+			type="wizard"
+			id="menu_third_party_ledger"/>
+			
+		<wizard 
+			string="Budget"
+			model="account.budget.post"
+			name="account.budget.report"
+			keyword="client_print_multi"
+			id="wizard_budget_report"/>
+		<wizard
+			string="Account balance"
+			model="account.account"
+			name="account.account.balance.report"
+			keyword="client_print_multi"
+			id="wizard_balance_report"/>
+		<wizard 
+			string="General ledger"
+			model="account.account"
+			name="account.general.ledger.report"
+			keyword="client_print_multi"
+			id="wizard_general_ledger_report"/>
+
+		<wizard 
+			string="Confirm draft invoices"
+			model="account.invoice"
+			name="account.invoice.state.confirm"
+			keyword="client_action_multi"
+			multi="True"
+			id="wizard_invoice_state_confirm"/>
+		<wizard 
+			string="Cancel selected invoices"
+			model="account.invoice"
+			name="account.invoice.state.cancel"
+			keyword="client_action_multi"
+			multi="True"
+			id="wizard_invoice_state_cancel"/>
+
+
+		<wizard
+			string="Duplicate"
+			model="account.account"
+			name="account.wizard.account.duplicate"
+			id="wizard_account_duplicate"
+			keyword="tree_but_action"/>
+
+		</data>
+</terp>

@@ -1,0 +1,220 @@
+<?xml version="1.0"?>
+<terp>
+<data>
+	<!--
+	======================
+	Languages
+	======================
+	-->
+	<record model="ir.ui.view" id="view_lang">
+		<field name="name">Languages</field>
+		<field name="model">res.lang</field>
+		<field name="type">form</field>
+		<field name="arch" type="xml">
+			<form string="Language">
+				<field name="name" select="1"/>
+				<field name="code" select="1"/>
+				<field name="translatable"/>
+				<field name="direction"/>
+			</form>
+		</field>
+	</record>
+	<record model="ir.actions.act_window" id="action_lang">
+		<field name="name">Languages</field>
+		<field name="type">ir.actions.act_window</field>
+		<field name="res_model">res.lang</field>
+		<field name="view_type">form</field>
+	</record>
+	<menuitem name="Administration/Custom/Interface/Languages" action="action_lang" id="menu_action_lang"/>
+	
+	<ir_set>
+		<field name="key" eval="'meta'"/>
+		<field name="key2" eval="'lang'"/>
+		<field name="models" eval="['res.users']"/>
+		<field name="name">lang</field>
+		<field name="value" eval="False"/>
+		<field name="meta" eval="{'type':'selection', 'string':'Language', 'selection':[('en_US', 'English')]}"/>
+		<field name="replace" eval="True"/>
+	</ir_set>
+
+	<ir_set>
+		<field name="key" eval="'meta'"/>
+		<field name="key2" eval="'tz'"/>
+		<field name="models" eval="['res.users']"/>
+		<field name="name">tz</field>
+		<field name="value" eval="False"/>
+		<field name="meta" eval="{'type':'selection', 'string':'Timezone', 'selection': [(x, x) for x in pytz.all_timezones] }"/>
+		<field name="replace" eval="True"/>
+	</ir_set>
+
+	<!--
+	======================
+	Groups
+	======================
+	-->
+	<record model="ir.ui.view" id="view_groups_form">
+		<field name="name">res.groups.form</field>
+		<field name="model">res.groups</field>
+		<field name="type">form</field>
+		<field name="arch" type="xml">
+			<form string="Groups">
+				<notebook>
+					<page string="Group">
+						<field name="name" colspan="4" select="1"/>
+						<field name="users" colspan="4"/>
+					</page>
+					<page string="Security">
+						<field name="menu_access" colspan="4"/>
+						<field name="model_access" colspan="4">
+							<form string="Access Controls">
+								<field name="name" select="1" colspan="4"/>
+								<field name="model_id" select="1"/>
+								<newline/>
+								<field name="perm_read"/>
+								<field name="perm_write"/>
+								<field name="perm_create"/>
+								<field name="perm_unlink"/>
+							</form>
+						</field>
+						<field name="rule_groups" colspan="4"/>
+					</page>
+				</notebook>
+			</form>
+		</field>
+	</record>
+	
+	<!--
+	======================
+	Users
+	======================
+	-->
+	<record model="ir.ui.view" id="view_users_form_simple_modif">
+		<field name="name">res.users.form.modif</field>
+		<field name="model">res.users</field>
+		<field name="type">form</field>
+		<field name="priority" eval="10"/>
+		<field name="arch" type="xml">
+			<form string="Users">
+				<field name="name" colspan="4" select="1"/>
+				<field name="login" readonly="1" select="1"/>
+				<field name="password"/>
+				<label string="Please note that you will have to logout and relog if you change your password." colspan="4"/>
+				<newline/>
+				<field name="signature" colspan="4"/>
+			</form>
+		</field>
+	</record>
+	<record model="ir.ui.view" id="view_users_form_simple">
+		<field name="name">res.users.form</field>
+		<field name="model">res.users</field>
+		<field name="type">form</field>
+		<field name="priority" eval="8"/>
+		<field name="arch" type="xml">
+			<form string="Users">
+				<field name="name" readonly="1" colspan="4" select="1"/>
+				<field name="login" readonly="1" select="1"/>
+				<field name="active" readonly="1" select="1"/>
+				<newline/>
+				<field name="signature" readonly="1" colspan="4"/>
+			</form>
+		</field>
+	</record>
+	<record model="ir.ui.view" id="view_users_form">
+		<field name="name">res.users.form</field>
+		<field name="model">res.users</field>
+		<field name="type">form</field>
+		<field name="arch" type="xml">
+			<form string="Users">
+				<notebook>
+					<page string="User">
+						<field name="name" select="1"/>
+						<field name="active" select="1"/>
+						<field name="login" select="1"/>
+						<field name="password"/>
+						<field name="address_id"/>
+						<field name="company_id" required="1"/>
+						<field name="action_id" required="True"/>
+						<field name="menu_id" domain="[('usage','=','menu')]" required="True"/>
+						<field name="signature" colspan="4"/>
+					</page>
+					<page string="Security">
+						<field name="groups_id" colspan="4"/>
+						<field name="roles_id" colspan="4"/>
+						<field name="rule_groups" colspan="4"/>
+					</page>
+				</notebook>
+			</form>
+		</field>
+	</record>
+	<record model="ir.ui.view" id="view_users_tree">
+		<field name="name">res.users.tree</field>
+		<field name="model">res.users</field>
+		<field name="type">tree</field>
+		<field name="arch" type="xml">
+			<tree string="Users">
+				<field name="name"/>
+				<field name="login"/>
+			</tree>
+		</field>
+	</record>
+
+	<!--
+	======================
+	Company
+	======================
+	-->
+	<record model="ir.ui.view" id="view_company_form">
+		<field name="name">res.company.form</field>
+		<field name="model">res.company</field>
+		<field name="type">form</field>
+		<field name="arch" type="xml">
+			<form string="Company">
+				<field name="name" colspan="4" select="1"/>
+				<field name="partner_id" select="1"/>
+				<field name="parent_id" select="1"/>
+				<field name="rml_header1"/>
+				<field name="rml_footer1"/>
+				<field name="rml_footer2"/>
+			</form>
+		</field>
+	</record>
+	<record model="ir.ui.view" id="view_company_tree">
+		<field name="name">res.company.tree</field>
+		<field name="model">res.company</field>
+		<field name="type">tree</field>
+		<field name="field_parent">child_ids</field>
+		<field name="arch" type="xml">
+			<tree string="Companies">
+				<field name="name"/>
+				<field name="partner_id"/>
+			</tree>
+		</field>
+	</record>
+
+	# Admin config
+
+	<menuitem name="Administration/Configuration/User" sequence="4" id="menu_adm_conf_user"/>
+
+	<record model="ir.actions.act_window" id="open_module_users_list">
+		<field name="name">Users</field>
+		<field name="res_model">res.users</field>
+		<field name="view_type">form</field>
+		<field name="view_mode">tree,form</field>
+	</record>
+	<record model="ir.actions.act_window.view" id="open_module_users_list_view1">
+		<field name="sequence" eval="10"/>
+		<field name="view_mode">tree</field>
+		<field name="view_id" ref="view_users_tree"/>
+		<field name="act_window_id" ref="open_module_users_list"/>
+	</record>
+	<record model="ir.actions.act_window.view" id="open_module_users_list_view2">
+		<field name="sequence" eval="20"/>
+		<field name="view_mode">form</field>
+		<field name="view_id" ref="view_users_form"/>
+		<field name="act_window_id" ref="open_module_users_list"/>
+	</record>
+
+	<menuitem name="Administration/Configuration/User/Define Users" action="open_module_users_list" sequence="1" id="menu_users_list"/>
+
+</data>
+</terp>
