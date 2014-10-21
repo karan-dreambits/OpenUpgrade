@@ -31,7 +31,7 @@ try:
 except ImportError:
     from openupgrade import openupgrade_tools
 
-class generate_records_wizard(osv.osv_memory):
+class generate_records_wizard(osv.osv):
     _name = 'openupgrade.generate.records.wizard'
     _description = 'OpenUpgrade Generate Records Wizard'
     _columns = {
@@ -87,4 +87,3 @@ class generate_records_wizard(osv.osv_memory):
         return True
 
 generate_records_wizard()
-

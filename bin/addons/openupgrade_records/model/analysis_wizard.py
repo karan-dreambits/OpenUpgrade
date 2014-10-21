@@ -25,17 +25,15 @@
 
 import os
 from osv import osv, fields
+import tools
 
-try:
-    from openerp.addons.openupgrade_records.lib import compare
-    from openerp.openupgrade_records.lib import apriori
-    from openerp.addons import get_module_path
-except ImportError:
-    from openupgrade_records.lib import compare
-    from openupgrade_records.lib import apriori
-    from addons import get_module_path
+from openupgrade_records.lib import compare
+from openupgrade_records.lib import apriori
 
-class openupgrade_analysis_wizard(osv.osv_memory):
+def get_module_path(module):
+    return os.path.join(tools.config['addons_path'], module)
+
+class openupgrade_analysis_wizard(osv.osv):
     _name = 'openupgrade.analysis.wizard'
     _description = 'OpenUpgrade Analysis Wizard'
     _columns = {
@@ -175,4 +173,3 @@ class openupgrade_analysis_wizard(osv.osv_memory):
         return result
 
 openupgrade_analysis_wizard()
-

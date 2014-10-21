@@ -28,7 +28,7 @@ import os
 from osv import osv, fields
 import pooler
 
-class install_all_wizard(osv.osv_memory):
+class install_all_wizard(osv.osv):
     _name = 'openupgrade.install.all.wizard'
     _description = 'OpenUpgrade Install All Wizard'
     _columns = {
@@ -110,4 +110,3 @@ class install_all_wizard(osv.osv_memory):
         return True
 
 install_all_wizard()
-
