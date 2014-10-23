@@ -229,10 +229,6 @@ def load_module_graph(cr, graph, status=None, registry=None, **kwargs):
                 main registry
                 """
                 
-                # persistent models only
-                if isinstance(model, osv.osv.osv_memory):
-                        return
-
                 model_registry = local_registry.setdefault(
                         model._name, {})
                 if model._inherits:
