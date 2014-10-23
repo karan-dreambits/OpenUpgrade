@@ -264,66 +264,66 @@ def load_module_graph(cr, graph, status=None, registry=None, **kwargs):
                                                 if value:
                                                         model_registry.setdefault(k, {})[key] = value
 
-                def get_record_id(cr, module, model, field, mode):
-                        """
-                        OpenUpgrade: get or create the id from the record table matching
-                        the key parameter values
-                        """
-                        cr.execute(
-                                "SELECT id FROM openupgrade_record "
-                                "WHERE module = %s AND model = %s AND "
-                                "field = %s AND mode = %s AND type = %s",
-                                (module, model, field, mode, 'field')
-                                )
-                        record = cr.fetchone()
-                        if record:
-                                return record[0]
-                        cr.execute(
-                                "INSERT INTO openupgrade_record "
-                                "(module, model, field, mode, type) "
-                                "VALUES (%s, %s, %s, %s, %s)",
-                                (module, model, field, mode, 'field')
-                                )
-                        cr.execute(
-                                "SELECT id FROM openupgrade_record "
-                                "WHERE module = %s AND model = %s AND "
-                                "field = %s AND mode = %s AND type = %s",
-                                (module, model, field, mode, 'field')
-                                )
-                        return cr.fetchone()[0]
+        def get_record_id(cr, module, model, field, mode):
+            """
+            OpenUpgrade: get or create the id from the record table matching
+            the key parameter values
+            """
+            cr.execute(
+                "SELECT id FROM openupgrade_record "
+                "WHERE module = %s AND model = %s AND "
+                "field = %s AND mode = %s AND type = %s",
+                (module, model, field, mode, 'field')
+                )
+            record = cr.fetchone()
+            if record:
+                return record[0]
+            cr.execute(
+                "INSERT INTO openupgrade_record "
+                "(module, model, field, mode, type) "
+                "VALUES (%s, %s, %s, %s, %s)",
+                (module, model, field, mode, 'field')
+                )
+            cr.execute(
+                "SELECT id FROM openupgrade_record "
+                "WHERE module = %s AND model = %s AND "
+                "field = %s AND mode = %s AND type = %s",
+                (module, model, field, mode, 'field')
+                )
+            return cr.fetchone()[0]
 
-                def compare_registries(cr, module):
-                        """
-                        OpenUpgrade: Compare the local registry with the global registry,
-                        log any differences and merge the local registry with
-                        the global one.
-                        """
-                        if not table_exists(cr, 'openupgrade_record'):
-                                return
-                        for model, fields in local_registry.items():
-                                registry.setdefault(model, {})
-                                for field, attributes in fields.items():
-                                        old_field = registry[model].setdefault(field, {})
-                                        mode = old_field and 'modify' or 'create'
-                                        record_id = False
-                                        for key, value in attributes.items():
-                                                if key not in old_field or old_field[key] != value:
-                                                        if not record_id:
-                                                                record_id = get_record_id(
-                                                                        cr, module, model, field, mode)
-                                                        cr.execute(
-                                                                "SELECT id FROM openupgrade_attribute "
-                                                                "WHERE name = %s AND value = %s AND "
-                                                                "record_id = %s",
-                                                                (key, value, record_id)
-                                                                )
-                                                        if not cr.fetchone():
-                                                                cr.execute(
-                                                                        "INSERT INTO openupgrade_attribute "
-                                                                        "(name, value, record_id) VALUES (%s, %s, %s)",
-                                                                        (key, value, record_id)
-                                                                        )
-                                                                old_field[key] = value
+        def compare_registries(cr, module):
+            """
+            OpenUpgrade: Compare the local registry with the global registry,
+            log any differences and merge the local registry with
+            the global one.
+            """
+            if not table_exists(cr, 'openupgrade_record'):
+                return
+            for model, fields in local_registry.items():
+                registry.setdefault(model, {})
+                for field, attributes in fields.items():
+                    old_field = registry[model].setdefault(field, {})
+                    mode = old_field and 'modify' or 'create'
+                    record_id = False
+                    for key, value in attributes.items():
+                        if key not in old_field or old_field[key] != value:
+                            if not record_id:
+                                record_id = get_record_id(
+                                    cr, module, model, field, mode)
+                            cr.execute(
+                                "SELECT id FROM openupgrade_attribute "
+                                "WHERE name = %s AND value = %s AND "
+                                "record_id = %s",
+                                (key, value, record_id)
+                                )
+                            if not cr.fetchone():
+                                cr.execute(
+                                    "INSERT INTO openupgrade_attribute "
+                                    "(name, value, record_id) VALUES (%s, %s, %s)",
+                                    (key, value, record_id)
+                                    )
+                                old_field[key] = value
 
 	for package in graph:
 		status['progress'] = (float(statusi)+0.1)/len(graph)
