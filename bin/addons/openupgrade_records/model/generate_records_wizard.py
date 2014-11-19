@@ -51,13 +51,6 @@ class generate_records_wizard(osv.osv):
 
         TODO: update module list and versions, then update all modules?
         """
-        # Truncate the records table
-        if (openupgrade_tools.table_exists(cr, 'openupgrade_attribute') and
-            openupgrade_tools.table_exists(cr, 'openupgrade_record')):
-            cr.execute(
-                'TRUNCATE openupgrade_attribute, openupgrade_record;'
-                )
-
         # Need to get all modules in state 'installed'
         module_obj = self.pool.get('ir.module.module')
         module_ids = module_obj.search(
@@ -80,6 +73,13 @@ class generate_records_wizard(osv.osv):
             cr, uid, [('state', '=', 'installed')])
         module_obj.write(
             cr, uid, module_ids, {'state': 'to install'})
+        # Truncate the records table
+        if (openupgrade_tools.table_exists(cr, 'openupgrade_attribute') and
+            openupgrade_tools.table_exists(cr, 'openupgrade_record')):
+            cr.execute(
+                'TRUNCATE openupgrade_attribute, openupgrade_record;'
+                )
+
         cr.commit()
         _db, pool = pooler.restart_pool(cr.dbname, update_module=True)
         self.write(cr, uid, ids, {'state': 'ready'})

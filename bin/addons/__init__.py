@@ -320,8 +320,9 @@ def load_module_graph(cr, graph, status=None, registry=None, **kwargs):
 
                 local_registry = {}
                 for model in modules:
-                        log_model(model)
-                        compare_registries(cr, package.name)
+                        if registry is not None:
+                                log_model(model)
+                                compare_registries(cr, package.name)
 
 		if hasattr(package, 'init') or hasattr(package, 'update') or package_state in ('to install', 'to upgrade'):
 			init_module_objects(cr, m, modules)
@@ -394,7 +395,10 @@ def load_modules(db, force_demo=False, status=None, update_module=False):
 	module_list = [name for (name,) in cr.fetchall()]
 	graph = create_graph(module_list, force)
 	report = tools.assertion_report()
-        registry = {}
+        # OpenUpgrade: pass global registry to collect incremental database
+        # layout. Encode if update_module is not set, to prevent double entries
+        # (specific to version 4.2)
+        registry = {} if update_module else None
         try:
                 load_module_graph(cr, graph, status, registry=registry, report=report)
         except Exception, e:
