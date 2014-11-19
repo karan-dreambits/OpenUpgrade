@@ -1,0 +1,23 @@
+---Fields in module 'board'---
+board        / board.board              / line_ids (one2many)           : NEW relation: board.board.line
+board        / board.board              / name (char)                   : now required, default = function
+board        / board.board              / view_id (many2one)            : NEW relation: ir.ui.view
+board        / board.board.line         / action_id (many2one)          : NEW relation: ir.actions.act_window, required: required
+board        / board.board.line         / board_id (many2one)           : NEW relation: board.board, required: required
+board        / board.board.line         / height (integer)              : NEW 
+board        / board.board.line         / name (char)                   : NEW required: required
+board        / board.board.line         / position (selection)          : NEW required: required, selection_keys: ['left', 'right'], req_default: function
+board        / board.board.line         / sequence (integer)            : NEW 
+board        / board.board.line         / width (integer)               : NEW 
+---XML records in module 'board'---
+NEW ir.actions.act_window: board.action_view_board_list_form
+NEW ir.actions.act_window: board.dashboard_open
+NEW ir.actions.wizard: board.wizard_board_create_menu
+NEW ir.model.access: board.access_board_board
+NEW ir.model.access: board.access_board_board_line
+NEW ir.model.access: board.access_board_note
+NEW ir.model.access: board.access_board_note_type
+NEW ir.ui.menu: board.menu_view_board_form
+NEW ir.ui.menu: board.next_id_50
+NEW ir.ui.view: board.view_board_form
+NEW ir.ui.view: board.view_board_tree

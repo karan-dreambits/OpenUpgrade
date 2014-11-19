@@ -1,0 +1,61 @@
+---Fields in module 'base_contact'---
+base_contact / res.partner.address      / job_ids (one2many)            : NEW relation: res.partner.job
+base_contact / res.partner.contact      / active (boolean)              : NEW 
+base_contact / res.partner.contact      / birthdate (date)              : NEW 
+base_contact / res.partner.contact      / country_id (many2one)         : NEW relation: res.country
+base_contact / res.partner.contact      / email (char)                  : NEW 
+base_contact / res.partner.contact      / first_name (char)             : NEW 
+base_contact / res.partner.contact      / job_ids (one2many)            : NEW relation: res.partner.job
+base_contact / res.partner.contact      / lang_id (many2one)            : NEW relation: res.lang
+base_contact / res.partner.contact      / mobile (char)                 : NEW 
+base_contact / res.partner.contact      / name (char)                   : NEW required: required
+base_contact / res.partner.contact      / title (selection)             : NEW selection_keys: function
+base_contact / res.partner.contact      / website (char)                : NEW 
+base_contact / res.partner.job          / address_id (many2one)         : NEW relation: res.partner.address
+base_contact / res.partner.job          / contact_id (many2one)         : NEW relation: res.partner.contact, required: required
+base_contact / res.partner.job          / date_start (date)             : NEW 
+base_contact / res.partner.job          / date_stop (date)              : NEW 
+base_contact / res.partner.job          / email (char)                  : NEW 
+base_contact / res.partner.job          / extension (char)              : NEW 
+base_contact / res.partner.job          / fax (char)                    : NEW 
+base_contact / res.partner.job          / function_id (many2one)        : NEW relation: res.partner.function
+base_contact / res.partner.job          / other (char)                  : NEW 
+base_contact / res.partner.job          / phone (char)                  : NEW 
+base_contact / res.partner.job          / sequence_contact (integer)    : NEW 
+base_contact / res.partner.job          / sequence_partner (integer)    : NEW 
+base_contact / res.partner.job          / state (selection)             : NEW required: required, selection_keys: ['current', 'past'], req_default: function
+---XML records in module 'base_contact'---
+NEW ir.actions.act_window: base_contact.act_res_partner_jobs
+NEW ir.actions.act_window: base_contact.action_partner_contact_form
+NEW ir.actions.act_window: base_contact.action_res_partner_job
+NEW ir.model.access: base_contact.access_res_partner_contact
+NEW ir.model.access: base_contact.access_res_partner_contact_all
+NEW ir.model.access: base_contact.access_res_partner_job
+NEW ir.model.access: base_contact.access_res_partner_job_all
+NEW ir.ui.menu: base.menu_partner_address_form
+NEW ir.ui.menu: base_contact.menu_action_res_partner_job
+NEW ir.ui.menu: base_contact.menu_partner_contact_form
+NEW ir.ui.view: base_contact.view_partner_address_form_inherited0
+NEW ir.ui.view: base_contact.view_partner_address_form_inherited1
+NEW ir.ui.view: base_contact.view_partner_address_form_inherited2
+NEW ir.ui.view: base_contact.view_partner_address_form_inherited3
+NEW ir.ui.view: base_contact.view_partner_address_form_inherited4
+NEW ir.ui.view: base_contact.view_partner_address_form_inherited5
+NEW ir.ui.view: base_contact.view_partner_address_form_inherited6
+NEW ir.ui.view: base_contact.view_partner_address_tree_inherited1
+NEW ir.ui.view: base_contact.view_partner_contact_form
+NEW ir.ui.view: base_contact.view_partner_contact_tree
+NEW ir.ui.view: base_contact.view_partner_form_inherit
+NEW ir.ui.view: base_contact.view_partner_form_inherit2
+NEW ir.ui.view: base_contact.view_partner_form_inherit2bis
+NEW ir.ui.view: base_contact.view_partner_form_inherit3
+NEW ir.ui.view: base_contact.view_partner_job_form
+NEW ir.ui.view: base_contact.view_partner_job_tree
+NEW process.node: base_contact.process_node_addresses0
+NEW process.node: base_contact.process_node_contacts0
+NEW process.node: base_contact.process_node_function0
+NEW process.node: base_contact.process_node_partners0
+NEW process.process: base_contact.process_process_basecontactprocess0
+NEW process.transition: base_contact.process_transition_contacttofunction0
+NEW process.transition: base_contact.process_transition_functiontoaddress0
+NEW process.transition: base_contact.process_transition_partnertoaddress0

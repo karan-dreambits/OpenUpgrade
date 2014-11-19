@@ -1,0 +1,4 @@
+---Fields in module 'stock_no_autopicking'---
+stock_no_autopicking / product.product          / auto_pick (boolean)           : NEW 
+---XML records in module 'stock_no_autopicking'---
+NEW ir.ui.view: stock_no_autopicking.view_product_form_auto_pick

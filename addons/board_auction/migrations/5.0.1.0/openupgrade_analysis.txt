@@ -1,0 +1,10 @@
+---Fields in module 'board_auction'---
+---XML records in module 'board_auction'---
+NEW board.note.type: board_auction.note_auction_type
+NEW board.note.type: board_auction.note_auction_type1
+NEW ir.actions.act_window: board_auction.open_board_auction
+NEW ir.actions.act_window: board_auction.open_board_auction_manager
+NEW ir.ui.menu: board_auction.menu_board_auction
+NEW ir.ui.menu: board_auction.menu_board_auction_manager
+NEW ir.ui.view: board_auction.board_auction_manager_form
+NEW ir.ui.view: board_auction.board_auction_manager_form1

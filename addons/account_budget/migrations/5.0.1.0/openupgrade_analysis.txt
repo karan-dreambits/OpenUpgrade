@@ -1,0 +1,62 @@
+---Fields in module 'account_budget'---
+account_budget / account.analytic.account / crossovered_budget_line (one2many): NEW relation: crossovered.budget.lines
+account_budget / account.budget.post      / crossovered_budget_line (one2many): NEW relation: crossovered.budget.lines
+account_budget / crossovered.budget       / code (char)                   : NEW required: required
+account_budget / crossovered.budget       / creating_user_id (many2one)   : NEW relation: res.users
+account_budget / crossovered.budget       / crossovered_budget_line (one2many): NEW relation: crossovered.budget.lines
+account_budget / crossovered.budget       / date_from (date)              : NEW required: required
+account_budget / crossovered.budget       / date_to (date)                : NEW required: required
+account_budget / crossovered.budget       / name (char)                   : NEW required: required
+account_budget / crossovered.budget       / state (selection)             : NEW required: required, selection_keys: ['cancel', 'confirm', 'done', 'draft', 'validate'], req_default: function
+account_budget / crossovered.budget       / validating_user_id (many2one) : NEW relation: res.users
+account_budget / crossovered.budget.lines / analytic_account_id (many2one): NEW relation: account.analytic.account, required: required
+account_budget / crossovered.budget.lines / crossovered_budget_id (many2one): NEW relation: crossovered.budget, required: required
+account_budget / crossovered.budget.lines / date_from (date)              : NEW required: required
+account_budget / crossovered.budget.lines / date_to (date)                : NEW required: required
+account_budget / crossovered.budget.lines / general_budget_id (many2one)  : NEW relation: account.budget.post, required: required
+account_budget / crossovered.budget.lines / paid_date (date)              : NEW 
+account_budget / crossovered.budget.lines / planned_amount (float)        : NEW required: required
+---XML records in module 'account_budget'---
+NEW ir.actions.act_window: account_budget.act_account_analytic_account_cb_lines
+NEW ir.actions.act_window: account_budget.act_crossovered_budget_lines_view
+NEW ir.actions.act_window: account_budget.act_crossovered_budget_view
+NEW ir.actions.act_window: account_budget.action_account_budget_post_tree
+NEW ir.actions.act_window: account_budget.open_budget_post_form
+NEW ir.actions.report.xml: account_budget.account_analytic_account_budget
+NEW ir.actions.report.xml: account_budget.account_budget
+NEW ir.actions.report.xml: account_budget.report_crossovered_budget
+NEW ir.actions.wizard: account_budget.account_analytic_account_budget_report
+NEW ir.actions.wizard: account_budget.wizard_budget_report
+NEW ir.actions.wizard: account_budget.wizard_budget_spread
+NEW ir.actions.wizard: account_budget.wizard_crossovered_budget_menu
+NEW ir.actions.wizard: account_budget.wizard_crossovered_budget_menu_1
+NEW ir.model.access: account_budget.access_account_budget_post
+NEW ir.model.access: account_budget.access_account_budget_post_dotation
+NEW ir.model.access: account_budget.access_crossovered_budget
+NEW ir.model.access: account_budget.access_crossovered_budget_lines
+NEW ir.ui.menu: account_budget.menu_act_crossovered_budget_lines_view
+NEW ir.ui.menu: account_budget.menu_act_crossovered_budget_view
+NEW ir.ui.menu: account_budget.menu_action_account_budget_post_tree
+NEW ir.ui.menu: account_budget.menu_budget_post_form
+NEW ir.ui.menu: account_budget.next_id_31
+NEW ir.ui.view: account_budget.crossovered_budget_view_form
+NEW ir.ui.view: account_budget.crossovered_budget_view_tree
+NEW ir.ui.view: account_budget.view_account_analytic_account_form_inherit_cci
+NEW ir.ui.view: account_budget.view_budget_post_dotation_form
+NEW ir.ui.view: account_budget.view_budget_post_dotation_tree
+NEW ir.ui.view: account_budget.view_budget_post_form
+NEW ir.ui.view: account_budget.view_budget_post_tree
+NEW ir.ui.view: account_budget.view_crossovered_budget_line_form
+NEW ir.ui.view: account_budget.view_crossovered_budget_line_tree
+NEW res.roles: account_budget.crossovered_budget_role
+NEW workflow: account_budget.wkf_crossovered_budget
+NEW workflow.activity: account_budget.act_cancel
+NEW workflow.activity: account_budget.act_confirm
+NEW workflow.activity: account_budget.act_done
+NEW workflow.activity: account_budget.act_draft
+NEW workflow.activity: account_budget.act_validate
+NEW workflow.transition: account_budget.t1
+NEW workflow.transition: account_budget.t2
+NEW workflow.transition: account_budget.t3
+NEW workflow.transition: account_budget.t4
+NEW workflow.transition: account_budget.t5

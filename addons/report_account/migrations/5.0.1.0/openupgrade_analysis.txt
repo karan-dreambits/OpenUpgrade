@@ -1,0 +1,23 @@
+---Fields in module 'report_account'---
+report_account / report.aged.receivable   / name (char)                   : NEW 
+report_account / report.invoice.created   / amount_total (float)          : NEW 
+report_account / report.invoice.created   / amount_untaxed (float)        : NEW 
+report_account / report.invoice.created   / create_date (datetime)        : NEW 
+report_account / report.invoice.created   / currency_id (many2one)        : NEW relation: res.currency
+report_account / report.invoice.created   / date_due (date)               : NEW 
+report_account / report.invoice.created   / date_invoice (date)           : NEW 
+report_account / report.invoice.created   / name (char)                   : NEW 
+report_account / report.invoice.created   / number (char)                 : NEW 
+report_account / report.invoice.created   / origin (char)                 : NEW 
+report_account / report.invoice.created   / partner_id (many2one)         : NEW relation: res.partner
+report_account / report.invoice.created   / residual (float)              : NEW 
+report_account / report.invoice.created   / state (selection)             : NEW selection_keys: ['cancel', 'draft', 'open', 'paid', 'proforma', 'proforma2']
+report_account / report.invoice.created   / type (selection)              : NEW selection_keys: ['in_invoice', 'in_refund', 'out_invoice', 'out_refund']
+report_account / temp.range               / name (char)                   : NEW 
+---XML records in module 'report_account'---
+NEW ir.actions.act_window: report_account.action_aged_receivable_graph
+NEW ir.actions.act_window: report_account.action_view_created_invoice_dashboard
+NEW ir.model.access: report_account.access_report_account_receivable
+NEW ir.ui.view: report_account.board_view_created_invoice
+NEW ir.ui.view: report_account.view_aged_recv_graph
+NEW ir.ui.view: report_account.view_aged_recv_tree

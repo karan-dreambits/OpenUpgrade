@@ -1,0 +1,19 @@
+---Fields in module 'hr_contract'---
+hr_contract  / hr.employee              / birth_date (date)             : DEL 
+hr_contract  / hr.employee              / nationality (many2one)        : DEL relation: res.country
+hr_contract  / hr.employee              / soc_security (char)           : DEL 
+---XML records in module 'hr_contract'---
+NEW ir.model.access: hr_contract.access_hr_contract
+NEW ir.model.access: hr_contract.access_hr_contract_user
+NEW ir.model.access: hr_contract.access_hr_contract_wage_type
+NEW ir.model.access: hr_contract.access_hr_contract_wage_type_contract
+NEW ir.model.access: hr_contract.access_hr_contract_wage_type_period
+NEW ir.model.access: hr_contract.access_hr_contract_wage_type_period_contract
+NEW ir.model.access: hr_contract.access_hr_contract_wage_type_period_user
+NEW ir.model.access: hr_contract.access_hr_contract_wage_type_user
+NEW ir.model.access: hr_contract.access_hr_employee_contract
+NEW ir.model.access: hr_contract.access_hr_employee_marital_status
+NEW ir.ui.menu: hr_contract.next_id_56
+DEL ir.ui.view: hr_contract.hr_contract_type_view_form
+DEL ir.ui.view: hr_contract.hr_contract_type_view_tree
+NEW res.groups: hr_contract.group_hr_contract

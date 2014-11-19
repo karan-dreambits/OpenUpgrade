@@ -1,0 +1,3 @@
+---Fields in module 'project_timesheet'---
+project_timesheet / project.task.work        / hr_analytic_timesheet_id (integer): NEW 
+---XML records in module 'project_timesheet'---

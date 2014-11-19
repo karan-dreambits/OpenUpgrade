@@ -1,0 +1,386 @@
+---Fields in module 'auction'---
+auction      / auction.artists          / biography (text)              : NEW 
+auction      / auction.artists          / birth_death_dates (char)      : NEW 
+auction      / auction.artists          / name (char)                   : NEW required: required
+auction      / auction.artists          / pseudo (char)                 : NEW 
+auction      / auction.bid              / auction_id (many2one)         : NEW relation: auction.dates, required: required
+auction      / auction.bid              / bid_lines (one2many)          : NEW relation: auction.bid_line
+auction      / auction.bid              / contact_tel (char)            : NEW 
+auction      / auction.bid              / name (char)                   : NEW required: required, req_default: function
+auction      / auction.bid              / partner_id (many2one)         : NEW relation: res.partner, required: required
+auction      / auction.bid_line         / auction (char)                : NEW 
+auction      / auction.bid_line         / bid_id (many2one)             : NEW relation: auction.bid, required: required
+auction      / auction.bid_line         / call (boolean)                : NEW 
+auction      / auction.bid_line         / lot_id (many2one)             : NEW relation: auction.lots, required: required
+auction      / auction.bid_line         / name (char)                   : NEW 
+auction      / auction.bid_line         / price (float)                 : NEW 
+auction      / auction.dates            / acc_expense (many2one)        : NEW relation: account.account, required: required
+auction      / auction.dates            / acc_income (many2one)         : NEW relation: account.account, required: required
+auction      / auction.dates            / account_analytic_id (many2one): NEW relation: account.analytic.account, required: required
+auction      / auction.dates            / auction1 (date)               : NEW required: required
+auction      / auction.dates            / auction2 (date)               : NEW required: required
+auction      / auction.dates            / buyer_costs (many2many)       : NEW relation: account.tax
+auction      / auction.dates            / expo1 (date)                  : NEW required: required
+auction      / auction.dates            / expo2 (date)                  : NEW required: required
+auction      / auction.dates            / journal_id (many2one)         : NEW relation: account.journal, required: required
+auction      / auction.dates            / journal_seller_id (many2one)  : NEW relation: account.journal, required: required
+auction      / auction.dates            / name (char)                   : NEW required: required
+auction      / auction.dates            / seller_costs (many2many)      : NEW relation: account.tax
+auction      / auction.dates            / state (selection)             : NEW selection_keys: ['closed', 'draft']
+auction      / auction.deposit          / create_uid (many2one)         : NEW relation: res.users
+auction      / auction.deposit          / date_dep (date)               : NEW required: required
+auction      / auction.deposit          / info (char)                   : NEW 
+auction      / auction.deposit          / lot_id (one2many)             : NEW relation: auction.lots
+auction      / auction.deposit          / method (selection)            : NEW required: required, selection_keys: ['contact', 'decease', 'keep'], req_default: function
+auction      / auction.deposit          / name (char)                   : NEW required: required, req_default: function
+auction      / auction.deposit          / partner_id (many2one)         : NEW relation: res.partner, required: required
+auction      / auction.deposit          / specific_cost_ids (one2many)  : NEW relation: auction.deposit.cost
+auction      / auction.deposit          / tax_id (many2one)             : NEW relation: account.tax
+auction      / auction.deposit          / total_neg (boolean)           : NEW 
+auction      / auction.deposit          / transfer (boolean)            : NEW 
+auction      / auction.deposit.cost     / account (many2one)            : NEW relation: account.account, required: required
+auction      / auction.deposit.cost     / amount (float)                : NEW 
+auction      / auction.deposit.cost     / deposit_id (many2one)         : NEW relation: auction.deposit
+auction      / auction.deposit.cost     / name (char)                   : NEW required: required
+auction      / auction.lot.category     / active (boolean)              : NEW 
+auction      / auction.lot.category     / aie_categ (selection)         : NEW selection_keys: ['1', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '2', '24', '25', '26', '27', '3', '30', '31', '33', '37', '4', '41', '42', '43', '45', '46', '47', '48', '5', '50', '51', '52', '53', '54', '55', '56', '57', '58', '59', '8', '9']
+auction      / auction.lot.category     / name (char)                   : NEW required: required
+auction      / auction.lot.category     / priority (float)              : NEW 
+auction      / auction.lot.history      / auction_id (many2one)         : NEW relation: auction.dates, required: required
+auction      / auction.lot.history      / lot_id (many2one)             : NEW relation: auction.lots, required: required
+auction      / auction.lot.history      / name (date)                   : NEW 
+auction      / auction.lot.history      / price (float)                 : NEW 
+auction      / auction.lots             / ach_avance (float)            : NEW 
+auction      / auction.lots             / ach_emp (boolean)             : NEW 
+auction      / auction.lots             / ach_inv_id (many2one)         : NEW relation: account.invoice
+auction      / auction.lots             / ach_login (char)              : NEW 
+auction      / auction.lots             / ach_uid (many2one)            : NEW relation: res.partner
+auction      / auction.lots             / artist2_id (many2one)         : NEW relation: auction.artists
+auction      / auction.lots             / artist_id (many2one)          : NEW relation: auction.artists
+auction      / auction.lots             / auction_id (many2one)         : NEW relation: auction.dates
+auction      / auction.lots             / author_right (many2one)       : NEW relation: account.tax
+auction      / auction.lots             / bid_lines (one2many)          : NEW relation: auction.bid_line
+auction      / auction.lots             / bord_vnd_id (many2one)        : NEW relation: auction.deposit, required: required
+auction      / auction.lots             / create_uid (many2one)         : NEW relation: res.users
+auction      / auction.lots             / history_ids (one2many)        : NEW relation: auction.lot.history
+auction      / auction.lots             / image (binary)                : NEW 
+auction      / auction.lots             / important (boolean)           : NEW 
+auction      / auction.lots             / is_ok (boolean)               : NEW 
+auction      / auction.lots             / lot_est1 (float)              : NEW 
+auction      / auction.lots             / lot_est2 (float)              : NEW 
+auction      / auction.lots             / lot_local (char)              : NEW 
+auction      / auction.lots             / lot_num (integer)             : NEW required: required, req_default: function
+auction      / auction.lots             / lot_type (selection)          : NEW selection_keys: function
+auction      / auction.lots             / name (char)                   : NEW required: required
+auction      / auction.lots             / name2 (char)                  : NEW 
+auction      / auction.lots             / obj_comm (boolean)            : NEW 
+auction      / auction.lots             / obj_desc (text)               : NEW 
+auction      / auction.lots             / obj_num (integer)             : NEW 
+auction      / auction.lots             / obj_price (float)             : NEW 
+auction      / auction.lots             / obj_ret (float)               : NEW 
+auction      / auction.lots             / paid_vnd (boolean)            : NEW 
+auction      / auction.lots             / product_id (many2one)         : NEW relation: product.product, required: required
+auction      / auction.lots             / sel_inv_id (many2one)         : NEW relation: account.invoice
+auction      / auction.lots             / state (selection)             : NEW required: required, selection_keys: ['draft', 'paid', 'sold', 'taken_away', 'unsold'], req_default: function
+auction      / auction.lots             / statement_id (many2many)      : NEW relation: account.bank.statement.line
+auction      / auction.lots             / vnd_lim (float)               : NEW 
+auction      / auction.lots             / vnd_lim_net (boolean)         : NEW 
+auction      / report.attendance        / employee_id (many2one)        : NEW relation: hr.employee
+auction      / report.attendance        / name (date)                   : NEW 
+auction      / report.attendance        / total_attendance (float)      : NEW 
+auction      / report.auction.adjudication / adj_total (float)             : NEW 
+auction      / report.auction.adjudication / date (date)                   : NEW 
+auction      / report.auction.adjudication / name (many2one)               : NEW relation: auction.dates
+auction      / report.auction.adjudication / state (selection)             : NEW selection_keys: ['close', 'draft']
+auction      / report.auction.adjudication / user_id (many2one)            : NEW relation: res.users
+auction      / report.auction.estimation.adj.category / adj_total (float)             : NEW 
+auction      / report.auction.estimation.adj.category / date (date)                   : NEW 
+auction      / report.auction.estimation.adj.category / lot_est1 (float)              : NEW 
+auction      / report.auction.estimation.adj.category / lot_est2 (float)              : NEW 
+auction      / report.auction.estimation.adj.category / lot_type (selection)          : NEW selection_keys: function
+auction      / report.auction.estimation.adj.category / user_id (many2one)            : NEW relation: res.users
+auction      / report.auction.object.date / month (date)                  : NEW 
+auction      / report.auction.object.date / name (date)                   : NEW 
+auction      / report.auction.object.date / obj_num (integer)             : NEW 
+auction      / report.auction.object.date / user_id (many2one)            : NEW relation: res.users
+auction      / report.auction.view      / adj_price (float)             : NEW 
+auction      / report.auction.view      / auction_id (many2one)         : NEW relation: auction.dates
+auction      / report.auction.view      / max_est (float)               : NEW 
+auction      / report.auction.view      / min_est (float)               : NEW 
+auction      / report.auction.view      / nbuyer (float)                : NEW 
+auction      / report.auction.view      / nobjects (float)              : NEW 
+auction      / report.auction.view      / nseller (float)               : NEW 
+auction      / report.auction.view      / obj_ret (integer)             : NEW 
+auction      / report.auction.view2     / auction (many2one)            : NEW relation: auction.dates
+auction      / report.auction.view2     / date (date)                   : NEW required: required
+auction      / report.auction.view2     / gross_revenue (float)         : NEW 
+auction      / report.auction.view2     / net_revenue (float)           : NEW 
+auction      / report.auction.view2     / obj_margin (float)            : NEW 
+auction      / report.auction.view2     / obj_margin_procent (float)    : NEW 
+auction      / report.auction.view2     / obj_number (integer)          : NEW 
+auction      / report.auction.view2     / sum_adj (float)               : NEW 
+auction      / report.buyer.auction     / auction (many2one)            : NEW relation: auction.dates
+auction      / report.buyer.auction     / avg_price (float)             : NEW 
+auction      / report.buyer.auction     / buyer (many2one)              : NEW relation: res.partner
+auction      / report.buyer.auction     / buyer_login (char)            : NEW 
+auction      / report.buyer.auction     / date (date)                   : NEW 
+auction      / report.buyer.auction     / object (integer)              : NEW 
+auction      / report.buyer.auction     / total_price (float)           : NEW 
+auction      / report.buyer.auction2    / auction (many2one)            : NEW relation: auction.dates
+auction      / report.buyer.auction2    / buyer (many2one)              : NEW relation: res.partner
+auction      / report.buyer.auction2    / buyer_login (char)            : NEW 
+auction      / report.buyer.auction2    / date (date)                   : NEW required: required
+auction      / report.buyer.auction2    / gross_revenue (float)         : NEW 
+auction      / report.buyer.auction2    / net_margin (float)            : NEW 
+auction      / report.buyer.auction2    / net_revenue (float)           : NEW 
+auction      / report.buyer.auction2    / sumadj (float)                : NEW 
+auction      / report.deposit.border    / bord (char)                   : NEW required: required
+auction      / report.deposit.border    / moy_est (float)               : NEW 
+auction      / report.deposit.border    / nb_obj (float)                : NEW 
+auction      / report.deposit.border    / seller (many2one)             : NEW relation: res.partner
+auction      / report.deposit.border    / total_marge (float)           : NEW 
+auction      / report.object.encoded    / date (date)                   : NEW required: required
+auction      / report.object.encoded    / estimation (float)            : NEW 
+auction      / report.object.encoded    / obj_num (integer)             : NEW 
+auction      / report.object.encoded    / obj_ret (integer)             : NEW 
+auction      / report.object.encoded    / state (selection)             : NEW required: required, selection_keys: ['draft', 'invoiced', 'paid', 'unsold']
+auction      / report.object.encoded    / user_id (many2one)            : NEW relation: res.users
+auction      / report.object.encoded.manager / adj (integer)                 : NEW 
+auction      / report.object.encoded.manager / date (date)                   : NEW required: required
+auction      / report.object.encoded.manager / estimation (float)            : NEW 
+auction      / report.object.encoded.manager / gross_revenue (float)         : NEW 
+auction      / report.object.encoded.manager / net_revenue (float)           : NEW 
+auction      / report.object.encoded.manager / obj_margin (float)            : NEW 
+auction      / report.object.encoded.manager / obj_num (integer)             : NEW 
+auction      / report.object.encoded.manager / obj_ret (integer)             : NEW 
+auction      / report.object.encoded.manager / user_id (many2one)            : NEW relation: res.users
+auction      / report.seller.auction    / auction (many2one)            : NEW relation: auction.dates
+auction      / report.seller.auction    / avg_estimation (float)        : NEW 
+auction      / report.seller.auction    / avg_price (float)             : NEW 
+auction      / report.seller.auction    / date (date)                   : NEW required: required
+auction      / report.seller.auction    / object_number (integer)       : NEW 
+auction      / report.seller.auction    / seller (many2one)             : NEW relation: res.partner
+auction      / report.seller.auction    / state (selection)             : NEW selection_keys: ['draft', 'sold', 'unsold']
+auction      / report.seller.auction    / total_price (float)           : NEW 
+auction      / report.seller.auction2   / auction (many2one)            : NEW relation: auction.dates
+auction      / report.seller.auction2   / date (date)                   : NEW required: required
+auction      / report.seller.auction2   / gross_revenue (float)         : NEW 
+auction      / report.seller.auction2   / net_margin (float)            : NEW 
+auction      / report.seller.auction2   / net_revenue (float)           : NEW 
+auction      / report.seller.auction2   / seller (many2one)             : NEW relation: res.partner
+auction      / report.seller.auction2   / sum_adj (float)               : NEW 
+auction      / report.unclassified.objects / ach_login (char)              : NEW 
+auction      / report.unclassified.objects / auction (many2one)            : NEW relation: auction.dates
+auction      / report.unclassified.objects / bord_vnd_id (many2one)        : NEW relation: auction.deposit, required: required
+auction      / report.unclassified.objects / lot_est1 (float)              : NEW 
+auction      / report.unclassified.objects / lot_est2 (float)              : NEW 
+auction      / report.unclassified.objects / lot_num (integer)             : NEW required: required
+auction      / report.unclassified.objects / lot_type (selection)          : NEW selection_keys: function
+auction      / report.unclassified.objects / name (char)                   : NEW required: required
+auction      / report.unclassified.objects / obj_comm (boolean)            : NEW 
+auction      / report.unclassified.objects / obj_num (integer)             : NEW 
+auction      / report.unclassified.objects / obj_price (float)             : NEW 
+auction      / report.unclassified.objects / state (selection)             : NEW required: required, selection_keys: ['draft', 'paid', 'sold', 'unsold']
+---XML records in module 'auction'---
+NEW ir.actions.act_window: auction.act_auction_lot_line_open
+NEW ir.actions.act_window: auction.act_auction_lot_open_deposit
+NEW ir.actions.act_window: auction.action_all_objects
+NEW ir.actions.act_window: auction.action_all_objects_sold
+NEW ir.actions.act_window: auction.action_all_objects_to_sell
+NEW ir.actions.act_window: auction.action_all_objects_unplanned
+NEW ir.actions.act_window: auction.action_all_objects_unsold
+NEW ir.actions.act_window: auction.action_auction_artist
+NEW ir.actions.act_window: auction.action_auction_buyer_reporting
+NEW ir.actions.act_window: auction.action_auction_buyer_reporting2
+NEW ir.actions.act_window: auction.action_auction_buyer_reporting_all1
+NEW ir.actions.act_window: auction.action_auction_buyer_reporting_all2
+NEW ir.actions.act_window: auction.action_auction_dates1
+NEW ir.actions.act_window: auction.action_auction_dates_next
+NEW ir.actions.act_window: auction.action_auction_dates_old
+NEW ir.actions.act_window: auction.action_auction_object_categories
+NEW ir.actions.act_window: auction.action_auction_report_allmonth_view1
+NEW ir.actions.act_window: auction.action_auction_report_allmonth_view2
+NEW ir.actions.act_window: auction.action_auction_report_thismonth_view2
+NEW ir.actions.act_window: auction.action_auction_reporting1
+NEW ir.actions.act_window: auction.action_auction_reporting_all1
+NEW ir.actions.act_window: auction.action_auction_reporting_all2
+NEW ir.actions.act_window: auction.action_bid_open
+NEW ir.actions.act_window: auction.action_bids_form
+NEW ir.actions.act_window: auction.action_deposit_border
+NEW ir.actions.act_window: auction.action_report_auction_adjudication_tree
+NEW ir.actions.act_window: auction.action_report_auction_estimation_adj_category_manager_tree
+NEW ir.actions.act_window: auction.action_report_auction_estimation_adj_category_member_tree
+NEW ir.actions.act_window: auction.action_report_auction_object_date_tree
+NEW ir.actions.act_window: auction.action_report_auction_object_date_tree_my
+NEW ir.actions.act_window: auction.action_report_auction_sign_in_out_manager_tree1
+NEW ir.actions.act_window: auction.action_report_auction_sign_in_out_member_tree1
+NEW ir.actions.act_window: auction.action_report_latest_doposit_manager_tree
+NEW ir.actions.act_window: auction.action_report_latest_doposit_tree
+NEW ir.actions.act_window: auction.action_report_latest_objects_manager_tree
+NEW ir.actions.act_window: auction.action_report_latest_objects_tree
+NEW ir.actions.act_window: auction.action_report_object_by_auction
+NEW ir.actions.act_window: auction.action_report_object_encoded_manager_tree
+NEW ir.actions.act_window: auction.action_report_object_encoded_member_tree
+NEW ir.actions.act_window: auction.action_unclassified_objects
+NEW ir.actions.act_window: auction.auction_lots_open
+NEW ir.actions.act_window: auction.b11
+NEW ir.actions.act_window: auction.menu_view_auction_deposit_tree
+NEW ir.actions.act_window: auction.view_report_object_by_auction
+NEW ir.actions.act_window.view: auction.action_auction_lots_open_view1
+NEW ir.actions.act_window.view: auction.action_auction_lots_open_view2
+NEW ir.actions.report.xml: auction.art2
+NEW ir.actions.report.xml: auction.bid_auction
+NEW ir.actions.report.xml: auction.bid_phone
+NEW ir.actions.report.xml: auction.buy_id_list
+NEW ir.actions.report.xml: auction.buyer_form_id
+NEW ir.actions.report.xml: auction.details_bids_phones
+NEW ir.actions.report.xml: auction.id_deposit
+NEW ir.actions.report.xml: auction.lot_list_inv
+NEW ir.actions.report.xml: auction.res_w_buyer
+NEW ir.actions.report.xml: auction.seller_form_id
+NEW ir.actions.report.xml: auction.seller_lots_3
+NEW ir.actions.report.xml: auction.total_result1
+NEW ir.actions.report.xml: auction.v_huissier
+NEW ir.actions.report.xml: auction.v_report_barcode_lot
+NEW ir.actions.wizard: auction.auction_catalog_flagy
+NEW ir.actions.wizard: auction.auction_wizard_able_taken
+NEW ir.actions.wizard: auction.auction_wizard_enable_taken
+NEW ir.actions.wizard: auction.auction_wizard_payer_sel
+NEW ir.actions.wizard: auction.wizard_change_auction
+NEW ir.actions.wizard: auction.wizard_emporte
+NEW ir.actions.wizard: auction.wizard_invoice
+NEW ir.actions.wizard: auction.wizard_invoice_buyer1
+NEW ir.actions.wizard: auction.wizard_map_user
+NEW ir.actions.wizard: auction.wizard_numerotate_automatic
+NEW ir.actions.wizard: auction.wizard_numerotate_lot
+NEW ir.actions.wizard: auction.wizard_pay
+NEW ir.actions.wizard: auction.wizard_results
+NEW ir.actions.wizard: auction.wizard_send
+NEW ir.actions.wizard: auction.wizard_sms
+NEW ir.model.access: auction.access_auction_artists
+NEW ir.model.access: auction.access_auction_bid
+NEW ir.model.access: auction.access_auction_bid_line
+NEW ir.model.access: auction.access_auction_dates
+NEW ir.model.access: auction.access_auction_deposit
+NEW ir.model.access: auction.access_auction_deposit_cost
+NEW ir.model.access: auction.access_auction_lot_category
+NEW ir.model.access: auction.access_auction_lot_history
+NEW ir.model.access: auction.access_auction_lots
+NEW ir.model.access: auction.access_report_attendance
+NEW ir.model.access: auction.access_report_auction_adjudication
+NEW ir.model.access: auction.access_report_auction_estimation_adj_category
+NEW ir.model.access: auction.access_report_auction_object_date
+NEW ir.model.access: auction.access_report_auction_view
+NEW ir.model.access: auction.access_report_auction_view2
+NEW ir.model.access: auction.access_report_buyer_auction
+NEW ir.model.access: auction.access_report_buyer_auction2
+NEW ir.model.access: auction.access_report_deposit_border
+NEW ir.model.access: auction.access_report_object_encoded
+NEW ir.model.access: auction.access_report_object_encoded_manager
+NEW ir.model.access: auction.access_report_seller_auction
+NEW ir.model.access: auction.access_report_seller_auction2
+NEW ir.model.access: auction.access_report_unclassified_objects
+NEW ir.sequence: auction.seq_auction_bid
+NEW ir.sequence: auction.seq_sale_order
+NEW ir.sequence.type: auction.seq_type_auction_deposit
+NEW ir.sequence.type: auction.seq_type_bid
+NEW ir.ui.menu: auction.auction_all_objects_menu
+NEW ir.ui.menu: auction.auction_buyers_menu
+NEW ir.ui.menu: auction.auction_config_menu
+NEW ir.ui.menu: auction.auction_date_menu
+NEW ir.ui.menu: auction.auction_menu_root
+NEW ir.ui.menu: auction.auction_objects_menu
+NEW ir.ui.menu: auction.auction_outils_menu
+NEW ir.ui.menu: auction.auction_report_auction_menu
+NEW ir.ui.menu: auction.auction_report_buyer_menu
+NEW ir.ui.menu: auction.auction_report_employees_menu
+NEW ir.ui.menu: auction.auction_report_manager_menu
+NEW ir.ui.menu: auction.auction_report_menu
+NEW ir.ui.menu: auction.auction_report_seller_menu
+NEW ir.ui.menu: auction.auction_seller_menu
+NEW ir.ui.menu: auction.menu_action_bid_open
+NEW ir.ui.menu: auction.menu_action_bids_form
+NEW ir.ui.menu: auction.menu_all_objects_sold1
+NEW ir.ui.menu: auction.menu_all_objects_to_sell
+NEW ir.ui.menu: auction.menu_all_objects_unclassified
+NEW ir.ui.menu: auction.menu_all_objects_unplanned1
+NEW ir.ui.menu: auction.menu_all_objects_unsold
+NEW ir.ui.menu: auction.menu_auction_allmonth_view1
+NEW ir.ui.menu: auction.menu_auction_allmonth_view2
+NEW ir.ui.menu: auction.menu_auction_artist
+NEW ir.ui.menu: auction.menu_auction_dates_new
+NEW ir.ui.menu: auction.menu_auction_dates_next1
+NEW ir.ui.menu: auction.menu_auction_dates_next_by_auction
+NEW ir.ui.menu: auction.menu_auction_dates_old
+NEW ir.ui.menu: auction.menu_auction_deposit_border
+NEW ir.ui.menu: auction.menu_auction_object_cat
+NEW ir.ui.menu: auction.menu_buyer_allmonth_view1
+NEW ir.ui.menu: auction.menu_buyer_allmonth_view2
+NEW ir.ui.menu: auction.menu_report_auction_adjudication_tree
+NEW ir.ui.menu: auction.menu_report_auction_estimation_adj_category_manager
+NEW ir.ui.menu: auction.menu_report_auction_estimation_adj_category_member
+NEW ir.ui.menu: auction.menu_report_auction_object_date_tree
+NEW ir.ui.menu: auction.menu_report_auction_object_date_tree1_my
+NEW ir.ui.menu: auction.menu_report_auction_sign_in_out_manager_tree1
+NEW ir.ui.menu: auction.menu_report_auction_sign_in_out_member_tree1
+NEW ir.ui.menu: auction.menu_report_deposit_tree_m
+NEW ir.ui.menu: auction.menu_report_deposit_tree_member
+NEW ir.ui.menu: auction.menu_report_latest_doposit_tree
+NEW ir.ui.menu: auction.menu_report_latest_doposit_tree_manager
+NEW ir.ui.menu: auction.menu_seller_allmonth_view1
+NEW ir.ui.menu: auction.menu_seller_allmonth_view2
+NEW ir.ui.menu: auction.menu_wizard_emporte
+NEW ir.ui.view: auction.auction_lot_detailed
+NEW ir.ui.view: auction.auction_lot_graph
+NEW ir.ui.view: auction.auction_lot_simplified
+NEW ir.ui.view: auction.auction_lots_sell_form
+NEW ir.ui.view: auction.v12
+NEW ir.ui.view: auction.v19
+NEW ir.ui.view: auction.v5
+NEW ir.ui.view: auction.v7
+NEW ir.ui.view: auction.view_auction_artist_form
+NEW ir.ui.view: auction.view_auction_artist_tree
+NEW ir.ui.view: auction.view_auction_bid_tree
+NEW ir.ui.view: auction.view_auction_buyer_form
+NEW ir.ui.view: auction.view_auction_buyer_form2
+NEW ir.ui.view: auction.view_auction_buyer_tree
+NEW ir.ui.view: auction.view_auction_buyer_tree2
+NEW ir.ui.view: auction.view_auction_dates_form
+NEW ir.ui.view: auction.view_auction_dates_tree
+NEW ir.ui.view: auction.view_auction_deposit_tree
+NEW ir.ui.view: auction.view_auction_form
+NEW ir.ui.view: auction.view_auction_form2
+NEW ir.ui.view: auction.view_auction_graph
+NEW ir.ui.view: auction.view_auction_graph2
+NEW ir.ui.view: auction.view_auction_object_categories_form
+NEW ir.ui.view: auction.view_auction_object_categories_tree
+NEW ir.ui.view: auction.view_auction_reports_form
+NEW ir.ui.view: auction.view_auction_reports_form2
+NEW ir.ui.view: auction.view_auction_reports_tree
+NEW ir.ui.view: auction.view_auction_reports_tree2
+NEW ir.ui.view: auction.view_auction_tree
+NEW ir.ui.view: auction.view_auction_tree2
+NEW ir.ui.view: auction.view_bids_form
+NEW ir.ui.view: auction.view_bids_tree
+NEW ir.ui.view: auction.view_deposit_border_form
+NEW ir.ui.view: auction.view_deposit_border_tree2
+NEW ir.ui.view: auction.view_report_auction_adjudication_graph
+NEW ir.ui.view: auction.view_report_auction_adjudication_tree
+NEW ir.ui.view: auction.view_report_auction_estimation_adj_category_form
+NEW ir.ui.view: auction.view_report_auction_estimation_adj_category_graph
+NEW ir.ui.view: auction.view_report_auction_estimation_adj_category_tree
+NEW ir.ui.view: auction.view_report_auction_object_date_form
+NEW ir.ui.view: auction.view_report_auction_object_date_graph
+NEW ir.ui.view: auction.view_report_auction_object_date_tree
+NEW ir.ui.view: auction.view_report_auction_sign_in_out_graph1
+NEW ir.ui.view: auction.view_report_auction_sign_in_out_tree1
+NEW ir.ui.view: auction.view_report_object_encoded_form
+NEW ir.ui.view: auction.view_report_object_encoded_graph
+NEW ir.ui.view: auction.view_report_object_encoded_manager_graph
+NEW ir.ui.view: auction.view_report_object_encoded_manager_tree
+NEW ir.ui.view: auction.view_report_object_encoded_tree
+NEW ir.ui.view: auction.view_report_unclassified_objects
+NEW ir.ui.view: auction.view_report_unplanned_object_form
+NEW ir.ui.view: auction.view_report_unplanned_object_tree
+NEW ir.values: auction.ir_open_auction_lots
+NEW ir.values: auction.ir_open_auction_lots_adj

@@ -1,0 +1,12 @@
+---Fields in module 'base_module_record'---
+---XML records in module 'base_module_record'---
+NEW ir.actions.wizard: base_module_record.wizard_base_module_record
+NEW ir.actions.wizard: base_module_record.wizard_base_module_record_objects
+NEW ir.actions.wizard: base_module_record.wizard_base_module_save
+NEW ir.model.access: base_module_record.access_ir_module_record
+NEW ir.ui.menu: base_module_record.menu_wizard_base_mod_rec
+NEW ir.ui.menu: base_module_record.menu_wizard_base_mod_rec_rec
+NEW ir.ui.menu: base_module_record.menu_wizard_base_module_record
+NEW ir.ui.menu: base_module_record.menu_wizard_base_module_record_objects
+NEW ir.ui.menu: base_module_record.menu_wizard_base_module_record_stop
+NEW ir.ui.menu: base_module_record.menu_wizard_base_module_save

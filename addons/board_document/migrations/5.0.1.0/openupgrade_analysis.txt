@@ -1,0 +1,10 @@
+---Fields in module 'board_document'---
+---XML records in module 'board_document'---
+NEW board.note.type: board_document.note_document_type
+NEW ir.actions.act_window: board_document.open_board_document_manager
+NEW ir.actions.act_window: board_document.open_board_document_manager1
+NEW ir.ui.menu: board_document.menu_board_document
+NEW ir.ui.menu: board_document.menu_board_document_manager
+NEW ir.ui.menu: board_document.menu_board_document_manager1
+NEW ir.ui.view: board_document.board_document_manager_form
+NEW ir.ui.view: board_document.board_document_manager_form1

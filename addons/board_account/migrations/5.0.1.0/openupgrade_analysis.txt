@@ -1,0 +1,3 @@
+---Fields in module 'board_account'---
+---XML records in module 'board_account'---
+NEW ir.ui.menu: board_account.next_id_68

@@ -1,0 +1,9 @@
+---Fields in module 'report_purchase'---
+---XML records in module 'report_purchase'---
+NEW ir.model.access: report_purchase.access_report_purchase_order_category
+NEW ir.model.access: report_purchase.access_report_purchase_order_product
+NEW ir.ui.menu: report_purchase.next_id_73
+NEW ir.ui.menu: report_purchase.next_id_74
+NEW ir.ui.menu: report_purchase.next_id_75
+NEW ir.ui.view: report_purchase.view_product_category_graph
+NEW ir.ui.view: report_purchase.view_product_month_graph

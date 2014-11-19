@@ -1,0 +1,3 @@
+---Fields in module 'mrp_jit'---
+---XML records in module 'mrp_jit'---
+NEW workflow.transition: mrp.trans_confirm_confirm_wait

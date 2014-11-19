@@ -1,0 +1,6 @@
+---Fields in module 'board_association'---
+---XML records in module 'board_association'---
+NEW board.note.type: board_association.note_association_type
+NEW ir.actions.act_window: board_association.open_board_associations_manager
+NEW ir.ui.menu: board_association.menu_board_associations_manager
+NEW ir.ui.view: board_association.board_associations_manager_form

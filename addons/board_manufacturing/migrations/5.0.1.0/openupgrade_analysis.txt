@@ -1,0 +1,3 @@
+---Fields in module 'board_manufacturing'---
+---XML records in module 'board_manufacturing'---
+NEW ir.ui.menu: board_manufacturing.next_id_87

@@ -1,0 +1,119 @@
+---Fields in module 'point_of_sale'---
+point_of_sale / pos.config.journal       / code (char)                   : NEW 
+point_of_sale / pos.config.journal       / journal_id (many2one)         : NEW relation: account.journal
+point_of_sale / pos.config.journal       / name (char)                   : NEW 
+point_of_sale / pos.order                / account_move (many2one)       : NEW relation: account.move
+point_of_sale / pos.order                / account_receivable (many2one) : NEW relation: account.account, required: required, req_default: function
+point_of_sale / pos.order                / date_order (datetime)         : NEW 
+point_of_sale / pos.order                / date_validity (date)          : NEW required: required, req_default: function
+point_of_sale / pos.order                / invoice_id (many2one)         : NEW relation: account.invoice
+point_of_sale / pos.order                / invoice_wanted (boolean)      : NEW 
+point_of_sale / pos.order                / last_out_picking (many2one)   : NEW relation: stock.picking
+point_of_sale / pos.order                / lines (one2many)              : NEW relation: pos.order.line
+point_of_sale / pos.order                / name (char)                   : NEW required: required, req_default: function
+point_of_sale / pos.order                / nb_print (integer)            : NEW 
+point_of_sale / pos.order                / note (text)                   : NEW 
+point_of_sale / pos.order                / partner_id (many2one)         : NEW relation: res.partner
+point_of_sale / pos.order                / payments (one2many)           : NEW relation: pos.payment
+point_of_sale / pos.order                / pickings (one2many)           : NEW relation: stock.picking
+point_of_sale / pos.order                / pricelist_id (many2one)       : NEW relation: product.pricelist, required: required
+point_of_sale / pos.order                / sale_journal (many2one)       : NEW relation: account.journal, required: required, req_default: function
+point_of_sale / pos.order                / salesman_id (many2one)        : NEW relation: res.users
+point_of_sale / pos.order                / shop_id (many2one)            : NEW relation: sale.shop, required: required
+point_of_sale / pos.order                / state (selection)             : NEW selection_keys: ['cancel', 'done', 'draft', 'invoiced', 'paid']
+point_of_sale / pos.order                / user_id (many2one)            : NEW relation: res.users
+point_of_sale / pos.order.line           / create_date (datetime)        : NEW 
+point_of_sale / pos.order.line           / discount (float)              : NEW 
+point_of_sale / pos.order.line           / name (char)                   : NEW 
+point_of_sale / pos.order.line           / order_id (many2one)           : NEW relation: pos.order
+point_of_sale / pos.order.line           / price_unit (float)            : NEW required: required
+point_of_sale / pos.order.line           / product_id (many2one)         : NEW relation: product.product, required: required
+point_of_sale / pos.order.line           / qty (float)                   : NEW 
+point_of_sale / pos.payment              / amount (float)                : NEW required: required
+point_of_sale / pos.payment              / journal_id (many2one)         : NEW relation: account.journal, required: required, req_default: function
+point_of_sale / pos.payment              / name (char)                   : NEW 
+point_of_sale / pos.payment              / order_id (many2one)           : NEW relation: pos.order, required: required
+point_of_sale / pos.payment              / payment_date (date)           : NEW required: required, req_default: function
+point_of_sale / pos.payment              / payment_id (many2one)         : NEW relation: account.payment.term
+point_of_sale / pos.payment              / payment_name (char)           : NEW 
+point_of_sale / pos.payment              / payment_nb (char)             : NEW 
+point_of_sale / report.transaction.pos   / amount (float)                : NEW 
+point_of_sale / report.transaction.pos   / date_create (char)            : NEW 
+point_of_sale / report.transaction.pos   / invoice_id (many2one)         : NEW relation: account.invoice
+point_of_sale / report.transaction.pos   / journal_id (many2one)         : NEW relation: account.journal
+point_of_sale / report.transaction.pos   / no_trans (float)              : NEW 
+point_of_sale / report.transaction.pos   / user_id (many2one)            : NEW relation: res.users
+point_of_sale / stock.picking            / pos_order (many2one)          : NEW relation: pos.order
+---XML records in module 'point_of_sale'---
+NEW ir.actions.act_window: point_of_sale.action_pos_order_line
+NEW ir.actions.act_window: point_of_sale.action_pos_order_line_day
+NEW ir.actions.act_window: point_of_sale.action_pos_order_tree2
+NEW ir.actions.act_window: point_of_sale.action_pos_order_tree3
+NEW ir.actions.act_window: point_of_sale.action_pos_pos_form
+NEW ir.actions.act_window: point_of_sale.action_trans_pos_tree
+NEW ir.actions.act_window: point_of_sale.action_trans_pos_tree_month
+NEW ir.actions.act_window: point_of_sale.action_trans_pos_tree_today
+NEW ir.actions.report.xml: point_of_sale.pos_details_summary
+NEW ir.actions.report.xml: point_of_sale.pos_invoice_report
+NEW ir.actions.report.xml: point_of_sale.pos_lines_detail
+NEW ir.actions.report.xml: point_of_sale.pos_lines_report
+NEW ir.actions.report.xml: point_of_sale.pos_receipt
+NEW ir.actions.wizard: point_of_sale.pos_add_product
+NEW ir.actions.wizard: point_of_sale.pos_confirm
+NEW ir.actions.wizard: point_of_sale.pos_discount
+NEW ir.actions.wizard: point_of_sale.pos_payment
+NEW ir.actions.wizard: point_of_sale.pos_refund
+NEW ir.actions.wizard: point_of_sale.pos_sale_get
+NEW ir.actions.wizard: point_of_sale.pos_scan_product
+NEW ir.actions.wizard: point_of_sale.wizard_default_journal
+NEW ir.model.access: point_of_sale.access_account_account_pos_user
+NEW ir.model.access: point_of_sale.access_account_journal_pos_manager
+NEW ir.model.access: point_of_sale.access_account_journal_pos_user
+NEW ir.model.access: point_of_sale.access_account_move_pos_user
+NEW ir.model.access: point_of_sale.access_pos_config_journal
+NEW ir.model.access: point_of_sale.access_pos_config_journal_manager
+NEW ir.model.access: point_of_sale.access_pos_order
+NEW ir.model.access: point_of_sale.access_pos_order_line
+NEW ir.model.access: point_of_sale.access_pos_order_stock_worker
+NEW ir.model.access: point_of_sale.access_pos_payment
+NEW ir.model.access: point_of_sale.access_report_transaction_pos
+NEW ir.model.access: point_of_sale.access_sale_shop_pos_user
+NEW ir.model.access: point_of_sale.access_stock_move_pos_user
+NEW ir.model.access: point_of_sale.access_stock_picking_pos_user
+NEW ir.sequence: point_of_sale.seq_pos_order
+NEW ir.sequence: point_of_sale.seq_pos_order_line
+NEW ir.sequence: point_of_sale.seq_pos_payment
+NEW ir.sequence.type: point_of_sale.seq_type_pos_order
+NEW ir.sequence.type: point_of_sale.seq_type_pos_order_line
+NEW ir.sequence.type: point_of_sale.seq_type_pos_payment
+NEW ir.ui.menu: point_of_sale.menu_action_pos_order_line
+NEW ir.ui.menu: point_of_sale.menu_action_pos_order_line_day
+NEW ir.ui.menu: point_of_sale.menu_action_pos_order_tree2
+NEW ir.ui.menu: point_of_sale.menu_action_pos_order_tree3
+NEW ir.ui.menu: point_of_sale.menu_point_config
+NEW ir.ui.menu: point_of_sale.menu_point_ofsale
+NEW ir.ui.menu: point_of_sale.menu_point_rep
+NEW ir.ui.menu: point_of_sale.menu_point_root
+NEW ir.ui.menu: point_of_sale.menu_trans_pos_tree
+NEW ir.ui.menu: point_of_sale.menu_trans_pos_tree_month
+NEW ir.ui.menu: point_of_sale.menu_trans_pos_tree_today
+NEW ir.ui.menu: point_of_sale.menu_wizard_default_journal
+NEW ir.ui.view: point_of_sale.view_pos_order_line
+NEW ir.ui.view: point_of_sale.view_pos_order_line_form
+NEW ir.ui.view: point_of_sale.view_pos_order_tree
+NEW ir.ui.view: point_of_sale.view_pos_pos_form
+NEW ir.ui.view: point_of_sale.view_pos_trans_user_form
+NEW ir.ui.view: point_of_sale.view_trans_pos_user_tree
+NEW res.groups: point_of_sale.group_pos_manager
+NEW res.groups: point_of_sale.group_pos_user
+NEW res.roles: point_of_sale.role_pos
+NEW workflow: point_of_sale.wkf_pos
+NEW workflow.activity: point_of_sale.act_cancel
+NEW workflow.activity: point_of_sale.act_done
+NEW workflow.activity: point_of_sale.act_draft
+NEW workflow.activity: point_of_sale.act_invoiced
+NEW workflow.activity: point_of_sale.act_paid
+NEW workflow.transition: point_of_sale.trans_draft_paid
+NEW workflow.transition: point_of_sale.trans_paid_cancel
+NEW workflow.transition: point_of_sale.trans_paid_done
+NEW workflow.transition: point_of_sale.trans_paid_invoice

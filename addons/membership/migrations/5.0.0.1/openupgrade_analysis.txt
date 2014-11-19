@@ -1,0 +1,120 @@
+---Fields in module 'membership'---
+membership   / membership.membership_line / account_invoice_line (many2one): NEW relation: account.invoice.line
+membership   / membership.membership_line / date_cancel (date)            : NEW 
+membership   / membership.membership_line / date_from (date)              : NEW 
+membership   / membership.membership_line / date_to (date)                : NEW 
+membership   / membership.membership_line / partner (many2one)            : NEW relation: res.partner
+membership   / product.product          / membership (boolean)          : NEW 
+membership   / product.product          / membership_date_from (date)   : NEW 
+membership   / product.product          / membership_date_to (date)     : NEW 
+membership   / product.template         / member_price (float)          : NEW 
+membership   / report.partner_member.year / canceled_amount (float)       : NEW 
+membership   / report.partner_member.year / canceled_number (integer)     : NEW 
+membership   / report.partner_member.year / currency (many2one)           : NEW relation: res.currency
+membership   / report.partner_member.year / invoiced_amount (float)       : NEW 
+membership   / report.partner_member.year / invoiced_number (integer)     : NEW 
+membership   / report.partner_member.year / paid_amount (float)           : NEW 
+membership   / report.partner_member.year / paid_number (integer)         : NEW 
+membership   / report.partner_member.year / waiting_amount (float)        : NEW 
+membership   / report.partner_member.year / waiting_number (integer)      : NEW 
+membership   / report.partner_member.year / year (char)                   : NEW 
+membership   / report.partner_member.year_new / canceled_amount (float)       : NEW 
+membership   / report.partner_member.year_new / canceled_number (integer)     : NEW 
+membership   / report.partner_member.year_new / currency (many2one)           : NEW relation: res.currency
+membership   / report.partner_member.year_new / invoiced_amount (float)       : NEW 
+membership   / report.partner_member.year_new / invoiced_number (integer)     : NEW 
+membership   / report.partner_member.year_new / paid_amount (float)           : NEW 
+membership   / report.partner_member.year_new / paid_number (integer)         : NEW 
+membership   / report.partner_member.year_new / waiting_amount (float)        : NEW 
+membership   / report.partner_member.year_new / waiting_number (integer)      : NEW 
+membership   / report.partner_member.year_new / year (char)                   : NEW 
+membership   / res.partner              / associate_member (many2one)   : NEW relation: res.partner
+membership   / res.partner              / free_member (boolean)         : NEW 
+membership   / res.partner              / member_lines (one2many)       : NEW relation: membership.membership_line
+membership   / res.partner              / membership_amount (float)     : NEW 
+---XML records in module 'membership'---
+NEW ir.actions.act_window: membership.action_membership_members
+NEW ir.actions.act_window: membership.action_membership_members_associated
+NEW ir.actions.act_window: membership.action_membership_members_free
+NEW ir.actions.act_window: membership.action_membership_members_invoiced
+NEW ir.actions.act_window: membership.action_membership_members_old
+NEW ir.actions.act_window: membership.action_membership_members_paid
+NEW ir.actions.act_window: membership.action_membership_members_waiting
+NEW ir.actions.act_window: membership.action_membership_products
+NEW ir.actions.act_window: membership.action_report_partner_member_year_new_tree
+NEW ir.actions.act_window: membership.action_report_partner_member_year_tree
+NEW ir.actions.act_window.view: membership.action_membership_members_associated_view_form
+NEW ir.actions.act_window.view: membership.action_membership_members_associated_view_tree
+NEW ir.actions.act_window.view: membership.action_membership_members_free_view_form
+NEW ir.actions.act_window.view: membership.action_membership_members_free_view_tree
+NEW ir.actions.act_window.view: membership.action_membership_members_invoiced_view_form
+NEW ir.actions.act_window.view: membership.action_membership_members_invoiced_view_tree
+NEW ir.actions.act_window.view: membership.action_membership_members_old_view_form
+NEW ir.actions.act_window.view: membership.action_membership_members_old_view_tree
+NEW ir.actions.act_window.view: membership.action_membership_members_paid_view_form
+NEW ir.actions.act_window.view: membership.action_membership_members_paid_view_tree
+NEW ir.actions.act_window.view: membership.action_membership_members_view_form
+NEW ir.actions.act_window.view: membership.action_membership_members_view_tree
+NEW ir.actions.act_window.view: membership.action_membership_members_waiting_view_form
+NEW ir.actions.act_window.view: membership.action_membership_members_waiting_view_tree
+NEW ir.actions.act_window.view: membership.action_membership_product_view_form
+NEW ir.actions.act_window.view: membership.action_membership_product_view_tree
+NEW ir.actions.act_window.view: membership.action_report_partner_member_year_new_tree_view1
+NEW ir.actions.act_window.view: membership.action_report_partner_member_year_new_tree_view2
+NEW ir.actions.act_window.view: membership.action_report_partner_member_year_new_tree_view3
+NEW ir.actions.act_window.view: membership.action_report_partner_member_year_new_tree_view4
+NEW ir.actions.act_window.view: membership.action_report_partner_member_year_tree_view1
+NEW ir.actions.act_window.view: membership.action_report_partner_member_year_tree_view2
+NEW ir.actions.act_window.view: membership.action_report_partner_member_year_tree_view3
+NEW ir.actions.act_window.view: membership.action_report_partner_member_year_tree_view4
+NEW ir.actions.wizard: membership.wizard_invoice_membership
+NEW ir.model.access: membership.access_membership_membership_line
+NEW ir.model.access: membership.access_membership_membership_line_partner_manager
+NEW ir.model.access: membership.access_report_partner_member_year
+NEW ir.model.access: membership.access_report_partner_member_year_new
+NEW ir.ui.menu: membership.menu_conf
+NEW ir.ui.menu: membership.menu_members
+NEW ir.ui.menu: membership.menu_members_associated
+NEW ir.ui.menu: membership.menu_members_free
+NEW ir.ui.menu: membership.menu_members_invoiced
+NEW ir.ui.menu: membership.menu_members_old
+NEW ir.ui.menu: membership.menu_members_paid
+NEW ir.ui.menu: membership.menu_members_waiting
+NEW ir.ui.menu: membership.menu_membership
+NEW ir.ui.menu: membership.menu_membership_products
+NEW ir.ui.menu: membership.menu_report_partner_member_year
+NEW ir.ui.menu: membership.menu_report_partner_member_year_new
+NEW ir.ui.menu: membership.menu_reporting
+NEW ir.ui.view: membership.membership_members_associated_tree
+NEW ir.ui.view: membership.membership_members_tree
+NEW ir.ui.view: membership.membership_products_form
+NEW ir.ui.view: membership.membership_products_tree
+NEW ir.ui.view: membership.product_normal_form_view
+NEW ir.ui.view: membership.view_partner_form
+NEW ir.ui.view: membership.view_partner_tree
+NEW ir.ui.view: membership.view_product_form_inherit1
+NEW ir.ui.view: membership.view_report_partner_member_year_graph1
+NEW ir.ui.view: membership.view_report_partner_member_year_graph2
+NEW ir.ui.view: membership.view_report_partner_member_year_new_graph1
+NEW ir.ui.view: membership.view_report_partner_member_year_new_graph2
+NEW ir.ui.view: membership.view_report_partner_member_year_new_tree1
+NEW ir.ui.view: membership.view_report_partner_member_year_new_tree2
+NEW ir.ui.view: membership.view_report_partner_member_year_tree1
+NEW ir.ui.view: membership.view_report_partner_member_year_tree2
+NEW process.node: membership.process_node_associatedmember0
+NEW process.node: membership.process_node_invoicedmember0
+NEW process.node: membership.process_node_membershipproduct0
+NEW process.node: membership.process_node_paidmember0
+NEW process.node: membership.process_node_setassociation0
+NEW process.node: membership.process_node_waitingmember0
+NEW process.process: membership.process_process_membershipprocess0
+NEW process.transition: membership.process_transition_associationpartner0
+NEW process.transition: membership.process_transition_invoicetoassociate0
+NEW process.transition: membership.process_transition_invoicetopaid0
+NEW process.transition: membership.process_transition_producttomember0
+NEW process.transition: membership.process_transition_waitingtoinvoice0
+NEW process.transition.action: membership.process_transition_action_create0
+NEW product.price.type: membership.product_price_type_memberprice
+NEW product.pricelist: membership.list1m
+NEW product.pricelist.item: membership.item1m
+NEW product.pricelist.version: membership.ver1m

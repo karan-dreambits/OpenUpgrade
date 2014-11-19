@@ -1,0 +1,21 @@
+---Fields in module 'document_ics'---
+document_ics / crm.case                 / code (char)                   : NEW 
+document_ics / document.directory.content / ics_domain (char)             : NEW 
+document_ics / document.directory.content / ics_field_ids (one2many)      : NEW relation: document.directory.ics.fields
+document_ics / document.directory.content / ics_object_id (many2one)      : NEW relation: ir.model
+document_ics / document.directory.ics.fields / content_id (many2one)         : NEW relation: document.directory.content, required: required
+document_ics / document.directory.ics.fields / field_id (many2one)           : NEW relation: ir.model.fields, required: required
+document_ics / document.directory.ics.fields / name (selection)              : NEW required: required, selection_keys: ['attendee', 'categories', 'created', 'description', 'dtend', 'dtstamp', 'dtstart', 'last-modified', 'location', 'summary', 'uid', 'url']
+---XML records in module 'document_ics'---
+NEW document.directory.content.type: document_ics.ics
+NEW ir.actions.act_window: document_ics.action_view_document_ics_config_directories
+NEW ir.actions.todo: document_ics.config_wizard_step_case_section_menu
+NEW ir.model.access: document_ics.access_document_directory_ics_fields_all
+NEW ir.model.access: document_ics.access_document_directory_ics_fields_manager
+NEW ir.model.access: document_ics.access_document_ics_crm_wizard
+NEW ir.sequence: document_ics.seq_sale_order
+NEW ir.sequence.type: document_ics.seq_type_crm_case_code
+NEW ir.ui.view: document_ics.view_case_inherit_form
+NEW ir.ui.view: document_ics.view_case_inherit_form1
+NEW ir.ui.view: document_ics.view_document_directory_form
+NEW ir.ui.view: document_ics.view_document_ics_config_directories

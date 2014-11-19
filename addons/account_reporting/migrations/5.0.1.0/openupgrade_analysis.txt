@@ -1,0 +1,122 @@
+---Fields in module 'account_reporting'---
+account_reporting / account.report.bs        / account_id (many2many)        : NEW relation: account.account
+account_reporting / account.report.bs        / child_id (one2many)           : NEW relation: account.report.bs
+account_reporting / account.report.bs        / code (char)                   : NEW required: required
+account_reporting / account.report.bs        / color_back (many2one)         : NEW relation: color.rml
+account_reporting / account.report.bs        / color_font (many2one)         : NEW relation: color.rml
+account_reporting / account.report.bs        / font_style (selection)        : NEW selection_keys: ['', 'Courier', 'Courier-Bold', 'Courier-BoldOblique', 'Courier-Oblique', 'Helvetica', 'Helvetica-Bold', 'Helvetica-Oblique', 'Times-Bold', 'Times-BoldItalic', 'Times-Italic', 'Times-Roman']
+account_reporting / account.report.bs        / name (char)                   : NEW required: required
+account_reporting / account.report.bs        / note (text)                   : NEW 
+account_reporting / account.report.bs        / parent_id (many2one)          : NEW relation: account.report.bs
+account_reporting / account.report.bs        / report_type (selection)       : NEW selection_keys: ['acc_with_child', 'only_obj', 'with_account']
+account_reporting / account.report.bs        / sequence (integer)            : NEW 
+account_reporting / color.rml                / code (char)                   : NEW required: required
+account_reporting / color.rml                / name (char)                   : NEW required: required
+---XML records in module 'account_reporting'---
+NEW color.rml: account_reporting.c1
+NEW color.rml: account_reporting.c10
+NEW color.rml: account_reporting.c11
+NEW color.rml: account_reporting.c12
+NEW color.rml: account_reporting.c13
+NEW color.rml: account_reporting.c14
+NEW color.rml: account_reporting.c15
+NEW color.rml: account_reporting.c16
+NEW color.rml: account_reporting.c17
+NEW color.rml: account_reporting.c18
+NEW color.rml: account_reporting.c19
+NEW color.rml: account_reporting.c2
+NEW color.rml: account_reporting.c20
+NEW color.rml: account_reporting.c21
+NEW color.rml: account_reporting.c22
+NEW color.rml: account_reporting.c23
+NEW color.rml: account_reporting.c24
+NEW color.rml: account_reporting.c25
+NEW color.rml: account_reporting.c26
+NEW color.rml: account_reporting.c27
+NEW color.rml: account_reporting.c28
+NEW color.rml: account_reporting.c29
+NEW color.rml: account_reporting.c3
+NEW color.rml: account_reporting.c30
+NEW color.rml: account_reporting.c31
+NEW color.rml: account_reporting.c32
+NEW color.rml: account_reporting.c33
+NEW color.rml: account_reporting.c34
+NEW color.rml: account_reporting.c35
+NEW color.rml: account_reporting.c36
+NEW color.rml: account_reporting.c37
+NEW color.rml: account_reporting.c38
+NEW color.rml: account_reporting.c39
+NEW color.rml: account_reporting.c4
+NEW color.rml: account_reporting.c40
+NEW color.rml: account_reporting.c41
+NEW color.rml: account_reporting.c42
+NEW color.rml: account_reporting.c43
+NEW color.rml: account_reporting.c44
+NEW color.rml: account_reporting.c45
+NEW color.rml: account_reporting.c46
+NEW color.rml: account_reporting.c47
+NEW color.rml: account_reporting.c48
+NEW color.rml: account_reporting.c49
+NEW color.rml: account_reporting.c5
+NEW color.rml: account_reporting.c50
+NEW color.rml: account_reporting.c51
+NEW color.rml: account_reporting.c52
+NEW color.rml: account_reporting.c53
+NEW color.rml: account_reporting.c54
+NEW color.rml: account_reporting.c55
+NEW color.rml: account_reporting.c56
+NEW color.rml: account_reporting.c57
+NEW color.rml: account_reporting.c58
+NEW color.rml: account_reporting.c59
+NEW color.rml: account_reporting.c6
+NEW color.rml: account_reporting.c60
+NEW color.rml: account_reporting.c61
+NEW color.rml: account_reporting.c62
+NEW color.rml: account_reporting.c63
+NEW color.rml: account_reporting.c64
+NEW color.rml: account_reporting.c65
+NEW color.rml: account_reporting.c66
+NEW color.rml: account_reporting.c67
+NEW color.rml: account_reporting.c68
+NEW color.rml: account_reporting.c69
+NEW color.rml: account_reporting.c7
+NEW color.rml: account_reporting.c70
+NEW color.rml: account_reporting.c71
+NEW color.rml: account_reporting.c72
+NEW color.rml: account_reporting.c73
+NEW color.rml: account_reporting.c74
+NEW color.rml: account_reporting.c75
+NEW color.rml: account_reporting.c76
+NEW color.rml: account_reporting.c77
+NEW color.rml: account_reporting.c78
+NEW color.rml: account_reporting.c79
+NEW color.rml: account_reporting.c8
+NEW color.rml: account_reporting.c80
+NEW color.rml: account_reporting.c81
+NEW color.rml: account_reporting.c82
+NEW color.rml: account_reporting.c83
+NEW color.rml: account_reporting.c84
+NEW color.rml: account_reporting.c85
+NEW color.rml: account_reporting.c86
+NEW color.rml: account_reporting.c87
+NEW color.rml: account_reporting.c88
+NEW color.rml: account_reporting.c89
+NEW color.rml: account_reporting.c9
+NEW color.rml: account_reporting.c90
+NEW color.rml: account_reporting.c91
+NEW color.rml: account_reporting.c92
+NEW color.rml: account_reporting.c93
+NEW color.rml: account_reporting.c94
+NEW color.rml: account_reporting.c95
+NEW color.rml: account_reporting.c96
+NEW color.rml: account_reporting.c97
+NEW ir.actions.act_window: account_reporting.acc_bs_report_action_form
+NEW ir.actions.act_window: account_reporting.action_account_tree_bs
+NEW ir.actions.wizard: account_reporting.wizard_balance_report
+NEW ir.model.access: account_reporting.access_account_report_bs
+NEW ir.model.access: account_reporting.access_color_rml
+NEW ir.ui.menu: account_reporting.action_account_report_bs_form
+NEW ir.ui.menu: account_reporting.bs_report_action_form
+NEW ir.ui.menu: account_reporting.menu_finan_config_BSheet
+NEW ir.ui.view: account_reporting.view_account_report_bs_form
+NEW ir.ui.view: account_reporting.view_account_report_tree_bs

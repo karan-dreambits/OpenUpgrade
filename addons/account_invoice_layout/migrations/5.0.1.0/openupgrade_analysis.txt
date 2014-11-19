@@ -1,0 +1,20 @@
+---Fields in module 'account_invoice_layout'---
+account_invoice_layout / account.invoice          / abstract_line_ids (one2many)  : NEW relation: account.invoice.line
+account_invoice_layout / account.invoice.line     / sequence (integer)            : NEW 
+account_invoice_layout / account.invoice.line     / state (selection)             : NEW required: required, selection_keys: ['article', 'break', 'line', 'subtotal', 'text', 'title'], req_default: function
+account_invoice_layout / notify.message           / msg (text)                    : NEW required: required
+account_invoice_layout / notify.message           / name (char)                   : NEW required: required
+---XML records in module 'account_invoice_layout'---
+NEW ir.actions.act_window: account_invoice_layout.notify_mesage_tree_form
+NEW ir.actions.report.xml: account_invoice_layout.account_invoices_1
+NEW ir.actions.report.xml: account_invoice_layout.account_invoices_layout_message
+NEW ir.actions.wizard: account_invoice_layout.wizard_notify_message
+NEW ir.model.access: account_invoice_layout.access_notify_message
+NEW ir.ui.menu: account_invoice_layout.menu_finan_config_notify_message
+NEW ir.ui.menu: account_invoice_layout.menu_notify_mesage_tree_form
+NEW ir.ui.view: account_invoice_layout.account_invoice_form_inherit_1
+NEW ir.ui.view: account_invoice_layout.view_invoice_line_form_inherit_1
+NEW ir.ui.view: account_invoice_layout.view_invoice_line_tree_inherit_1
+NEW ir.ui.view: account_invoice_layout.view_invoice_line_tree_inherit_2
+NEW ir.ui.view: account_invoice_layout.view_notify_message_form
+NEW ir.ui.view: account_invoice_layout.view_notify_message_tree

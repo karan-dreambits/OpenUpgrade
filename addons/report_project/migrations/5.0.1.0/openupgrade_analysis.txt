@@ -1,0 +1,5 @@
+---Fields in module 'report_project'---
+---XML records in module 'report_project'---
+NEW ir.model.access: report_project.access_report_project_task
+NEW ir.model.access: report_project.access_report_project_task_user
+NEW ir.ui.menu: report_project.next_id_63

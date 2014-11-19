@@ -1,0 +1,6 @@
+---Fields in module 'profile_accounting'---
+---XML records in module 'profile_accounting'---
+NEW ir.actions.act_window: profile_accounting.action_config_install_module
+NEW ir.actions.todo: profile_accounting.config_install_wizard
+NEW ir.model.access: profile_accounting.access_profile_accounting_wizard_install
+NEW ir.ui.view: profile_accounting.view_confirm_install_module_form

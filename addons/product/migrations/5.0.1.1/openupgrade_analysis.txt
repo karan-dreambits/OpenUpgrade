@@ -1,0 +1,73 @@
+---Fields in module 'product'---
+product      / product.packaging        / sequence (integer)            : NEW 
+product      / product.supplierinfo     / qty (integer)                 : type is now 'float' ('integer')
+product      / product.template         / company_id (many2one)         : NEW relation: res.company
+product      / product.template         / loc_case (char)               : NEW 
+product      / product.template         / loc_rack (char)               : NEW 
+product      / product.template         / loc_row (char)                : NEW 
+product      / product.template         / state (selection)             : selection_keys is now '['', 'draft', 'end', 'obsolete', 'sellable']' ('['draft', 'end', 'obsolete', 'sellable']')
+product      / product.template         / tracking (boolean)            : DEL 
+product      / product.ul               / name (char)                   : now required
+---XML records in module 'product'---
+NEW ir.actions.act_window: product.product_ul_form_action
+DEL ir.actions.act_window: product.product_template_action
+DEL ir.actions.act_window: product.product_variant_action
+DEL ir.actions.act_window.view: product.product_template_action_view1
+DEL ir.actions.act_window.view: product.product_template_action_view2
+DEL ir.actions.act_window.view: product.product_variant_action_view1
+DEL ir.actions.act_window.view: product.product_variant_action_view2
+NEW ir.actions.report.xml: product.report_product_label
+NEW ir.actions.report.xml: product.report_product_pricelist
+NEW ir.actions.wizard: product.report_wizard_price
+NEW ir.model.access: product.access_ir_property_group_product_manager
+NEW ir.model.access: product.access_pricelist_partnerinfo_manager
+NEW ir.model.access: product.access_pricelist_partnerinfo_user
+NEW ir.model.access: product.access_product_category_manager
+NEW ir.model.access: product.access_product_category_user
+NEW ir.model.access: product.access_product_packaging_manager
+NEW ir.model.access: product.access_product_packaging_user
+NEW ir.model.access: product.access_product_price_type_manager
+NEW ir.model.access: product.access_product_price_type_user
+NEW ir.model.access: product.access_product_pricelist_item_manager
+NEW ir.model.access: product.access_product_pricelist_item_user
+NEW ir.model.access: product.access_product_pricelist_manager
+NEW ir.model.access: product.access_product_pricelist_partner_manager
+NEW ir.model.access: product.access_product_pricelist_type_manager
+NEW ir.model.access: product.access_product_pricelist_type_partner_manager
+NEW ir.model.access: product.access_product_pricelist_type_user
+NEW ir.model.access: product.access_product_pricelist_user
+NEW ir.model.access: product.access_product_pricelist_version_manager
+NEW ir.model.access: product.access_product_pricelist_version_user
+NEW ir.model.access: product.access_product_product_manager
+NEW ir.model.access: product.access_product_product_user
+NEW ir.model.access: product.access_product_supplierinfo_manager
+NEW ir.model.access: product.access_product_supplierinfo_user
+NEW ir.model.access: product.access_product_template_manager
+NEW ir.model.access: product.access_product_template_user
+NEW ir.model.access: product.access_product_ul_manager
+NEW ir.model.access: product.access_product_ul_user
+NEW ir.model.access: product.access_product_uom_categ_manager
+NEW ir.model.access: product.access_product_uom_categ_user
+NEW ir.model.access: product.access_product_uom_manager
+NEW ir.model.access: product.access_product_uom_user
+NEW ir.property: product.property_product_pricelist
+NEW ir.ui.menu: product.menu_config_product
+NEW ir.ui.menu: product.menu_price
+NEW ir.ui.menu: product.menu_product_ul_form_action
+NEW ir.ui.menu: product.next_id_16
+DEL ir.ui.menu: product.menu_product_template_action
+DEL ir.ui.menu: product.menu_product_variant_action
+NEW ir.ui.view: product.product_category_list_view
+NEW ir.ui.view: product.product_ul_tree
+NEW ir.ui.view: product.view_partner_property_form
+NEW process.node: product.process_node_product0
+NEW process.node: product.process_node_supplier0
+NEW process.process: product.process_process_productprocess0
+NEW process.transition: product.process_transition_supplierofproduct0
+NEW product.pricelist: product.list0
+NEW product.pricelist.item: product.item0
+NEW product.pricelist.type: product.pricelist_type_sale
+NEW product.pricelist.version: product.ver0
+DEL product.uom: product.product_uom_pce
+NEW res.groups: product.group_product_manager
+NEW res.groups: product.group_uos

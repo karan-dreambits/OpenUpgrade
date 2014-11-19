@@ -1,0 +1,96 @@
+---Fields in module 'hr_holidays'---
+hr_holidays  / hr.holidays              / case_id (many2one)            : NEW relation: crm.case
+hr_holidays  / hr.holidays              / holiday_user_id (many2one)    : NEW relation: hr.holidays.per.user
+hr_holidays  / hr.holidays              / manager_id (many2one)         : NEW relation: hr.employee
+hr_holidays  / hr.holidays              / notes (text)                  : NEW 
+hr_holidays  / hr.holidays              / number_of_days (float)        : NEW required: required
+hr_holidays  / hr.holidays              / state (selection)             : NEW selection_keys: ['cancel', 'confirm', 'draft', 'refuse', 'validate']
+hr_holidays  / hr.holidays              / user_id (many2one)            : NEW relation: res.users
+hr_holidays  / hr.holidays.log          / date (datetime)               : NEW 
+hr_holidays  / hr.holidays.log          / employee_id (many2one)        : NEW relation: hr.employee
+hr_holidays  / hr.holidays.log          / holiday_req_id (char)         : NEW 
+hr_holidays  / hr.holidays.log          / holiday_status (many2one)     : NEW relation: hr.holidays.status
+hr_holidays  / hr.holidays.log          / holiday_user_id (many2one)    : NEW relation: hr.holidays.per.user
+hr_holidays  / hr.holidays.log          / name (char)                   : NEW 
+hr_holidays  / hr.holidays.log          / nb_holidays (float)           : NEW 
+hr_holidays  / hr.holidays.per.user     / active (boolean)              : NEW 
+hr_holidays  / hr.holidays.per.user     / employee_id (many2one)        : NEW relation: hr.employee, required: required
+hr_holidays  / hr.holidays.per.user     / holiday_ids (one2many)        : NEW relation: hr.holidays
+hr_holidays  / hr.holidays.per.user     / holiday_status (many2one)     : NEW relation: hr.holidays.status, required: required
+hr_holidays  / hr.holidays.per.user     / leaves_taken (float)          : NEW 
+hr_holidays  / hr.holidays.per.user     / max_leaves (float)            : NEW required: required
+hr_holidays  / hr.holidays.per.user     / notes (text)                  : NEW 
+hr_holidays  / hr.holidays.per.user     / user_id (many2one)            : NEW relation: res.users
+hr_holidays  / hr.holidays.status       / active (boolean)              : NEW 
+hr_holidays  / hr.holidays.status       / color_name (selection)        : NEW required: required, selection_keys: ['black', 'brown', 'ivory', 'lavender', 'lightblue', 'lightcoral', 'lightcyan', 'lightgreen', 'lightpink', 'lightsalmon', 'lightyellow', 'magenta', 'red', 'violet', 'wheat'], req_default: function
+hr_holidays  / hr.holidays.status       / limit (boolean)               : NEW 
+hr_holidays  / hr.holidays.status       / section_id (many2one)         : NEW relation: crm.case.section
+---XML records in module 'hr_holidays'---
+NEW ir.actions.act_window: hr_holidays.act_hr_employee_holiday_request
+NEW ir.actions.act_window: hr_holidays.action_all_holiday
+NEW ir.actions.act_window: hr_holidays.action_holiday_waiting
+NEW ir.actions.act_window: hr_holidays.action_holidays_per_user
+NEW ir.actions.act_window: hr_holidays.action_my_holiday
+NEW ir.actions.act_window: hr_holidays.action_my_holiday_available
+NEW ir.actions.act_window: hr_holidays.action_my_holiday_draft
+NEW ir.actions.act_window: hr_holidays.action_my_holiday_refuse
+NEW ir.actions.act_window: hr_holidays.action_my_holiday_validate
+NEW ir.actions.act_window: hr_holidays.action_my_holiday_waiting
+NEW ir.actions.act_window: hr_holidays.open_ask_holidays
+NEW ir.actions.act_window: hr_holidays.open_view_holiday_status
+NEW ir.actions.report.xml: hr_holidays.report_holidays_summary
+NEW ir.actions.wizard: hr_holidays.holidays_summary
+NEW ir.actions.wizard: hr_holidays.wizard_holidays_summary
+NEW ir.model.access: hr_holidays.access_hr_holidays_per_user
+NEW ir.model.access: hr_holidays.access_hr_holidays_user
+NEW ir.model.access: hr_holidays.access_hr_holydays_status_user
+NEW ir.ui.menu: hr_holidays.menu_action_all_holiday
+NEW ir.ui.menu: hr_holidays.menu_action_holiday_waiting
+NEW ir.ui.menu: hr_holidays.menu_action_my_holiday
+NEW ir.ui.menu: hr_holidays.menu_action_my_holiday_available
+NEW ir.ui.menu: hr_holidays.menu_action_my_holiday_draft
+NEW ir.ui.menu: hr_holidays.menu_action_my_holiday_refuse
+NEW ir.ui.menu: hr_holidays.menu_action_my_holiday_validate
+NEW ir.ui.menu: hr_holidays.menu_action_my_holiday_waiting
+NEW ir.ui.menu: hr_holidays.menu_holidays_summary
+NEW ir.ui.menu: hr_holidays.menu_open_ask_holidays
+NEW ir.ui.menu: hr_holidays.menu_open_ask_holidays_new
+NEW ir.ui.menu: hr_holidays.menu_open_holidays_per_user
+NEW ir.ui.menu: hr_holidays.menu_open_view_holiday_status
+NEW ir.ui.view: hr_holidays.edit_holiday_new
+NEW ir.ui.view: hr_holidays.edit_holiday_status_form
+NEW ir.ui.view: hr_holidays.view_holiday
+NEW ir.ui.view: hr_holidays.view_holiday_status_tree
+NEW ir.ui.view: hr_holidays.view_holidays_per_user_form
+NEW ir.ui.view: hr_holidays.view_holidays_per_user_graph
+NEW ir.ui.view: hr_holidays.view_holidays_per_user_tree
+NEW process.node: hr_holidays.process_node_approved0
+NEW process.node: hr_holidays.process_node_calendar0
+NEW process.node: hr_holidays.process_node_holidays0
+NEW process.node: hr_holidays.process_node_holidaysdefinition0
+NEW process.node: hr_holidays.process_node_holidaysrequest0
+NEW process.node: hr_holidays.process_node_legaldeclaration0
+NEW process.node: hr_holidays.process_node_refused0
+NEW process.process: hr_holidays.process_process_holidaysprocess0
+NEW process.transition: hr_holidays.process_transition_approvedrequest0
+NEW process.transition: hr_holidays.process_transition_employeedeclaration0
+NEW process.transition: hr_holidays.process_transition_employeeholidays0
+NEW process.transition: hr_holidays.process_transition_holidaysdefrequest0
+NEW process.transition: hr_holidays.process_transition_refusedrequest0
+NEW process.transition: hr_holidays.process_transition_setholiday0
+NEW process.transition.action: hr_holidays.process_transition_action_confirm0
+NEW process.transition.action: hr_holidays.process_transition_action_reufse0
+NEW process.transition.action: hr_holidays.process_transition_action_validate0
+NEW res.roles: hr_holidays.HR_holidays
+NEW workflow: hr_holidays.wkf_holidays
+NEW workflow.activity: hr_holidays.act_cancel
+NEW workflow.activity: hr_holidays.act_confirm
+NEW workflow.activity: hr_holidays.act_draft
+NEW workflow.activity: hr_holidays.act_refuse
+NEW workflow.activity: hr_holidays.act_validate
+NEW workflow.transition: hr_holidays.t1
+NEW workflow.transition: hr_holidays.t2
+NEW workflow.transition: hr_holidays.t3
+NEW workflow.transition: hr_holidays.t4
+NEW workflow.transition: hr_holidays.t5
+NEW workflow.transition: hr_holidays.t7

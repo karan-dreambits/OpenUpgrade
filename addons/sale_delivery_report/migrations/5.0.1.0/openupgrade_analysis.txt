@@ -1,0 +1,3 @@
+---Fields in module 'sale_delivery_report'---
+---XML records in module 'sale_delivery_report'---
+NEW ir.actions.report.xml: sale_delivery_report.report_shipping

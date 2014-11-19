@@ -1,0 +1,63 @@
+---Fields in module 'purchase'---
+purchase     / purchase.order           / fiscal_position (many2one)    : NEW relation: account.fiscal.position
+purchase     / purchase.order           / invoiced (boolean)            : now a function
+purchase     / purchase.order           / ref (char)                    : DEL 
+purchase     / purchase.order.line      / date_planned (date)           : type is now 'datetime' ('date')
+purchase     / purchase.order.line      / move_id (many2one)            : DEL relation: stock.move
+purchase     / purchase.order.line      / move_ids (one2many)           : NEW relation: stock.move
+---XML records in module 'purchase'---
+NEW ir.actions.act_window: purchase.action_purchase_line_product_tree
+NEW ir.actions.act_window: purchase.purchase_form_action_new
+NEW ir.actions.act_window.view: purchase.action_picking_in_form_view
+NEW ir.actions.act_window.view: purchase.action_picking_in_tree_view
+NEW ir.model.access: purchase.access_account_tax_purchase_user
+NEW ir.model.access: purchase.access_account_tax_purchase_user_manager
+NEW ir.model.access: purchase.access_purchase_order
+NEW ir.model.access: purchase.access_purchase_order_line
+NEW ir.model.access: purchase.access_purchase_order_line_manager
+NEW ir.model.access: purchase.access_purchase_order_line_stock_worker
+NEW ir.model.access: purchase.access_purchase_order_manager
+NEW ir.model.access: purchase.access_purchase_order_stock_worker
+NEW ir.model.access: purchase.access_stock_location_purchase_user
+NEW ir.model.access: purchase.access_stock_location_purchase_user_manager
+NEW ir.model.access: purchase.access_stock_move_purchase_user
+NEW ir.model.access: purchase.access_stock_move_purchase_user_manager
+NEW ir.model.access: purchase.access_stock_picking_purchase_user
+NEW ir.model.access: purchase.access_stock_picking_purchase_user_manager
+NEW ir.model.access: purchase.access_stock_warehouse_purchase_user
+NEW ir.model.access: purchase.access_stock_warehouse_purchase_user_manager
+NEW ir.ui.menu: purchase.menu_purchase_form_action_new
+NEW ir.ui.view: purchase.purchase_order_calendar
+NEW ir.ui.view: purchase.stock_picking_in_inherit_purchase
+NEW ir.ui.view: purchase.view_partner_property_form
+NEW ir.ui.view: purchase.view_purchase_order_graph
+NEW process.condition: purchase.process_condition_conditioninvoicemanual
+NEW process.condition: purchase.process_condition_conditionorigin
+NEW process.node: purchase.process_node_approvepurchaseorder0
+NEW process.node: purchase.process_node_confirmpurchaseorder0
+NEW process.node: purchase.process_node_draftpurchaseorder0
+NEW process.node: purchase.process_node_draftpurchaseorder1
+NEW process.node: purchase.process_node_invoiceafterpacking0
+NEW process.node: purchase.process_node_invoicecontrol0
+NEW process.node: purchase.process_node_packinginvoice0
+NEW process.node: purchase.process_node_packinglist0
+NEW process.node: purchase.process_node_productrecept0
+NEW process.node: purchase.process_node_purchaseorder0
+NEW process.process: purchase.process_process_purchaseprocess0
+NEW process.transition: purchase.process_transition_approvingpurchaseorder0
+NEW process.transition: purchase.process_transition_confirmingpurchaseorder0
+NEW process.transition: purchase.process_transition_confirmingpurchaseorder1
+NEW process.transition: purchase.process_transition_createpackinglist0
+NEW process.transition: purchase.process_transition_invoicefrompackinglist0
+NEW process.transition: purchase.process_transition_invoicefrompurchase0
+NEW process.transition: purchase.process_transition_packinginvoice0
+NEW process.transition: purchase.process_transition_productrecept0
+NEW process.transition: purchase.process_transition_purchaseinvoice0
+NEW process.transition.action: purchase.process_transition_action_approvingcancelpurchaseorder0
+NEW process.transition.action: purchase.process_transition_action_approvingpurchaseorder0
+NEW process.transition.action: purchase.process_transition_action_cancelpurchaseorder0
+NEW process.transition.action: purchase.process_transition_action_confirmpurchaseorder0
+NEW process.transition.action: purchase.process_transition_action_invoicefrompurchaseorder0
+NEW res.groups: purchase.group_purchase_manager
+NEW res.groups: purchase.group_purchase_user
+NEW res.roles: purchase.res_roles_purchase0

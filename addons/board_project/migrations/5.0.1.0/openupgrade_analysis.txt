@@ -1,0 +1,3 @@
+---Fields in module 'board_project'---
+---XML records in module 'board_project'---
+NEW ir.ui.menu: board_project.next_id_86

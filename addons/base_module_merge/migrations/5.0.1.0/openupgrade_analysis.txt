@@ -1,0 +1,4 @@
+---Fields in module 'base_module_merge'---
+---XML records in module 'base_module_merge'---
+NEW ir.actions.wizard: base_module_merge.wizard_base_module_merger
+NEW ir.ui.menu: base_module_merge.menu_wizard_base_module_merger

@@ -1,0 +1,31 @@
+---Fields in module 'report_timesheet'---
+report_timesheet / random.timesheet.lines   / amount (float)                : NEW 
+report_timesheet / random.timesheet.lines   / analytic_account_id (many2one): NEW relation: account.analytic.account
+report_timesheet / random.timesheet.lines   / date (date)                   : NEW 
+report_timesheet / random.timesheet.lines   / general_account_id (many2one) : NEW relation: account.account
+report_timesheet / random.timesheet.lines   / name (char)                   : NEW 
+report_timesheet / random.timesheet.lines   / product_id (many2one)         : NEW relation: product.product
+report_timesheet / random.timesheet.lines   / quantity (float)              : NEW 
+report_timesheet / random.timesheet.lines   / to_invoice (many2one)         : NEW relation: hr_timesheet_invoice.factor
+report_timesheet / random.timesheet.lines   / uom_id (many2one)             : NEW relation: product.uom
+report_timesheet / random.timesheet.lines   / user_id (many2one)            : NEW relation: res.users
+report_timesheet / report.random.timesheet  / analytic_account_id (many2one): NEW relation: account.analytic.account
+report_timesheet / report.random.timesheet  / date (date)                   : NEW 
+report_timesheet / report.random.timesheet  / name (char)                   : NEW 
+report_timesheet / report.random.timesheet  / quantity (float)              : NEW 
+report_timesheet / report.random.timesheet  / user_id (many2one)            : NEW relation: res.users
+---XML records in module 'report_timesheet'---
+NEW ir.actions.act_window: report_timesheet.act_res_users_2_report_timesheet_invoice
+NEW ir.actions.act_window: report_timesheet.action_random_timesheet_board
+NEW ir.actions.act_window: report_timesheet.action_random_timesheet_lines_board
+DEL ir.actions.act_window: act_res_users_2_report_timesheet.invoice
+NEW ir.model.access: report_timesheet.access_report_random_timesheet
+NEW ir.model.access: report_timesheet.access_report_random_timesheet_lines
+NEW ir.model.access: report_timesheet.access_report_timesheet_account
+NEW ir.model.access: report_timesheet.access_report_timesheet_account_date
+NEW ir.model.access: report_timesheet.access_report_timesheet_invoice
+NEW ir.model.access: report_timesheet.access_report_timesheet_user
+NEW ir.ui.menu: report_timesheet.next_id_69
+NEW ir.ui.menu: report_timesheet.next_id_70
+NEW ir.ui.view: report_timesheet.view_random_timesheet_lines_tree
+NEW ir.ui.view: report_timesheet.view_random_timesheet_tree

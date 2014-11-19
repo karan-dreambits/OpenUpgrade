@@ -1,0 +1,83 @@
+---Fields in module 'hr'---
+hr           / hr.action.reason         / action_type (selection)       : module is now 'hr_attendance' ('hr')
+hr           / hr.action.reason         / name (char)                   : module is now 'hr_attendance' ('hr')
+hr           / hr.attendance            / action (selection)            : module is now 'hr_attendance' ('hr')
+hr           / hr.attendance            / action_desc (many2one)        : module is now 'hr_attendance' ('hr')
+hr           / hr.attendance            / employee_id (many2one)        : module is now 'hr_attendance' ('hr')
+hr           / hr.attendance            / name (datetime)               : module is now 'hr_attendance' ('hr')
+hr           / hr.employee              / address_home_id (many2one)    : NEW relation: res.partner.address
+hr           / hr.employee              / attendances (one2many)        : DEL relation: hr.attendance
+hr           / hr.employee              / birthday (date)               : NEW 
+hr           / hr.employee              / country_id (many2one)         : NEW relation: res.country
+hr           / hr.employee              / gender (selection)            : NEW selection_keys: ['', 'female', 'male']
+hr           / hr.employee              / holiday_max (integer)         : DEL 
+hr           / hr.employee              / holidays (one2many)           : DEL relation: hr.holidays
+hr           / hr.employee              / marital (selection)           : NEW selection_keys: ['divorced', 'maried', 'other', 'unmaried']
+hr           / hr.employee              / otherid (char)                : NEW 
+hr           / hr.employee              / regime (float)                : DEL 
+hr           / hr.employee              / sinid (char)                  : NEW 
+hr           / hr.employee              / ssnid (char)                  : NEW 
+hr           / hr.employee              / started (date)                : DEL 
+hr           / hr.employee              / state (selection)             : module is now 'hr_attendance' ('hr')
+hr           / hr.employee              / work_email (char)             : NEW 
+hr           / hr.employee              / work_location (char)          : NEW 
+hr           / hr.employee              / work_phone (char)             : NEW 
+hr           / hr.employee              / workgroups (many2many)        : DEL relation: hr.timesheet.group
+hr           / hr.holidays              / date_from (datetime)          : module is now 'hr_holidays' ('hr')
+hr           / hr.holidays              / date_to (datetime)            : module is now 'hr_holidays' ('hr')
+hr           / hr.holidays              / date_to (datetime)            : now required
+hr           / hr.holidays              / employee_id (many2one)        : module is now 'hr_holidays' ('hr')
+hr           / hr.holidays              / holiday_status (many2one)     : module is now 'hr_holidays' ('hr')
+hr           / hr.holidays              / holiday_status (many2one)     : now required
+hr           / hr.holidays              / name (char)                   : module is now 'hr_holidays' ('hr')
+hr           / hr.holidays.status       / name (char)                   : module is now 'hr_holidays' ('hr')
+hr           / hr.timesheet             / hour_from (char)              : type is now 'float' ('char')
+hr           / hr.timesheet             / hour_to (char)                : type is now 'float' ('char')
+---XML records in module 'hr'---
+NEW ir.actions.act_window: hr.open_view_employee_list_my
+DEL ir.actions.act_window: hr.open_ask_holidays
+DEL ir.actions.act_window: hr.open_view_attendance
+DEL ir.actions.act_window: hr.open_view_attendance_reason
+DEL ir.actions.act_window: hr.open_view_holiday_status
+DEL ir.actions.report.xml: hr.attendance_error_report
+DEL ir.actions.wizard: hr.print_month
+DEL ir.actions.wizard: hr.print_week
+DEL ir.actions.wizard: hr.si_so
+DEL ir.actions.wizard: hr.wizard_attendance_error
+NEW ir.model.access: hr.access_hr_department
+NEW ir.model.access: hr.access_hr_department_manager
+NEW ir.model.access: hr.access_hr_employee
+NEW ir.model.access: hr.access_hr_employee_category
+NEW ir.model.access: hr.access_hr_employee_category_manager
+NEW ir.model.access: hr.access_hr_timesheet
+NEW ir.model.access: hr.access_hr_timesheet_group
+NEW ir.model.access: hr.access_hr_timesheet_group_manager
+NEW ir.model.access: hr.access_hr_timesheet_manager
+NEW ir.ui.menu: hr.menu_hr_configuration
+NEW ir.ui.menu: hr.menu_open_view_employee_list_my
+DEL ir.ui.menu: hr.menu_hr_attendance
+DEL ir.ui.menu: hr.menu_open_ask_holidays
+DEL ir.ui.menu: hr.menu_open_view_attendance
+DEL ir.ui.menu: hr.menu_open_view_attendance_reason
+DEL ir.ui.menu: hr.menu_open_view_holiday_status
+DEL ir.ui.menu: hr.menu_si_so
+NEW ir.ui.view: hr.view_users_form_inherit
+DEL ir.ui.view: hr.ask_holiday
+DEL ir.ui.view: hr.edit_attendance_reason
+DEL ir.ui.view: hr.edit_holiday
+DEL ir.ui.view: hr.edit_holiday_status
+DEL ir.ui.view: hr.view_attendance_form
+DEL ir.ui.view: hr.view_attendance_reason
+DEL ir.ui.view: hr.view_attendance_tree
+DEL ir.ui.view: hr.view_attendance_who
+DEL ir.ui.view: hr.view_employee_list
+DEL ir.ui.view: hr.view_holiday
+DEL ir.ui.view: hr.view_holiday_status
+NEW process.node: hr.process_node_employee0
+NEW process.node: hr.process_node_employeecontact0
+NEW process.node: hr.process_node_openerpuser0
+NEW process.process: hr.process_process_employeecontractprocess0
+NEW process.transition: hr.process_transition_contactofemployee0
+NEW process.transition: hr.process_transition_employeeuser0
+NEW res.groups: hr.group_hr_manager
+NEW res.groups: hr.group_hr_user

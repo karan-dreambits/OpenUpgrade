@@ -1,0 +1,68 @@
+---Fields in module 'wiki'---
+wiki         / wiki.groups              / child_ids (one2many)          : NEW relation: wiki.groups
+wiki         / wiki.groups              / create_date (datetime)        : NEW 
+wiki         / wiki.groups              / home (many2one)               : NEW relation: wiki.wiki
+wiki         / wiki.groups              / name (char)                   : NEW required: required
+wiki         / wiki.groups              / notes (text)                  : NEW 
+wiki         / wiki.groups              / page_ids (one2many)           : NEW relation: wiki.wiki
+wiki         / wiki.groups              / parent_id (many2one)          : NEW relation: wiki.groups
+wiki         / wiki.groups              / section (boolean)             : NEW 
+wiki         / wiki.groups              / template (text)               : NEW 
+wiki         / wiki.groups.link         / action_id (many2one)          : NEW relation: ir.ui.menu
+wiki         / wiki.groups.link         / group_id (many2one)           : NEW relation: wiki.groups
+wiki         / wiki.wiki                / create_date (datetime)        : NEW 
+wiki         / wiki.wiki                / create_uid (many2one)         : NEW relation: res.users
+wiki         / wiki.wiki                / group_id (many2one)           : NEW relation: wiki.groups
+wiki         / wiki.wiki                / history_id (one2many)         : NEW relation: wiki.wiki.history
+wiki         / wiki.wiki                / minor_edit (boolean)          : NEW 
+wiki         / wiki.wiki                / name (char)                   : NEW required: required
+wiki         / wiki.wiki                / review (boolean)              : NEW 
+wiki         / wiki.wiki                / section (char)                : NEW 
+wiki         / wiki.wiki                / summary (char)                : NEW 
+wiki         / wiki.wiki                / tags (char)                   : NEW 
+wiki         / wiki.wiki                / text_area (text)              : NEW 
+wiki         / wiki.wiki                / toc (boolean)                 : NEW 
+wiki         / wiki.wiki                / write_date (datetime)         : NEW 
+wiki         / wiki.wiki                / write_uid (many2one)          : NEW relation: res.users
+wiki         / wiki.wiki.history        / create_date (datetime)        : NEW 
+wiki         / wiki.wiki.history        / minor_edit (boolean)          : NEW 
+wiki         / wiki.wiki.history        / summary (char)                : NEW 
+wiki         / wiki.wiki.history        / text_area (text)              : NEW 
+wiki         / wiki.wiki.history        / wiki_id (many2one)            : NEW relation: wiki.wiki
+wiki         / wiki.wiki.history        / write_uid (many2one)          : NEW relation: res.users
+---XML records in module 'wiki'---
+NEW ir.actions.act_window: wiki.act_view_diff
+NEW ir.actions.act_window: wiki.act_wiki_group_open
+NEW ir.actions.act_window: wiki.act_wiki_wiki_history
+NEW ir.actions.act_window: wiki.action_history
+NEW ir.actions.act_window: wiki.action_wiki
+NEW ir.actions.act_window: wiki.action_wiki_groups
+NEW ir.actions.act_window: wiki.action_wiki_groups_browse
+NEW ir.actions.wizard: wiki.wizard_group_menu_create
+NEW ir.actions.wizard: wiki.wizard_make_index
+NEW ir.actions.wizard: wiki.wizard_open_page
+NEW ir.model.access: wiki.wiki_groups
+NEW ir.model.access: wiki.wiki_groups_all
+NEW ir.model.access: wiki.wiki_groups_link
+NEW ir.model.access: wiki.wiki_wiki
+NEW ir.model.access: wiki.wiki_wiki_all
+NEW ir.model.access: wiki.wiki_wiki_history
+NEW ir.model.access: wiki.wiki_wizard_wiki_history_show_diff
+NEW ir.ui.menu: wiki.menu_action_history
+NEW ir.ui.menu: wiki.menu_action_wiki_groups
+NEW ir.ui.menu: wiki.menu_action_wiki_groups_browse
+NEW ir.ui.menu: wiki.menu_action_wiki_wiki
+NEW ir.ui.menu: wiki.menu_document
+NEW ir.ui.menu: wiki.menu_document2
+NEW ir.ui.menu: wiki.menu_document_configuration
+NEW ir.ui.view: wiki.view_wiki_form
+NEW ir.ui.view: wiki.view_wiki_history_diff
+NEW ir.ui.view: wiki.view_wiki_history_tree
+NEW ir.ui.view: wiki.view_wiki_tree
+NEW ir.ui.view: wiki.wiki_group_form
+NEW ir.ui.view: wiki.wiki_group_tree
+NEW ir.ui.view: wiki.wiki_history_form
+NEW ir.values: wiki.ir_open_wiki_pages
+NEW wiki.groups: wiki.wiki_groups_wikiformatting0
+NEW wiki.wiki: wiki.wiki_wiki_main
+NEW wiki.wiki: wiki.wiki_wiki_quickstart0

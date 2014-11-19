@@ -1,0 +1,4 @@
+---Fields in module 'purchase_analytic_plans'---
+purchase_analytic_plans / purchase.order.line      / analytics_id (many2one)       : NEW relation: account.analytic.plan.instance
+---XML records in module 'purchase_analytic_plans'---
+NEW ir.ui.view: purchase_analytic_plans.purchase_order_line_form_inherit

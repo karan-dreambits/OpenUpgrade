@@ -1,0 +1,8 @@
+---Fields in module 'event_project'---
+event_project / event.event              / project_id (many2one)         : NEW relation: project.project
+event_project / event.event              / task_ids (one2many)           : NEW relation: project.task
+---XML records in module 'event_project'---
+NEW ir.actions.wizard: event_project.event_wiz
+NEW ir.actions.wizard: event_project.wizard_event_task
+NEW ir.ui.view: event_project.view_event_form_inherited
+NEW ir.ui.view: event_project.view_event_form_inherited2

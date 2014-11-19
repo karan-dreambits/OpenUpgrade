@@ -1,0 +1,71 @@
+---Fields in module 'report_document'---
+report_document / report.document.file     / file_size (integer)           : NEW 
+report_document / report.document.file     / month (char)                  : NEW 
+report_document / report.document.file     / nbr (integer)                 : NEW 
+report_document / report.document.user     / change_date (datetime)        : NEW 
+report_document / report.document.user     / create_date (datetime)        : NEW 
+report_document / report.document.user     / directory (char)              : NEW 
+report_document / report.document.user     / file_size (integer)           : NEW 
+report_document / report.document.user     / file_title (char)             : NEW 
+report_document / report.document.user     / month (char)                  : NEW 
+report_document / report.document.user     / name (date)                   : NEW 
+report_document / report.document.user     / nbr (integer)                 : NEW 
+report_document / report.document.user     / partner (char)                : NEW 
+report_document / report.document.user     / type (char)                   : NEW 
+report_document / report.document.user     / user (char)                   : NEW 
+report_document / report.document.user     / user_id (integer)             : NEW 
+report_document / report.document.wall     / file_name (char)              : NEW 
+report_document / report.document.wall     / last (datetime)               : NEW 
+report_document / report.document.wall     / month (char)                  : NEW 
+report_document / report.document.wall     / name (date)                   : NEW 
+report_document / report.document.wall     / user (char)                   : NEW 
+report_document / report.document.wall     / user_id (many2one)            : NEW relation: res.users
+report_document / report.files.partner     / change_date (datetime)        : NEW 
+report_document / report.files.partner     / create_date (datetime)        : NEW 
+report_document / report.files.partner     / directory (char)              : NEW 
+report_document / report.files.partner     / file_size (integer)           : NEW 
+report_document / report.files.partner     / file_title (char)             : NEW 
+report_document / report.files.partner     / name (date)                   : NEW 
+report_document / report.files.partner     / nbr (integer)                 : NEW 
+report_document / report.files.partner     / partner (char)                : NEW 
+report_document / report.files.partner     / type (char)                   : NEW 
+---XML records in module 'report_document'---
+NEW ir.actions.act_window: report_document.action_view_all_document_tree
+NEW ir.actions.act_window: report_document.action_view_all_document_tree1
+NEW ir.actions.act_window: report_document.action_view_document_by_resourcetype_graph
+NEW ir.actions.act_window: report_document.action_view_files_by_month_graph
+NEW ir.actions.act_window: report_document.action_view_files_by_partner
+NEW ir.actions.act_window: report_document.action_view_my_document_tree
+NEW ir.actions.act_window: report_document.action_view_my_document_tree1
+NEW ir.actions.act_window: report_document.action_view_size_month
+NEW ir.actions.act_window: report_document.action_view_user_graph
+NEW ir.actions.act_window: report_document.action_view_wall
+NEW ir.model.access: report_document.access_report_document_file_group_document_manager
+NEW ir.model.access: report_document.access_report_document_file_group_system
+NEW ir.model.access: report_document.access_report_document_user_group_document_manager
+NEW ir.model.access: report_document.access_report_document_user_group_system
+NEW ir.model.access: report_document.access_report_document_wall_group_document_manager
+NEW ir.model.access: report_document.access_report_document_wall_group_system
+NEW ir.model.access: report_document.access_report_files_partner_group_document_manager
+NEW ir.model.access: report_document.access_report_files_partner_group_system
+NEW ir.ui.menu: report_document.menu_action_view_my_document
+NEW ir.ui.menu: report_document.menu_action_view_my_document_report
+NEW ir.ui.menu: report_document.menu_action_view_my_document_report_all
+NEW ir.ui.menu: report_document.menu_action_view_my_document_report_all_myfile
+NEW ir.ui.menu: report_document.menu_action_view_my_document_report_all_userfile
+NEW ir.ui.menu: report_document.menu_action_view_my_document_report_shame
+NEW ir.ui.menu: report_document.menu_action_view_my_document_report_this
+NEW ir.ui.menu: report_document.menu_action_view_my_document_report_this_myfile
+NEW ir.ui.menu: report_document.menu_action_view_my_document_report_this_userfile
+NEW ir.ui.view: report_document.view_document_by_resourcetype_graph
+NEW ir.ui.view: report_document.view_document_user_form
+NEW ir.ui.view: report_document.view_document_user_tree
+NEW ir.ui.view: report_document.view_document_wall_form
+NEW ir.ui.view: report_document.view_document_wall_tree
+NEW ir.ui.view: report_document.view_files_by_month_graph
+NEW ir.ui.view: report_document.view_files_by_month_tree
+NEW ir.ui.view: report_document.view_files_by_partner_graph
+NEW ir.ui.view: report_document.view_files_by_partner_tree
+NEW ir.ui.view: report_document.view_size_month
+NEW ir.ui.view: report_document.view_size_month_tree
+NEW ir.ui.view: report_document.view_user_graph

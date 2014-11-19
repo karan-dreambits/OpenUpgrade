@@ -1,0 +1,30 @@
+---Fields in module 'crm'---
+crm          / crm.case                 / date_deadline (date)          : type is now 'datetime' ('date')
+crm          / crm.case.log             / section_id (many2one)         : NEW relation: crm.case.section
+crm          / crm.case.rule            / trg_date_type (selection)     : selection_keys is now '['action_last', 'create', 'date', 'deadline', 'none']' ('['action_last', 'create', 'deadline', 'none']')
+crm          / crm.case.rule            / trg_max_history (integer)     : NEW 
+crm          / crm.case.section         / allow_unlink (boolean)        : NEW 
+crm          / crm.segmentation         / sales_purchase_active (boolean): NEW 
+---XML records in module 'crm'---
+NEW ir.model.access: crm.access_crm_case
+NEW ir.model.access: crm.access_crm_case_categ
+NEW ir.model.access: crm.access_crm_case_categ_manager
+NEW ir.model.access: crm.access_crm_case_history
+NEW ir.model.access: crm.access_crm_case_history_manager
+NEW ir.model.access: crm.access_crm_case_log
+NEW ir.model.access: crm.access_crm_case_log_manager
+NEW ir.model.access: crm.access_crm_case_manger
+NEW ir.model.access: crm.access_crm_case_rule
+NEW ir.model.access: crm.access_crm_case_rule_manager
+NEW ir.model.access: crm.access_crm_case_section
+NEW ir.model.access: crm.access_crm_case_section_manager
+NEW ir.model.access: crm.access_crm_segmentation
+NEW ir.model.access: crm.access_crm_segmentation_line
+NEW ir.ui.menu: crm.menu_crm_configuration
+NEW ir.ui.menu: crm.next_id_51
+NEW ir.ui.menu: crm.next_id_52
+NEW ir.ui.menu: crm.next_id_53
+DEL ir.ui.menu: crm.menu_crm_segmentation_tree-act
+NEW ir.ui.view: crm.crm_case_calendar-view
+NEW res.groups: crm.group_crm_manager
+NEW res.groups: crm.group_crm_user

@@ -1,0 +1,4 @@
+---Fields in module 'base_report_designer'---
+---XML records in module 'base_report_designer'---
+NEW ir.model.access: base_report_designer.ir_model_access_openofficereportdesigner0
+NEW res.groups: base_report_designer.res_groups_openofficereportdesinger0

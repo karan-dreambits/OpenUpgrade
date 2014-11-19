@@ -1,0 +1,28 @@
+---Fields in module 'report_task'---
+report_task  / report.closed.task       / date_close (datetime)         : NEW 
+report_task  / report.closed.task       / date_deadline (datetime)      : NEW 
+report_task  / report.closed.task       / delay_hours (float)           : NEW 
+report_task  / report.closed.task       / name (char)                   : NEW 
+report_task  / report.closed.task       / planned_hours (float)         : NEW 
+report_task  / report.closed.task       / priority (selection)          : NEW selection_keys: ['0', '1', '2', '3', '4']
+report_task  / report.closed.task       / progress (float)              : NEW 
+report_task  / report.closed.task       / project_id (many2one)         : NEW relation: project.project
+report_task  / report.closed.task       / remaining_hours (float)       : NEW 
+report_task  / report.closed.task       / sequence (integer)            : NEW 
+report_task  / report.closed.task       / state (selection)             : NEW selection_keys: ['cancelled', 'done', 'draft', 'open', 'pending']
+report_task  / report.closed.task       / user_id (many2one)            : NEW relation: res.users
+report_task  / report.timesheet.task.user / name (date)                   : NEW 
+report_task  / report.timesheet.task.user / user_id (many2one)            : NEW relation: res.users
+---XML records in module 'report_task'---
+NEW ir.actions.act_window: report_task.action_closed_task_board
+NEW ir.actions.act_window: report_task.action_report_timesheet_task_user
+DEL ir.actions.act_window: report_task.action_project_task_done
+DEL ir.actions.act_window: report_task.action_project_task_open
+NEW ir.model.access: report_task.access_report_task_user_pipeline_open
+NEW ir.ui.menu: report_task.menu_timesheet_task_user
+NEW ir.ui.menu: report_task.next_id_57
+NEW ir.ui.menu: report_task.next_id_58
+DEL ir.ui.menu: report_task.menu_project_task_user_tree2
+DEL ir.ui.menu: report_task.menu_project_task_user_tree3
+NEW ir.ui.view: report_task.view_report_timesheet_task_user_tree
+NEW ir.ui.view: report_task.view_task_closed_board_tree

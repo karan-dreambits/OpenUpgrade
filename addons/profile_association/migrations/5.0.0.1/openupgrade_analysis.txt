@@ -1,0 +1,6 @@
+---Fields in module 'profile_association'---
+---XML records in module 'profile_association'---
+NEW ir.actions.act_window: profile_association.action_config_install_module
+NEW ir.actions.todo: profile_association.config_install_module
+NEW ir.model.access: profile_association.access_profile_association_wizard_install
+NEW ir.ui.view: profile_association.view_confirm_install_module_form

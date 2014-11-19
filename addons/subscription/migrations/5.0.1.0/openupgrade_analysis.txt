@@ -1,0 +1,7 @@
+---Fields in module 'subscription'---
+---XML records in module 'subscription'---
+NEW ir.model.access: subscription.access_subscription_document
+NEW ir.model.access: subscription.access_subscription_document_fields
+NEW ir.model.access: subscription.access_subscription_subscription
+NEW ir.model.access: subscription.access_subscription_subscription_history
+NEW ir.ui.menu: subscription.next_id_45

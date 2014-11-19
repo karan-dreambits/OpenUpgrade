@@ -1,0 +1,161 @@
+---Fields in module 'stock'---
+stock        / product.product          / track_incoming (boolean)      : NEW 
+stock        / product.product          / track_outgoing (boolean)      : NEW 
+stock        / product.product          / track_production (boolean)    : NEW 
+stock        / report.stock.lines.date  / create_date (datetime)        : NEW 
+stock        / report.stock.lines.date  / id (integer)                  : NEW 
+stock        / report.stock.lines.date  / product_id (many2one)         : NEW relation: product.product
+stock        / stock.location           / address_id (many2one)         : NEW relation: res.partner.address
+stock        / stock.location           / chained_auto_packing (selection): NEW required: required, selection_keys: ['auto', 'manual', 'transparent'], req_default: function
+stock        / stock.location           / chained_delay (integer)       : NEW 
+stock        / stock.location           / chained_location_id (many2one): NEW relation: stock.location
+stock        / stock.location           / chained_location_type (selection): NEW required: required, selection_keys: ['customer', 'fixed', 'none'], req_default: function
+stock        / stock.location           / icon (selection)              : NEW selection_keys: ['STOCK_ABOUT', 'STOCK_ADD', 'STOCK_APPLY', 'STOCK_BOLD', 'STOCK_CANCEL', 'STOCK_CDROM', 'STOCK_CLEAR', 'STOCK_CLOSE', 'STOCK_COLOR_PICKER', 'STOCK_CONNECT', 'STOCK_CONVERT', 'STOCK_COPY', 'STOCK_CUT', 'STOCK_DELETE', 'STOCK_DIALOG_AUTHENTICATION', 'STOCK_DIALOG_ERROR', 'STOCK_DIALOG_INFO', 'STOCK_DIALOG_QUESTION', 'STOCK_DIALOG_WARNING', 'STOCK_DIRECTORY', 'STOCK_DISCONNECT', 'STOCK_DND', 'STOCK_DND_MULTIPLE', 'STOCK_EDIT', 'STOCK_EXECUTE', 'STOCK_FILE', 'STOCK_FIND', 'STOCK_FIND_AND_REPLACE', 'STOCK_FLOPPY', 'STOCK_GOTO_BOTTOM', 'STOCK_GOTO_FIRST', 'STOCK_GOTO_LAST', 'STOCK_GOTO_TOP', 'STOCK_GO_BACK', 'STOCK_GO_DOWN', 'STOCK_GO_FORWARD', 'STOCK_GO_UP', 'STOCK_HARDDISK', 'STOCK_HELP', 'STOCK_HOME', 'STOCK_INDENT', 'STOCK_INDEX', 'STOCK_ITALIC', 'STOCK_JUMP_TO', 'STOCK_JUSTIFY_CENTER', 'STOCK_JUSTIFY_FILL', 'STOCK_JUSTIFY_LEFT', 'STOCK_JUSTIFY_RIGHT', 'STOCK_MEDIA_FORWARD', 'STOCK_MEDIA_NEXT', 'STOCK_MEDIA_PAUSE', 'STOCK_MEDIA_PLAY', 'STOCK_MEDIA_PREVIOUS', 'STOCK_MEDIA_RECORD', 'STOCK_MEDIA_REWIND', 'STOCK_MEDIA_STOP', 'STOCK_MISSING_IMAGE', 'STOCK_NETWORK', 'STOCK_NEW', 'STOCK_NO', 'STOCK_OK', 'STOCK_OPEN', 'STOCK_PASTE', 'STOCK_PREFERENCES', 'STOCK_PRINT', 'STOCK_PRINT_PREVIEW', 'STOCK_PROPERTIES', 'STOCK_QUIT', 'STOCK_REDO', 'STOCK_REFRESH', 'STOCK_REMOVE', 'STOCK_REVERT_TO_SAVED', 'STOCK_SAVE', 'STOCK_SAVE_AS', 'STOCK_SELECT_COLOR', 'STOCK_SELECT_FONT', 'STOCK_SORT_ASCENDING', 'STOCK_SORT_DESCENDING', 'STOCK_SPELL_CHECK', 'STOCK_STOP', 'STOCK_STRIKETHROUGH', 'STOCK_UNDELETE', 'STOCK_UNDERLINE', 'STOCK_UNDO', 'STOCK_UNINDENT', 'STOCK_YES', 'STOCK_ZOOM_100', 'STOCK_ZOOM_FIT', 'STOCK_ZOOM_IN', 'STOCK_ZOOM_OUT', 'terp-account', 'terp-administration', 'terp-calendar', 'terp-crm', 'terp-graph', 'terp-hr', 'terp-mrp', 'terp-partner', 'terp-product', 'terp-project', 'terp-purchase', 'terp-report', 'terp-sale', 'terp-stock', 'terp-tools']
+stock        / stock.location           / parent_left (integer)         : NEW 
+stock        / stock.location           / parent_right (integer)        : NEW 
+stock        / stock.location           / usage (selection)             : now required, default = function
+stock        / stock.location           / usage (selection)             : selection_keys is now '['customer', 'internal', 'inventory', 'procurement', 'production', 'supplier', 'view']' ('['customer', 'internal', 'inventory', 'procurement', 'production', 'supplier']')
+stock        / stock.move               / auto_validate (boolean)       : NEW 
+stock        / stock.move               / date_planned (date)           : type is now 'datetime' ('date')
+stock        / stock.move               / lot_id (many2one)             : DEL relation: stock.lot
+stock        / stock.picking            / backorder_id (many2one)       : NEW relation: stock.picking
+stock        / stock.picking            / date_done (datetime)          : NEW 
+stock        / stock.picking            / invoice_state (selection)     : now required, default = function
+stock        / stock.picking            / loc_move_id (many2one)        : DEL relation: stock.location
+stock        / stock.picking            / lot_id (many2one)             : DEL relation: stock.lot
+stock        / stock.picking            / move_lot_id (many2one)        : DEL relation: stock.move.lot
+stock        / stock.picking            / type (selection)              : selection_keys is now '['delivery', 'in', 'internal', 'out']' ('['in', 'internal', 'out']')
+stock        / stock.picking            / work (boolean)                : DEL 
+stock        / stock.production.lot     / product_id (many2one)         : NEW relation: product.product, required: required, req_default: function
+stock        / stock.report.prodlots    / location_id (many2one)        : NEW relation: stock.location
+stock        / stock.report.prodlots    / name (float)                  : NEW 
+stock        / stock.report.prodlots    / prodlot_id (many2one)         : NEW relation: stock.production.lot
+stock        / stock.report.prodlots    / product_id (many2one)         : NEW relation: product.product
+---XML records in module 'stock'---
+NEW account.journal: stock.stock_journal
+NEW ir.actions.act_window: stock.act_product_product_2_stock_report_prodlots
+NEW ir.actions.act_window: stock.act_product_stock_move_futur_open
+NEW ir.actions.act_window: stock.act_product_stock_move_open
+NEW ir.actions.act_window: stock.act_relate_picking
+NEW ir.actions.act_window: stock.act_stock_location_2_stock_report_prodlots
+NEW ir.actions.act_window: stock.act_stock_picking_move_wizard
+NEW ir.actions.act_window: stock.act_stock_product_location_open
+NEW ir.actions.act_window: stock.act_stock_production_lot_2_stock_report_prodlots
+NEW ir.actions.act_window: stock.action_inventory_form_draft
+NEW ir.actions.act_window: stock.action_inventory_form_new
+NEW ir.actions.act_window: stock.action_location_tree_3
+NEW ir.actions.act_window: stock.action_picking_all
+NEW ir.actions.act_window: stock.action_picking_calendar_delivery
+NEW ir.actions.act_window: stock.action_picking_tree2_delivery
+NEW ir.actions.act_window: stock.action_picking_tree3_delivery
+NEW ir.actions.act_window: stock.action_picking_tree_delivery
+NEW ir.actions.act_window: stock.action_stock_line_date
+NEW ir.actions.act_window: stock.action_stock_report_prodlots_form
+DEL ir.actions.act_window: stock.action_inventory_line_form
+DEL ir.actions.act_window: stock.action_lot_form
+DEL ir.actions.act_window: stock.action_move_form
+DEL ir.actions.act_window: stock.action_move_tree
+NEW ir.actions.act_window.view: stock.action_invoice_tree5_view1
+NEW ir.actions.act_window.view: stock.action_invoice_tree5_view2
+NEW ir.actions.act_window.view: stock.action_invoice_tree5_view2_cal
+NEW ir.actions.act_window.view: stock.action_invoice_tree6_view1
+NEW ir.actions.act_window.view: stock.action_invoice_tree6_view2
+NEW ir.actions.act_window.view: stock.action_invoice_tree6_view2_cal
+NEW ir.actions.act_window.view: stock.action_picking_form_view1
+NEW ir.actions.act_window.view: stock.action_picking_form_view2
+NEW ir.actions.act_window.view: stock.action_picking_form_view2_cal
+NEW ir.actions.act_window.view: stock.action_picking_tree2_out_view1
+NEW ir.actions.act_window.view: stock.action_picking_tree2_out_view2
+NEW ir.actions.act_window.view: stock.action_picking_tree2_out_view2_cal
+NEW ir.actions.act_window.view: stock.action_picking_tree3_out_view1
+NEW ir.actions.act_window.view: stock.action_picking_tree3_out_view2
+NEW ir.actions.act_window.view: stock.action_picking_tree3_out_view2_cal
+NEW ir.actions.act_window.view: stock.action_picking_tree_delivery_view1
+NEW ir.actions.act_window.view: stock.action_picking_tree_delivery_view1_toproc
+NEW ir.actions.act_window.view: stock.action_picking_tree_delivery_view1_waiting
+NEW ir.actions.act_window.view: stock.action_picking_tree_delivery_view2
+NEW ir.actions.act_window.view: stock.action_picking_tree_delivery_view2_calendar
+NEW ir.actions.act_window.view: stock.action_picking_tree_delivery_view2_toproc
+NEW ir.actions.act_window.view: stock.action_picking_tree_delivery_view2_toproc_cal
+NEW ir.actions.act_window.view: stock.action_picking_tree_delivery_view2_waiting
+NEW ir.actions.act_window.view: stock.action_picking_tree_delivery_view2_waiting_cal
+NEW ir.actions.act_window.view: stock.action_picking_tree_out_view1_waiting
+NEW ir.actions.act_window.view: stock.action_picking_tree_out_view2_waiting
+NEW ir.actions.act_window.view: stock.action_picking_tree_out_view2_waiting_cal
+DEL ir.actions.report.xml: stock.report_product_location
+NEW ir.actions.wizard: stock.location_product
+NEW ir.actions.wizard: stock.wizard_fill_inventory
+NEW ir.actions.wizard: stock.wizard_merge_inventory
+NEW ir.actions.wizard: stock.wizard_merge_inventory_zero
+NEW ir.model.access: stock.access_stock_incoterms_all
+NEW ir.model.access: stock.access_stock_inventory
+NEW ir.model.access: stock.access_stock_inventory_line
+NEW ir.model.access: stock.access_stock_lines_date
+NEW ir.model.access: stock.access_stock_location_manager
+NEW ir.model.access: stock.access_stock_location_product_manager
+NEW ir.model.access: stock.access_stock_location_user
+NEW ir.model.access: stock.access_stock_move
+NEW ir.model.access: stock.access_stock_picking
+NEW ir.model.access: stock.access_stock_picking_move_wizard
+NEW ir.model.access: stock.access_stock_production_lot
+NEW ir.model.access: stock.access_stock_production_lot_revision
+NEW ir.model.access: stock.access_stock_report_prodlots
+NEW ir.model.access: stock.access_stock_tracking
+NEW ir.model.access: stock.access_stock_warehouse_manager
+NEW ir.model.access: stock.access_stock_warehouse_user
+NEW ir.sequence: stock.seq_picking
+DEL ir.sequence: stock.seq_picking_in
+DEL ir.sequence: stock.seq_picking_internal
+DEL ir.sequence: stock.seq_picking_out
+NEW ir.sequence.type: stock.seq_type_picking
+DEL ir.sequence.type: stock.seq_type_picking_in
+DEL ir.sequence.type: stock.seq_type_picking_internal
+DEL ir.sequence.type: stock.seq_type_picking_out
+NEW ir.ui.menu: stock.menu_action_inventory_form_draft
+NEW ir.ui.menu: stock.menu_action_inventory_form_new
+NEW ir.ui.menu: stock.menu_action_location_tree_3
+NEW ir.ui.menu: stock.menu_action_picking_all
+NEW ir.ui.menu: stock.menu_action_picking_tree3_delivery
+NEW ir.ui.menu: stock.menu_action_picking_tree_delivery
+NEW ir.ui.menu: stock.menu_picking_calendar_delivery
+NEW ir.ui.menu: stock.menu_picking_waiting_delivery
+NEW ir.ui.menu: stock.menu_report_stock_line_date
+NEW ir.ui.menu: stock.menu_stock_configuration
+NEW ir.ui.menu: stock.menu_stock_report_prodlots
+NEW ir.ui.menu: stock.menu_traceability
+NEW ir.ui.menu: stock.menu_traceability_low
+NEW ir.ui.menu: stock.next_id_61
+NEW ir.ui.menu: stock.next_id_62
+DEL ir.ui.menu: stock.menu_action_inventory_line_form
+DEL ir.ui.menu: stock.menu_action_lot_form
+DEL ir.ui.menu: stock.menu_action_move_form
+DEL ir.ui.menu: stock.menu_move_draft
+NEW ir.ui.view: stock.report_stock_lines_date_form
+NEW ir.ui.view: stock.report_stock_lines_date_tree
+NEW ir.ui.view: stock.stock_picking_calendar
+NEW ir.ui.view: stock.stock_picking_move_wizard_form
+NEW ir.ui.view: stock.stock_report_prodlots_tree
+NEW ir.ui.view: stock.view_category_property_form
+NEW ir.ui.view: stock.view_location_tree_3
+NEW ir.ui.view: stock.view_normal_property_acc_form
+NEW ir.ui.view: stock.view_normal_property_form
+NEW ir.ui.view: stock.view_normal_stock_property_form
+NEW ir.ui.view: stock.view_partner_property_form
+NEW ir.ui.view: stock.view_picking_delivery_form
+NEW ir.ui.view: stock.view_picking_delivery_tree
+NEW ir.ui.view: stock.view_picking_in_form
+NEW ir.ui.view: stock.view_picking_in_tree
+NEW ir.ui.view: stock.view_picking_out_form
+NEW ir.ui.view: stock.view_picking_out_tree
+NEW ir.ui.view: stock.view_template_property_form
+DEL ir.ui.view: stock.view_lot_form
+DEL ir.ui.view: stock.view_lot_tree
+DEL ir.ui.view: stock.view_move_lot_form
+DEL ir.ui.view: stock.view_move_lot_tree
+NEW res.groups: stock.group_stock_manager
+NEW res.groups: stock.group_stock_user
+NEW stock.location: stock.stock_location_locations_partner
+NEW stock.location: stock.stock_location_locations_virtual
+DEL stock.location: stock.stock_location_input
+NEW workflow.transition: stock.trans_assigned_cancel_auto
+NEW workflow.transition: stock.trans_confirmed_cancel_auto

@@ -1,0 +1,101 @@
+---Fields in module 'mrp_repair'---
+mrp_repair   / mrp.repair               / address_id (many2one)         : NEW relation: res.partner.address
+mrp_repair   / mrp.repair               / deliver_bool (boolean)        : NEW 
+mrp_repair   / mrp.repair               / fees_lines (one2many)         : NEW relation: mrp.repair.fee
+mrp_repair   / mrp.repair               / guarantee_limit (date)        : NEW 
+mrp_repair   / mrp.repair               / internal_notes (text)         : NEW 
+mrp_repair   / mrp.repair               / invoice_id (many2one)         : NEW relation: account.invoice
+mrp_repair   / mrp.repair               / invoice_method (selection)    : NEW required: required, selection_keys: ['after_repair', 'b4repair', 'none'], req_default: function
+mrp_repair   / mrp.repair               / invoiced (boolean)            : NEW 
+mrp_repair   / mrp.repair               / location_dest_id (many2one)   : NEW relation: stock.location
+mrp_repair   / mrp.repair               / location_id (many2one)        : NEW relation: stock.location, required: required
+mrp_repair   / mrp.repair               / move_id (many2one)            : NEW relation: stock.move, required: required
+mrp_repair   / mrp.repair               / name (char)                   : NEW required: required, req_default: function
+mrp_repair   / mrp.repair               / operations (one2many)         : NEW relation: mrp.repair.line
+mrp_repair   / mrp.repair               / partner_id (many2one)         : NEW relation: res.partner
+mrp_repair   / mrp.repair               / partner_invoice_id (many2one) : NEW relation: res.partner.address
+mrp_repair   / mrp.repair               / picking_id (many2one)         : NEW relation: stock.picking
+mrp_repair   / mrp.repair               / pricelist_id (many2one)       : NEW relation: product.pricelist
+mrp_repair   / mrp.repair               / prodlot_id (many2one)         : NEW relation: stock.production.lot
+mrp_repair   / mrp.repair               / product_id (many2one)         : NEW relation: product.product, required: required
+mrp_repair   / mrp.repair               / quotation_notes (text)        : NEW 
+mrp_repair   / mrp.repair               / repaired (boolean)            : NEW 
+mrp_repair   / mrp.repair               / state (selection)             : NEW selection_keys: ['2binvoiced', 'cancel', 'confirmed', 'done', 'draft', 'invoice_except', 'ready', 'under_repair']
+mrp_repair   / mrp.repair.fee           / invoice_line_id (many2one)    : NEW relation: account.invoice.line
+mrp_repair   / mrp.repair.fee           / invoiced (boolean)            : NEW 
+mrp_repair   / mrp.repair.fee           / name (char)                   : NEW required: required
+mrp_repair   / mrp.repair.fee           / price_unit (float)            : NEW required: required
+mrp_repair   / mrp.repair.fee           / product_id (many2one)         : NEW relation: product.product
+mrp_repair   / mrp.repair.fee           / product_uom (many2one)        : NEW relation: product.uom, required: required
+mrp_repair   / mrp.repair.fee           / product_uom_qty (float)       : NEW required: required
+mrp_repair   / mrp.repair.fee           / repair_id (many2one)          : NEW relation: mrp.repair, required: required
+mrp_repair   / mrp.repair.fee           / tax_id (many2many)            : NEW relation: account.tax
+mrp_repair   / mrp.repair.fee           / to_invoice (boolean)          : NEW 
+mrp_repair   / mrp.repair.line          / invoice_line_id (many2one)    : NEW relation: account.invoice.line
+mrp_repair   / mrp.repair.line          / invoiced (boolean)            : NEW 
+mrp_repair   / mrp.repair.line          / location_dest_id (many2one)   : NEW relation: stock.location, required: required
+mrp_repair   / mrp.repair.line          / location_id (many2one)        : NEW relation: stock.location, required: required
+mrp_repair   / mrp.repair.line          / move_id (many2one)            : NEW relation: stock.move
+mrp_repair   / mrp.repair.line          / name (char)                   : NEW required: required
+mrp_repair   / mrp.repair.line          / price_unit (float)            : NEW required: required
+mrp_repair   / mrp.repair.line          / product_id (many2one)         : NEW relation: product.product, required: required
+mrp_repair   / mrp.repair.line          / product_uom (many2one)        : NEW relation: product.uom, required: required
+mrp_repair   / mrp.repair.line          / product_uom_qty (float)       : NEW required: required, req_default: function
+mrp_repair   / mrp.repair.line          / repair_id (many2one)          : NEW relation: mrp.repair
+mrp_repair   / mrp.repair.line          / state (selection)             : NEW required: required, selection_keys: ['cancel', 'confirmed', 'done', 'draft'], req_default: function
+mrp_repair   / mrp.repair.line          / tax_id (many2many)            : NEW relation: account.tax
+mrp_repair   / mrp.repair.line          / to_invoice (boolean)          : NEW 
+mrp_repair   / mrp.repair.line          / type (selection)              : NEW required: required, selection_keys: ['add', 'remove']
+---XML records in module 'mrp_repair'---
+NEW ir.actions.act_window: mrp_repair.action_repair_2binvoiced_tree
+NEW ir.actions.act_window: mrp_repair.action_repair_order_form
+NEW ir.actions.act_window: mrp_repair.action_repair_order_tree
+NEW ir.actions.act_window: mrp_repair.action_repair_progress_tree
+NEW ir.actions.act_window: mrp_repair.action_repair_quotation_tree
+NEW ir.actions.act_window: mrp_repair.action_repair_ready_tree
+NEW ir.actions.report.xml: mrp_repair.report_mrp_repair
+NEW ir.actions.wizard: mrp_repair.action_cancel_repair
+NEW ir.actions.wizard: mrp_repair.wizard_mrp_repair_make_invoice
+NEW ir.model.access: mrp_repair.access_mrp_repair_fee_manager
+NEW ir.model.access: mrp_repair.access_mrp_repair_fee_user
+NEW ir.model.access: mrp_repair.access_mrp_repair_line_manager
+NEW ir.model.access: mrp_repair.access_mrp_repair_line_user
+NEW ir.model.access: mrp_repair.access_mrp_repair_manager
+NEW ir.model.access: mrp_repair.access_mrp_repair_user
+NEW ir.sequence: mrp_repair.seq_mrp_repair
+NEW ir.sequence.type: mrp_repair.seq_type_mrp_repair
+NEW ir.ui.menu: mrp_repair.menu_repair_2binvoiced
+NEW ir.ui.menu: mrp_repair.menu_repair_form
+NEW ir.ui.menu: mrp_repair.menu_repair_order
+NEW ir.ui.menu: mrp_repair.menu_repair_progress
+NEW ir.ui.menu: mrp_repair.menu_repair_quotation
+NEW ir.ui.menu: mrp_repair.menu_repair_ready
+NEW ir.ui.view: mrp_repair.view_repair_order_form
+NEW ir.ui.view: mrp_repair.view_repair_order_tree
+NEW workflow: mrp_repair.wkf_repair
+NEW workflow.activity: mrp_repair.act_cancel
+NEW workflow.activity: mrp_repair.act_cancel2
+NEW workflow.activity: mrp_repair.act_cancel3
+NEW workflow.activity: mrp_repair.act_confirm
+NEW workflow.activity: mrp_repair.act_done
+NEW workflow.activity: mrp_repair.act_draft
+NEW workflow.activity: mrp_repair.act_invoice_end
+NEW workflow.activity: mrp_repair.act_repair_end
+NEW workflow.activity: mrp_repair.act_repair_ready
+NEW workflow.activity: mrp_repair.act_repair_start
+NEW workflow.activity: mrp_repair.act_wait_invoice
+NEW workflow.activity: mrp_repair.act_wait_repair
+NEW workflow.transition: mrp_repair.trans_confirm_wait_invoice
+NEW workflow.transition: mrp_repair.trans_confirm_wait_ship
+NEW workflow.transition: mrp_repair.trans_draft_cancel
+NEW workflow.transition: mrp_repair.trans_draft_confirm
+NEW workflow.transition: mrp_repair.trans_invoice_end_done
+NEW workflow.transition: mrp_repair.trans_invoice_start_repair
+NEW workflow.transition: mrp_repair.trans_ready_repair_start
+NEW workflow.transition: mrp_repair.trans_reapir_end_done
+NEW workflow.transition: mrp_repair.trans_reapir_end_invoice
+NEW workflow.transition: mrp_repair.trans_repair_repair_end
+NEW workflow.transition: mrp_repair.trans_wait_invoice_cancel2
+NEW workflow.transition: mrp_repair.trans_wait_invoice_invoice
+NEW workflow.transition: mrp_repair.trans_wait_repair_cancel3
+NEW workflow.transition: mrp_repair.trans_wait_repair_start

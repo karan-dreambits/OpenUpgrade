@@ -1,0 +1,38 @@
+---Fields in module 'scrum'---
+scrum        / scrum.product.backlog    / name (char)                   : now required
+scrum        / scrum.project            / mode (selection)              : DEL selection_keys: ['', 'effective', 'hour', 'project']
+scrum        / scrum.project            / pricelist_id (many2one)       : DEL relation: product.pricelist
+scrum        / scrum.project            / state (selection)             : selection_keys is now '['cancelled', 'done', 'open', 'pending', 'template']' ('['cancelled', 'done', 'open', 'pending']')
+scrum        / scrum.project            / tariff (float)                : DEL 
+scrum        / scrum.project            / tax_ids (many2many)           : DEL relation: account.tax
+scrum        / scrum.sprint             / name (char)                   : now required
+scrum        / scrum.task               / billable (boolean)            : DEL 
+scrum        / scrum.task               / child_ids (one2many)          : NEW relation: project.task
+scrum        / scrum.task               / context_id (many2one)         : NEW relation: project.gtd.context
+scrum        / scrum.task               / cust_desc (text)              : DEL 
+scrum        / scrum.task               / invoice_id (many2one)         : DEL relation: account.invoice
+scrum        / scrum.task               / parent_id (many2one)          : NEW relation: project.task
+scrum        / scrum.task               / planned_hours (float)         : now required
+scrum        / scrum.task               / progress (integer)            : now a function
+scrum        / scrum.task               / progress (integer)            : type is now 'float' ('integer')
+scrum        / scrum.task               / remaining_hours (float)       : NEW 
+scrum        / scrum.task               / start_sequence (boolean)      : DEL 
+scrum        / scrum.task               / state (selection)             : now required, default = function
+scrum        / scrum.task               / timebox_id (many2one)         : NEW relation: project.gtd.timebox
+---XML records in module 'scrum'---
+NEW ir.actions.act_window.view: scrum.action_view_scrum_task_form_view
+NEW ir.actions.act_window.view: scrum.action_view_scrum_task_tree_view
+NEW ir.model.access: scrum.access_scrum_meeting
+NEW ir.model.access: scrum.access_scrum_meeting_manager
+NEW ir.model.access: scrum.access_scrum_product_backlog
+NEW ir.model.access: scrum.access_scrum_product_backlog_manager
+NEW ir.model.access: scrum.access_scrum_project
+NEW ir.model.access: scrum.access_scrum_project_manager
+NEW ir.model.access: scrum.access_scrum_sprint
+NEW ir.model.access: scrum.access_scrum_sprint_manager
+NEW ir.model.access: scrum.access_scrum_task
+NEW ir.model.access: scrum.access_scrum_team
+NEW ir.ui.menu: scrum.next_id_67
+DEL ir.ui.view: scrum.view_task_tree
+NEW process.node: scrum.process_node_productbacklog0
+NEW process.transition: scrum.process_transition_backlogtask0

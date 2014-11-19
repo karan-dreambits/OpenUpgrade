@@ -1,0 +1,15 @@
+---Fields in module 'analytic_journal_billing_rate'---
+analytic_journal_billing_rate / account.analytic.account / journal_rate_ids (one2many)   : NEW relation: analytic_journal_rate_grid
+analytic_journal_billing_rate / analytic_journal_rate_grid / account_id (many2one)         : NEW relation: account.analytic.account, required: required
+analytic_journal_billing_rate / analytic_journal_rate_grid / journal_id (many2one)         : NEW relation: account.analytic.journal, required: required
+analytic_journal_billing_rate / analytic_journal_rate_grid / rate_id (many2one)            : NEW relation: hr_timesheet_invoice.factor
+---XML records in module 'analytic_journal_billing_rate'---
+NEW ir.model.access: analytic_journal_billing_rate.access_analytic_journal_rate_account_manager
+NEW ir.model.access: analytic_journal_billing_rate.access_analytic_journal_rate_manager
+NEW ir.model.access: analytic_journal_billing_rate.access_analytic_journal_rate_user
+NEW ir.ui.view: analytic_journal_billing_rate.analytic_journal_rate_grid_form
+NEW ir.ui.view: analytic_journal_billing_rate.analytic_journal_rate_grid_tree
+NEW ir.ui.view: analytic_journal_billing_rate.hr_timesheet_line_form_inherit
+NEW ir.ui.view: analytic_journal_billing_rate.hr_timesheet_line_form_inherit_2
+NEW ir.ui.view: analytic_journal_billing_rate.hr_timesheet_sheet_form_inherit
+NEW ir.ui.view: analytic_journal_billing_rate.view_account_analytic_account_form_inherit

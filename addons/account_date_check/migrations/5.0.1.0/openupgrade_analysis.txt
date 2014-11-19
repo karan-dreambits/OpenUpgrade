@@ -1,0 +1,4 @@
+---Fields in module 'account_date_check'---
+account_date_check / account.journal          / allow_date (boolean)          : NEW 
+---XML records in module 'account_date_check'---
+NEW ir.ui.view: account_date_check.view_account_journal_form_inherit2

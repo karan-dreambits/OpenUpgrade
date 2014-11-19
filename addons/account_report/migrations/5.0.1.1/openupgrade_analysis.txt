@@ -1,0 +1,28 @@
+---Fields in module 'account_report'---
+account_report / account.report.history   / fiscalyear_id (many2one)      : NEW relation: account.fiscalyear
+account_report / account.report.history   / name (many2one)               : NEW relation: account.report.report
+account_report / account.report.history   / period_id (many2one)          : NEW relation: account.period
+account_report / account.report.history   / tmp (integer)                 : NEW 
+account_report / account.report.report    / badness_limit (float)         : NEW 
+account_report / account.report.report    / color_back (selection)        : DEL selection_keys: ['', 'blue', 'cyan', 'green', 'lightblue', 'orange', 'pink', 'red', 'yellow']
+account_report / account.report.report    / color_font (selection)        : DEL selection_keys: ['', 'blue', 'cyan', 'green', 'lightblue', 'orange', 'pink', 'red', 'yellow']
+account_report / account.report.report    / disp_graph (boolean)          : NEW 
+account_report / account.report.report    / disp_tree (boolean)           : NEW 
+account_report / account.report.report    / expression_status (char)      : DEL required: required
+account_report / account.report.report    / goodness_limit (float)        : NEW 
+account_report / account.report.report    / status (selection)            : selection_keys is now '['bad', 'good', 'normal', 'very bad', 'very good']' ('['bad', 'excellent', 'good', 'normal', 'very bad']')
+account_report / account.report.report    / style (selection)             : DEL required: required, selection_keys: ['1', '2', '3', '4', '5', '6'], req_default: function
+account_report / account.report.report    / type (selection)              : selection_keys is now '['fiscal', 'indicator', 'other', 'view']' ('['fiscal', 'indicator', 'other']')
+---XML records in module 'account_report'---
+NEW ir.actions.act_window: account_report.account_report_history_record_structure
+NEW ir.actions.report.xml: account_report.report_indicator_pdf
+NEW ir.actions.report.xml: account_report.report_print_indicators
+NEW ir.actions.wizard: account_report.wizard_indicators_with_pdf
+NEW ir.actions.wizard: account_report.wizard_print_indicators
+NEW ir.model.access: account_report.access_account_report_history
+NEW ir.model.access: account_report.access_account_report_report
+NEW ir.ui.menu: account_report.menu_wizard_print_indicators
+NEW ir.ui.view: account_report.account_report_history_form
+NEW ir.ui.view: account_report.account_report_history_graph
+NEW ir.ui.view: account_report.account_report_history_tree
+NEW ir.values: account_report.ir_open_account_history_view

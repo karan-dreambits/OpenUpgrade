@@ -1,0 +1,20 @@
+---Fields in module 'analytic_user_function'---
+analytic_user_function / account.analytic.account / user_product_ids (one2many)   : NEW relation: analytic_user_funct_grid
+analytic_user_function / analytic_user_funct_grid / account_id (many2one)         : NEW relation: account.analytic.account, required: required
+analytic_user_function / analytic_user_funct_grid / product_id (many2one)         : NEW relation: product.product, required: required
+analytic_user_function / analytic_user_funct_grid / user_id (many2one)            : NEW relation: res.users, required: required
+---XML records in module 'analytic_user_function'---
+NEW ir.model.access: analytic_user_function.access_analytic_user_funct_account_manager
+NEW ir.model.access: analytic_user_function.access_analytic_user_funct_grid_hr_manager
+NEW ir.model.access: analytic_user_function.access_analytic_user_funct_grid_hr_user
+NEW ir.model.access: analytic_user_function.access_analytic_user_funct_manager
+NEW ir.model.access: analytic_user_function.access_analytic_user_funct_user
+NEW ir.ui.view: analytic_user_function.analytic_user_funct_grid_form
+NEW ir.ui.view: analytic_user_function.analytic_user_funct_grid_tree
+NEW ir.ui.view: analytic_user_function.hr_timesheet_line_form_inherit
+NEW ir.ui.view: analytic_user_function.hr_timesheet_line_form_inherit_2
+NEW ir.ui.view: analytic_user_function.hr_timesheet_line_tree_inherit
+NEW ir.ui.view: analytic_user_function.hr_timesheet_line_tree_inherit_2
+NEW ir.ui.view: analytic_user_function.hr_timesheet_sheet_form_inherit
+NEW ir.ui.view: analytic_user_function.hr_timesheet_sheet_form_inherit1
+NEW ir.ui.view: analytic_user_function.view_account_analytic_account_form_inherit

@@ -1,0 +1,60 @@
+---Fields in module 'account_analytic_plans'---
+account_analytic_plans / account.analytic.default / analytics_id (many2one)       : NEW relation: account.analytic.plan.instance
+account_analytic_plans / account.analytic.plan    / default_instance_id (many2one): NEW relation: account.analytic.plan.instance
+account_analytic_plans / account.analytic.plan    / name (char)                   : NEW required: required
+account_analytic_plans / account.analytic.plan    / plan_ids (one2many)           : NEW relation: account.analytic.plan.line
+account_analytic_plans / account.analytic.plan.instance / account1_ids (one2many)       : NEW relation: account.analytic.plan.instance.line
+account_analytic_plans / account.analytic.plan.instance / account2_ids (one2many)       : NEW relation: account.analytic.plan.instance.line
+account_analytic_plans / account.analytic.plan.instance / account3_ids (one2many)       : NEW relation: account.analytic.plan.instance.line
+account_analytic_plans / account.analytic.plan.instance / account4_ids (one2many)       : NEW relation: account.analytic.plan.instance.line
+account_analytic_plans / account.analytic.plan.instance / account5_ids (one2many)       : NEW relation: account.analytic.plan.instance.line
+account_analytic_plans / account.analytic.plan.instance / account6_ids (one2many)       : NEW relation: account.analytic.plan.instance.line
+account_analytic_plans / account.analytic.plan.instance / account_ids (one2many)        : NEW relation: account.analytic.plan.instance.line
+account_analytic_plans / account.analytic.plan.instance / code (char)                   : NEW 
+account_analytic_plans / account.analytic.plan.instance / journal_id (many2one)         : NEW relation: account.analytic.journal, required: required, req_default: function
+account_analytic_plans / account.analytic.plan.instance / name (char)                   : NEW 
+account_analytic_plans / account.analytic.plan.instance / plan_id (many2one)            : NEW relation: account.analytic.plan
+account_analytic_plans / account.analytic.plan.instance.line / analytic_account_id (many2one): NEW relation: account.analytic.account, required: required
+account_analytic_plans / account.analytic.plan.instance.line / plan_id (many2one)            : NEW relation: account.analytic.plan.instance
+account_analytic_plans / account.analytic.plan.instance.line / rate (float)                  : NEW required: required
+account_analytic_plans / account.analytic.plan.line / max_required (float)          : NEW 
+account_analytic_plans / account.analytic.plan.line / min_required (float)          : NEW 
+account_analytic_plans / account.analytic.plan.line / name (char)                   : NEW required: required
+account_analytic_plans / account.analytic.plan.line / plan_id (many2one)            : NEW relation: account.analytic.plan
+account_analytic_plans / account.analytic.plan.line / root_analytic_id (many2one)   : NEW relation: account.analytic.account, required: required
+account_analytic_plans / account.analytic.plan.line / sequence (integer)            : NEW 
+account_analytic_plans / account.invoice.line     / analytics_id (many2one)       : NEW relation: account.analytic.plan.instance
+account_analytic_plans / account.journal          / plan_id (many2one)            : NEW relation: account.analytic.plan
+account_analytic_plans / account.move.line        / analytics_id (many2one)       : NEW relation: account.analytic.plan.instance
+---XML records in module 'account_analytic_plans'---
+NEW account.journal.column: account.journal_col11
+NEW ir.actions.act_window: account_analytic_plans.account_analytic_instance_model_open
+NEW ir.actions.act_window: account_analytic_plans.account_analytic_plan_form_action
+NEW ir.actions.act_window: account_analytic_plans.account_analytic_plan_instance_action
+NEW ir.actions.report.xml: account_analytic_plans.account_analytic_account_crossovered_analytic
+NEW ir.actions.wizard: account_analytic_plans.account_analytic_account_inverted_balance_report
+NEW ir.actions.wizard: account_analytic_plans.create_model
+NEW ir.model.access: account_analytic_plans.access_account_analytic_plan
+NEW ir.model.access: account_analytic_plans.access_account_analytic_plan_instance
+NEW ir.model.access: account_analytic_plans.access_account_analytic_plan_instance_line
+NEW ir.model.access: account_analytic_plans.access_account_analytic_plan_instance_line_manager
+NEW ir.model.access: account_analytic_plans.access_account_analytic_plan_instance_manager
+NEW ir.model.access: account_analytic_plans.access_account_analytic_plan_line
+NEW ir.model.access: account_analytic_plans.access_account_analytic_plan_line_invoice
+NEW ir.ui.menu: account_analytic_plans.menu_account_analytic_plan_action
+NEW ir.ui.menu: account_analytic_plans.menu_account_analytic_plan_instance_action
+NEW ir.ui.view: account_analytic_plans.account_analytic_plan_form
+NEW ir.ui.view: account_analytic_plans.account_analytic_plan_instance_form
+NEW ir.ui.view: account_analytic_plans.account_analytic_plan_instance_line_form
+NEW ir.ui.view: account_analytic_plans.account_analytic_plan_instance_line_tree
+NEW ir.ui.view: account_analytic_plans.account_analytic_plan_instance_tree
+NEW ir.ui.view: account_analytic_plans.account_analytic_plan_line_form
+NEW ir.ui.view: account_analytic_plans.account_analytic_plan_line_tree
+NEW ir.ui.view: account_analytic_plans.account_analytic_plan_tree
+NEW ir.ui.view: account_analytic_plans.invoice_supplier_form_inherit
+NEW ir.ui.view: account_analytic_plans.view_account_journal_form_inherit
+NEW ir.ui.view: account_analytic_plans.view_account_move_form_inherit
+NEW ir.ui.view: account_analytic_plans.view_default_inherit_form
+NEW ir.ui.view: account_analytic_plans.view_default_inherit_tree
+NEW ir.ui.view: account_analytic_plans.view_invoice_line_form_inherit
+NEW ir.ui.view: account_analytic_plans.view_move_line_form_inherit

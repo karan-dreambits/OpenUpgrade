@@ -1,0 +1,5 @@
+---Fields in module 'report_mrp'---
+---XML records in module 'report_mrp'---
+NEW ir.model.access: report_mrp.access_report_mrp_inout
+NEW ir.model.access: report_mrp.access_report_workcenter_load
+NEW ir.ui.menu: report_mrp.next_id_77

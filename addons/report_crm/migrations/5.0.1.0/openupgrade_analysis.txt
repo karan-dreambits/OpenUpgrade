@@ -1,0 +1,32 @@
+---Fields in module 'report_crm'---
+report_crm   / report.crm.case.section  / delay_close (char)            : NEW 
+report_crm   / report.crm.case.section  / name (date)                   : NEW 
+report_crm   / report.crm.case.section  / nbr_cases (integer)           : NEW 
+report_crm   / report.crm.case.section  / section_id (many2one)         : NEW relation: crm.case.section
+report_crm   / report.crm.case.service.dashboard / create_date (datetime)        : NEW 
+report_crm   / report.crm.case.service.dashboard / date (datetime)               : NEW 
+report_crm   / report.crm.case.service.dashboard / date_closed (datetime)        : NEW 
+report_crm   / report.crm.case.service.dashboard / date_deadline (datetime)      : NEW 
+report_crm   / report.crm.case.service.dashboard / name (char)                   : NEW 
+report_crm   / report.crm.case.service.dashboard / partner_id (many2one)         : NEW relation: res.partner
+report_crm   / report.crm.case.service.dashboard / planned_cost (float)          : NEW 
+report_crm   / report.crm.case.service.dashboard / planned_revenue (float)       : NEW 
+report_crm   / report.crm.case.service.dashboard / priority (char)               : NEW 
+report_crm   / report.crm.case.service.dashboard / state (selection)             : NEW selection_keys: ['cancel', 'done', 'draft', 'open', 'pending']
+report_crm   / report.crm.case.service.dashboard / user_id (many2one)            : NEW relation: res.users
+---XML records in module 'report_crm'---
+NEW ir.actions.act_window: report_crm.action_report_crm_case_section_tree
+NEW ir.actions.act_window: report_crm.action_view_closed_crm_case_dashboard
+NEW ir.actions.act_window: report_crm.action_view_open_crm_case_dashboard
+NEW ir.model.access: report_crm.access_repor_crm_case_section
+NEW ir.model.access: report_crm.access_report_crm_case_categ
+NEW ir.model.access: report_crm.access_report_crm_case_service_dashboard
+NEW ir.model.access: report_crm.access_report_crm_case_user
+NEW ir.ui.menu: crm.next_id_52
+NEW ir.ui.menu: report_crm.next_id_64
+NEW ir.ui.menu: report_crm.next_id_65
+NEW ir.ui.menu: report_crm.next_id_66
+NEW ir.ui.view: report_crm.board_view_crm_case_done_dashboard_tree
+NEW ir.ui.view: report_crm.board_view_crm_case_open_dashboard_tree
+NEW ir.ui.view: report_crm.view_report_crm_case_section_graph
+NEW ir.ui.view: report_crm.view_report_crm_case_section_tree

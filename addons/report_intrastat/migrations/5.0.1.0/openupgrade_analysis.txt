@@ -1,0 +1,12 @@
+---Fields in module 'report_intrastat'---
+report_intrastat / report.intrastat         / name (date)                   : relation is now 'account.period' ('False')
+report_intrastat / report.intrastat         / name (date)                   : type is now 'many2one' ('date')
+report_intrastat / report.intrastat         / ref (char)                    : NEW 
+report_intrastat / report.intrastat         / supply_units (float)          : NEW 
+---XML records in module 'report_intrastat'---
+NEW ir.actions.report.xml: report_intrastat.invoice_intrastat_id
+NEW ir.model.access: report_intrastat.access_report_intrastat
+NEW ir.model.access: report_intrastat.access_report_intrastat_code
+NEW ir.model.access: report_intrastat.access_report_intrastat_code_product_manager
+NEW ir.ui.menu: report_intrastat.next_id_89
+NEW ir.ui.menu: report_intrastat.next_id_90

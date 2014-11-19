@@ -1,0 +1,89 @@
+---Fields in module 'project'---
+project      / project.project          / mode (selection)              : DEL selection_keys: ['', 'effective', 'hour', 'project']
+project      / project.project          / pricelist_id (many2one)       : DEL relation: product.pricelist
+project      / project.project          / state (selection)             : selection_keys is now '['cancelled', 'done', 'open', 'pending', 'template']' ('['cancelled', 'done', 'open', 'pending']')
+project      / project.project          / tariff (float)                : DEL 
+project      / project.project          / tax_ids (many2many)           : DEL relation: account.tax
+project      / project.task             / billable (boolean)            : DEL 
+project      / project.task             / child_ids (one2many)          : NEW relation: project.task
+project      / project.task             / cust_desc (text)              : DEL 
+project      / project.task             / invoice_id (many2one)         : DEL relation: account.invoice
+project      / project.task             / parent_id (many2one)          : NEW relation: project.task
+project      / project.task             / planned_hours (float)         : now required
+project      / project.task             / progress (integer)            : now a function
+project      / project.task             / progress (integer)            : type is now 'float' ('integer')
+project      / project.task             / remaining_hours (float)       : NEW 
+project      / project.task             / start_sequence (boolean)      : DEL 
+project      / project.task             / state (selection)             : now required, default = function
+project      / project.task.work        / task_id (many2one)            : now required
+project      / res.company              / project_time_mode (selection) : NEW selection_keys: ['day', 'hours', 'month', 'week']
+---XML records in module 'project'---
+NEW ir.actions.act_window: project.act_project_project_2_project_task_all
+NEW ir.actions.act_window: project.act_project_project_2_project_task_new
+NEW ir.actions.act_window: project.action_config_compute_remaining
+NEW ir.actions.act_window: project.action_view_task5_prog_draft
+NEW ir.actions.act_window: project.action_view_task5_prog_prog
+NEW ir.actions.act_window: project.action_view_task_new
+NEW ir.actions.act_window: project.open_view_my_project_my_run
+NEW ir.actions.act_window: project.open_view_project_all
+NEW ir.actions.act_window: project.open_view_template_project
+DEL ir.actions.act_window: project.action_view_task2
+DEL ir.actions.act_window: project.action_view_task3
+DEL ir.actions.act_window: project.action_view_task5
+DEL ir.actions.act_window: project.action_view_task6
+DEL ir.actions.act_window: project.open_view_all_project
+DEL ir.actions.act_window: project.open_view_all_project_unclosed
+DEL ir.actions.act_window: project.open_view_all_project_unclosed_open
+DEL ir.actions.act_window: project.open_view_my_project_open_unclosed
+DEL ir.actions.report.xml: project.report_project_desc
+NEW ir.actions.wizard: project.wizard_attachment_task
+NEW ir.actions.wizard: project.wizard_delegate_task
+DEL ir.actions.wizard: project.wizard_billing
+NEW ir.model.access: project.access_config_compute_remaining
+NEW ir.model.access: project.access_config_compute_remaining_manager
+NEW ir.model.access: project.access_project_project
+NEW ir.model.access: project.access_project_project_manager
+NEW ir.model.access: project.access_project_task
+NEW ir.model.access: project.access_project_task_manager
+NEW ir.model.access: project.access_project_task_type
+NEW ir.model.access: project.access_project_task_type_user
+NEW ir.model.access: project.access_project_task_work
+NEW ir.model.access: project.access_project_task_work_manager
+NEW ir.ui.menu: project.menu_action_view_task_new
+NEW ir.ui.menu: project.menu_open_view_my_project_my_run
+NEW ir.ui.menu: project.menu_open_view_project_all
+NEW ir.ui.menu: project.menu_tasks
+NEW ir.ui.menu: project.menu_tasks_yours_prog_draft
+NEW ir.ui.menu: project.menu_tasks_yours_prog_prog
+NEW ir.ui.menu: project.menu_template_project
+DEL ir.ui.menu: project.menu_action_view_task2
+DEL ir.ui.menu: project.menu_action_view_task3
+DEL ir.ui.menu: project.menu_action_view_task6
+DEL ir.ui.menu: project.menu_all_project_unclosed
+DEL ir.ui.menu: project.menu_all_project_unclosed_open
+DEL ir.ui.menu: project.menu_open_view_my_project_open_unclosed
+DEL ir.ui.menu: project.menu_tasks_yours
+NEW ir.ui.view: project.my_pending_task
+NEW ir.ui.view: project.task_company
+NEW ir.ui.view: project.view_config_compute_remaining
+NEW ir.ui.view: project.view_project_list
+NEW ir.ui.view: project.view_project_task_graph
+NEW ir.ui.view: project.view_task_gantt
+NEW process.node: project.process_node_donetask0
+NEW process.node: project.process_node_drafttask0
+NEW process.node: project.process_node_opentask0
+NEW process.node: project.process_node_taskbydelegate0
+NEW process.node: project.process_node_triggerinvoice0
+NEW process.process: project.process_process_tasksprocess0
+NEW process.transition: project.process_transition_delegate0
+NEW process.transition: project.process_transition_draftopentask0
+NEW process.transition: project.process_transition_opendonetask0
+NEW process.transition: project.process_transition_taskinvoice0
+NEW process.transition.action: project.process_transition_action_draftcanceltask0
+NEW process.transition.action: project.process_transition_action_draftopentask0
+NEW process.transition.action: project.process_transition_action_opencanceltask0
+NEW process.transition.action: project.process_transition_action_opendrafttask0
+NEW process.transition.action: project.process_transition_action_openpendingtask0
+NEW res.groups: project.group_project_finance
+NEW res.groups: project.group_project_manager
+NEW res.groups: project.group_project_user

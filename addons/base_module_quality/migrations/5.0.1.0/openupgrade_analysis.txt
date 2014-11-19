@@ -1,0 +1,22 @@
+---Fields in module 'base_module_quality'---
+base_module_quality / module.quality.check     / check_detail_ids (one2many)   : NEW relation: module.quality.detail
+base_module_quality / module.quality.check     / final_score (char)            : NEW 
+base_module_quality / module.quality.check     / name (char)                   : NEW 
+base_module_quality / module.quality.detail    / detail (text)                 : NEW 
+base_module_quality / module.quality.detail    / message (char)                : NEW 
+base_module_quality / module.quality.detail    / name (char)                   : NEW 
+base_module_quality / module.quality.detail    / note (text)                   : NEW 
+base_module_quality / module.quality.detail    / ponderation (float)           : NEW 
+base_module_quality / module.quality.detail    / quality_check_id (many2one)   : NEW relation: module.quality.check
+base_module_quality / module.quality.detail    / score (float)                 : NEW 
+base_module_quality / module.quality.detail    / state (selection)             : NEW selection_keys: ['done', 'skipped']
+base_module_quality / module.quality.detail    / summary (text)                : NEW 
+---XML records in module 'base_module_quality'---
+NEW ir.actions.wizard: base_module_quality.create_quality_check_id
+NEW ir.actions.wizard: base_module_quality.quality_detail_save
+NEW ir.model.access: base_module_quality.access_module_quality_check
+NEW ir.model.access: base_module_quality.access_module_quality_detail
+NEW ir.ui.view: base_module_quality.view_wizard_quality_check_form
+NEW ir.ui.view: base_module_quality.view_wizard_quality_check_tree
+NEW ir.ui.view: base_module_quality.view_wizard_quality_detail_form
+NEW ir.ui.view: base_module_quality.view_wizard_quality_detail_tree

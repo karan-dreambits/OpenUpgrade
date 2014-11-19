@@ -1,0 +1,131 @@
+---Fields in module 'crm_configuration'---
+crm_configuration / crm.case                 / case_id (many2one)            : NEW relation: crm.case
+crm_configuration / crm.case                 / category2_id (many2one)       : NEW relation: crm.case.category2
+crm_configuration / crm.case                 / duration (float)              : NEW 
+crm_configuration / crm.case                 / note (text)                   : NEW 
+crm_configuration / crm.case                 / partner_mobile (char)         : NEW 
+crm_configuration / crm.case                 / partner_name (char)           : NEW 
+crm_configuration / crm.case                 / partner_name2 (char)          : NEW 
+crm_configuration / crm.case                 / partner_phone (char)          : NEW 
+crm_configuration / crm.case                 / stage_id (many2one)           : NEW relation: crm.case.stage
+crm_configuration / crm.case.category2       / name (char)                   : NEW required: required
+crm_configuration / crm.case.category2       / section_id (many2one)         : NEW relation: crm.case.section
+crm_configuration / crm.case.stage           / name (char)                   : NEW required: required
+crm_configuration / crm.case.stage           / section_id (many2one)         : NEW relation: crm.case.section
+crm_configuration / crm.case.stage           / sequence (integer)            : NEW 
+crm_configuration / report.crm.case.section.categ.categ2 / categ_id (many2one)           : NEW relation: crm.case.categ
+crm_configuration / report.crm.case.section.categ.categ2 / category2_id (many2one)       : NEW relation: crm.case.category2
+crm_configuration / report.crm.case.section.categ.categ2 / delay_close (char)            : NEW 
+crm_configuration / report.crm.case.section.categ.categ2 / name (date)                   : NEW 
+crm_configuration / report.crm.case.section.categ.categ2 / nbr (integer)                 : NEW 
+crm_configuration / report.crm.case.section.categ.categ2 / section_id (many2one)         : NEW relation: crm.case.section
+crm_configuration / report.crm.case.section.categ.categ2 / stage_id (many2one)           : NEW relation: crm.case.stage
+crm_configuration / report.crm.case.section.categ.categ2 / state (selection)             : NEW selection_keys: ['cancel', 'done', 'draft', 'open', 'pending']
+crm_configuration / report.crm.case.section.categ.categ2 / user_id (many2one)            : NEW relation: res.users
+crm_configuration / report.crm.case.section.categ.stage / categ_id (many2one)           : NEW relation: crm.case.categ
+crm_configuration / report.crm.case.section.categ.stage / delay_close (char)            : NEW 
+crm_configuration / report.crm.case.section.categ.stage / name (date)                   : NEW 
+crm_configuration / report.crm.case.section.categ.stage / nbr (integer)                 : NEW 
+crm_configuration / report.crm.case.section.categ.stage / section_id (many2one)         : NEW relation: crm.case.section
+crm_configuration / report.crm.case.section.categ.stage / stage_id (many2one)           : NEW relation: crm.case.stage
+crm_configuration / report.crm.case.section.categ.stage / state (selection)             : NEW selection_keys: ['cancel', 'done', 'draft', 'open', 'pending']
+crm_configuration / report.crm.case.section.categ.stage / user_id (many2one)            : NEW relation: res.users
+crm_configuration / report.crm.case.section.categ2 / amount_revenue (float)        : NEW 
+crm_configuration / report.crm.case.section.categ2 / category2_id (many2one)       : NEW relation: crm.case.category2
+crm_configuration / report.crm.case.section.categ2 / delay_close (char)            : NEW 
+crm_configuration / report.crm.case.section.categ2 / name (date)                   : NEW 
+crm_configuration / report.crm.case.section.categ2 / nbr (integer)                 : NEW 
+crm_configuration / report.crm.case.section.categ2 / section_id (many2one)         : NEW relation: crm.case.section
+crm_configuration / report.crm.case.section.categ2 / stage_id (many2one)           : NEW relation: crm.case.stage
+crm_configuration / report.crm.case.section.categ2 / state (selection)             : NEW selection_keys: ['cancel', 'done', 'draft', 'open', 'pending']
+crm_configuration / report.crm.case.section.categ2 / user_id (many2one)            : NEW relation: res.users
+crm_configuration / report.crm.case.section.stage / amount_revenue (float)        : NEW 
+crm_configuration / report.crm.case.section.stage / categ_id (many2one)           : NEW relation: crm.case.categ
+crm_configuration / report.crm.case.section.stage / delay_close (char)            : NEW 
+crm_configuration / report.crm.case.section.stage / name (date)                   : NEW 
+crm_configuration / report.crm.case.section.stage / nbr (integer)                 : NEW 
+crm_configuration / report.crm.case.section.stage / section_id (many2one)         : NEW relation: crm.case.section
+crm_configuration / report.crm.case.section.stage / stage_id (many2one)           : NEW relation: crm.case.stage
+crm_configuration / report.crm.case.section.stage / state (selection)             : NEW selection_keys: ['cancel', 'done', 'draft', 'open', 'pending']
+crm_configuration / report.crm.case.section.stage / user_id (many2one)            : NEW relation: res.users
+---XML records in module 'crm_configuration'---
+NEW ir.actions.act_window: crm_configuration.action_report_crm_case_section_categ_categ2_tree
+NEW ir.actions.act_window: crm_configuration.action_report_crm_case_section_categ_categ2_tree_month
+NEW ir.actions.act_window: crm_configuration.action_report_crm_case_section_categ_stage_tree
+NEW ir.actions.act_window: crm_configuration.action_report_crm_case_section_categ_stage_tree_month
+NEW ir.actions.act_window: crm_configuration.action_report_crm_case_section_categ_tree
+NEW ir.actions.act_window: crm_configuration.action_report_crm_case_section_categ_tree_month
+NEW ir.actions.act_window: crm_configuration.action_report_crm_case_section_stage_tree
+NEW ir.actions.act_window: crm_configuration.action_report_crm_case_section_stage_tree_month
+NEW ir.actions.act_window: crm_configuration.action_view_config_crm_menu
+NEW ir.actions.act_window: crm_configuration.crm_case_stage_act
+NEW ir.actions.todo: crm_configuration.config_wizard_step_case_section_menu
+NEW ir.actions.wizard: crm_configuration.wizard_crm_meeting
+NEW ir.actions.wizard: crm_configuration.wizard_crm_opportunity_set
+NEW ir.actions.wizard: crm_configuration.wizard_crm_partner_create
+NEW ir.model.access: crm_configuration.access_crm_case_category2_manager
+NEW ir.model.access: crm_configuration.access_crm_case_category2_user
+NEW ir.model.access: crm_configuration.access_crm_case_stage
+NEW ir.model.access: crm_configuration.access_crm_case_stage_manager
+NEW ir.model.access: crm_configuration.access_crm_menu_config_wizard
+NEW ir.model.access: crm_configuration.access_crm_menu_config_wizard system
+NEW ir.model.access: crm_configuration.access_report_crm_case_section_categ2
+NEW ir.model.access: crm_configuration.access_report_crm_case_section_categ_categ2
+NEW ir.model.access: crm_configuration.access_report_crm_case_section_categ_stage
+NEW ir.model.access: crm_configuration.access_report_crm_case_section_stage
+NEW ir.ui.menu: crm_configuration.menu_crm_case_section_categ_categ2_tree
+NEW ir.ui.menu: crm_configuration.menu_crm_case_section_categ_categ2_tree_month
+NEW ir.ui.menu: crm_configuration.menu_crm_case_section_categ_stage_tree
+NEW ir.ui.menu: crm_configuration.menu_crm_case_section_categ_stage_tree_month
+NEW ir.ui.menu: crm_configuration.menu_crm_case_section_categ_tree
+NEW ir.ui.menu: crm_configuration.menu_crm_case_section_categ_tree_month
+NEW ir.ui.menu: crm_configuration.menu_crm_case_section_stage_tree
+NEW ir.ui.menu: crm_configuration.menu_crm_case_section_stage_tree_month
+NEW ir.ui.menu: crm_configuration.menu_crm_case_stage_act
+NEW ir.ui.view: crm_configuration.crm_case_calendar_view
+NEW ir.ui.view: crm_configuration.crm_case_calendar_view11
+NEW ir.ui.view: crm_configuration.crm_case_calendar_view_fund
+NEW ir.ui.view: crm_configuration.crm_case_calendar_view_leads
+NEW ir.ui.view: crm_configuration.crm_case_calendar_view_meet
+NEW ir.ui.view: crm_configuration.crm_case_calendar_view_oppor
+NEW ir.ui.view: crm_configuration.crm_case_claims_calendar_view
+NEW ir.ui.view: crm_configuration.crm_case_claims_form_view
+NEW ir.ui.view: crm_configuration.crm_case_claims_tree_view
+NEW ir.ui.view: crm_configuration.crm_case_form_view
+NEW ir.ui.view: crm_configuration.crm_case_form_view11
+NEW ir.ui.view: crm_configuration.crm_case_form_view_fund
+NEW ir.ui.view: crm_configuration.crm_case_form_view_leads
+NEW ir.ui.view: crm_configuration.crm_case_form_view_meet
+NEW ir.ui.view: crm_configuration.crm_case_form_view_oppor
+NEW ir.ui.view: crm_configuration.crm_case_graph_view_fund
+NEW ir.ui.view: crm_configuration.crm_case_graph_view_stage_cost
+NEW ir.ui.view: crm_configuration.crm_case_phone_calendar_view
+NEW ir.ui.view: crm_configuration.crm_case_phone_form_view
+NEW ir.ui.view: crm_configuration.crm_case_phone_tree_view
+NEW ir.ui.view: crm_configuration.crm_case_stage_form
+NEW ir.ui.view: crm_configuration.crm_case_stage_tree
+NEW ir.ui.view: crm_configuration.crm_case_tree_view
+NEW ir.ui.view: crm_configuration.crm_case_tree_view11
+NEW ir.ui.view: crm_configuration.crm_case_tree_view_fund
+NEW ir.ui.view: crm_configuration.crm_case_tree_view_leads
+NEW ir.ui.view: crm_configuration.crm_case_tree_view_meet
+NEW ir.ui.view: crm_configuration.crm_case_tree_view_oppor
+NEW ir.ui.view: crm_configuration.view_config_crm_menu
+NEW ir.ui.view: crm_configuration.view_crm_case_section_categ_categ2_form
+NEW ir.ui.view: crm_configuration.view_crm_case_section_categ_categ2_tree
+NEW ir.ui.view: crm_configuration.view_crm_case_section_categ_form
+NEW ir.ui.view: crm_configuration.view_crm_case_section_categ_graph
+NEW ir.ui.view: crm_configuration.view_crm_case_section_categ_stage_form
+NEW ir.ui.view: crm_configuration.view_crm_case_section_categ_stage_tree
+NEW ir.ui.view: crm_configuration.view_crm_case_section_categ_tree
+NEW ir.ui.view: crm_configuration.view_crm_case_section_stage_form
+NEW ir.ui.view: crm_configuration.view_crm_case_section_stage_graph
+NEW ir.ui.view: crm_configuration.view_crm_case_section_stage_tree
+NEW process.node: crm_configuration.process_node_leads0
+NEW process.node: crm_configuration.process_node_meeting0
+NEW process.node: crm_configuration.process_node_opportunities0
+NEW process.node: crm_configuration.process_node_partner0
+NEW process.process: crm_configuration.process_process_contractprocess0
+NEW process.transition: crm_configuration.process_transition_leadopportunity0
+NEW process.transition: crm_configuration.process_transition_leadpartner0
+NEW process.transition: crm_configuration.process_transition_opportunitymeeting0

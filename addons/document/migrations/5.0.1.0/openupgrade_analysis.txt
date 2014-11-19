@@ -1,0 +1,88 @@
+---Fields in module 'document'---
+document     / document.directory       / child_ids (one2many)          : NEW relation: document.directory
+document     / document.directory       / content_ids (one2many)        : NEW relation: document.directory.content
+document     / document.directory       / create_date (datetime)        : NEW 
+document     / document.directory       / create_uid (many2one)         : NEW relation: res.users
+document     / document.directory       / domain (char)                 : NEW 
+document     / document.directory       / file_ids (one2many)           : NEW relation: ir.attachment
+document     / document.directory       / file_type (char)              : NEW 
+document     / document.directory       / group_ids (many2many)         : NEW relation: res.groups
+document     / document.directory       / name (char)                   : NEW required: required
+document     / document.directory       / parent_id (many2one)          : NEW relation: document.directory
+document     / document.directory       / ressource_id (integer)        : NEW 
+document     / document.directory       / ressource_parent_type_id (many2one): NEW relation: ir.model
+document     / document.directory       / ressource_tree (boolean)      : NEW 
+document     / document.directory       / ressource_type_id (many2one)  : NEW relation: ir.model
+document     / document.directory       / type (selection)              : NEW required: required, selection_keys: ['directory', 'ressource'], req_default: function
+document     / document.directory       / user_id (many2one)            : NEW relation: res.users
+document     / document.directory       / write_date (datetime)         : NEW 
+document     / document.directory       / write_uid (many2one)          : NEW relation: res.users
+document     / document.directory.content / directory_id (many2one)       : NEW relation: document.directory
+document     / document.directory.content / extension (selection)         : NEW required: required, selection_keys: function, req_default: function
+document     / document.directory.content / include_name (boolean)        : NEW 
+document     / document.directory.content / name (char)                   : NEW required: required
+document     / document.directory.content / report_id (many2one)          : NEW relation: ir.actions.report.xml
+document     / document.directory.content / sequence (integer)            : NEW 
+document     / document.directory.content / suffix (char)                 : NEW 
+document     / document.directory.content.type / active (boolean)              : NEW 
+document     / document.directory.content.type / code (char)                   : NEW 
+document     / document.directory.content.type / name (char)                   : NEW required: required
+document     / ir.attachment            / file_size (integer)           : NEW required: required, req_default: function
+document     / ir.attachment            / file_type (char)              : NEW 
+document     / ir.attachment            / group_ids (many2many)         : NEW relation: res.groups
+document     / ir.attachment            / index_content (text)          : NEW 
+document     / ir.attachment            / parent_id (many2one)          : NEW relation: document.directory
+document     / ir.attachment            / partner_id (many2one)         : NEW relation: res.partner
+document     / ir.attachment            / store_fname (char)            : NEW 
+document     / ir.attachment            / store_method (selection)      : NEW selection_keys: ['db', 'fs', 'link']
+document     / ir.attachment            / title (char)                  : NEW 
+document     / ir.attachment            / user_id (many2one)            : NEW relation: res.users
+document     / ir.attachment            / write_date (datetime)         : NEW 
+document     / ir.attachment            / write_uid (many2one)          : NEW relation: res.users
+document     / process.node             / directory_id (many2one)       : NEW relation: document.directory
+---XML records in module 'document'---
+NEW document.directory: document.dir_my_folder
+NEW document.directory: document.dir_partner
+NEW document.directory: document.dir_partner_category
+NEW document.directory: document.dir_personnal_folder
+NEW document.directory: document.dir_product
+NEW document.directory: document.dir_project
+NEW document.directory: document.dir_root
+NEW document.directory: document.dir_sale_order
+NEW document.directory: document.dir_sale_order_all
+NEW document.directory: document.dir_sale_order_quote
+NEW document.directory.content.type: document.pdf
+NEW ir.actions.act_window: document.action_config_auto_directory
+NEW ir.actions.act_window: document.action_document_directory_form
+NEW ir.actions.act_window: document.action_document_directory_tree
+NEW ir.actions.act_window: document.action_document_file_directory_form
+NEW ir.actions.act_window: document.action_document_file_form
+NEW ir.actions.todo: document.config_auto_directory
+NEW ir.actions.url: document.action_document_browse
+NEW ir.actions.wizard: document.wizard_document_browse
+NEW ir.model.access: document.access_document_configuation_wizard
+NEW ir.model.access: document.access_document_configuation_wizard_sytem
+NEW ir.model.access: document.access_document_directory_all
+NEW ir.model.access: document.access_document_directory_content_all
+NEW ir.model.access: document.access_document_directory_content_group_document_manager
+NEW ir.model.access: document.access_document_directory_content_group_system
+NEW ir.model.access: document.access_document_directory_content_type_group_document_manager
+NEW ir.model.access: document.access_document_directory_content_type_group_system
+NEW ir.model.access: document.access_document_directory_group_document_manager
+NEW ir.model.access: document.access_document_directory_group_system
+NEW ir.ui.menu: document.menu_document
+NEW ir.ui.menu: document.menu_document_browse
+NEW ir.ui.menu: document.menu_document_configuration
+NEW ir.ui.menu: document.menu_document_directories
+NEW ir.ui.menu: document.menu_document_directories_tree
+NEW ir.ui.menu: document.menu_document_files
+NEW ir.ui.view: document.view_attachment_form_inherit
+NEW ir.ui.view: document.view_auto_config_form
+NEW ir.ui.view: document.view_document_directory_form
+NEW ir.ui.view: document.view_document_directory_tree
+NEW ir.ui.view: document.view_document_file_form
+NEW ir.ui.view: document.view_document_file_tree
+NEW ir.ui.view: document.view_process_form_inherit1
+NEW ir.ui.view: document.view_process_node_form_inherit1
+NEW ir.values: document.ir_action_document_file_directory_form
+NEW res.groups: document.group_document_manager

@@ -1,0 +1,5 @@
+---Fields in module 'hr_timesheet_invoice'---
+---XML records in module 'hr_timesheet_invoice'---
+NEW ir.model.access: hr_timesheet_invoice.access_hr_timesheet_invoice_factor_acc_inv
+NEW ir.model.access: hr_timesheet_invoice.access_hr_timesheet_invoice_factor_hr_user
+NEW ir.ui.menu: hr.menu_hr_reporting

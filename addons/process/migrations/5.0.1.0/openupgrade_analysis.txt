@@ -1,0 +1,58 @@
+---Fields in module 'process'---
+process      / process.condition        / model_id (many2one)           : NEW relation: ir.model
+process      / process.condition        / model_states (char)           : NEW required: required
+process      / process.condition        / name (char)                   : NEW required: required
+process      / process.condition        / node_id (many2one)            : NEW relation: process.node, required: required
+process      / process.node             / condition_ids (one2many)      : NEW relation: process.condition
+process      / process.node             / flow_start (boolean)          : NEW 
+process      / process.node             / help_url (char)               : NEW 
+process      / process.node             / kind (selection)              : NEW required: required, selection_keys: ['state', 'subflow'], req_default: function
+process      / process.node             / menu_id (many2one)            : NEW relation: ir.ui.menu
+process      / process.node             / model_id (many2one)           : NEW relation: ir.model
+process      / process.node             / model_states (char)           : NEW 
+process      / process.node             / name (char)                   : NEW required: required
+process      / process.node             / note (text)                   : NEW 
+process      / process.node             / process_id (many2one)         : NEW relation: process.process, required: required
+process      / process.node             / subflow_id (many2one)         : NEW relation: process.process
+process      / process.node             / transition_in (one2many)      : NEW relation: process.transition
+process      / process.node             / transition_out (one2many)     : NEW relation: process.transition
+process      / process.process          / active (boolean)              : NEW 
+process      / process.process          / model_id (many2one)           : NEW relation: ir.model
+process      / process.process          / name (char)                   : NEW required: required
+process      / process.process          / node_ids (one2many)           : NEW relation: process.node
+process      / process.process          / note (text)                   : NEW 
+process      / process.transition       / action_ids (one2many)         : NEW relation: process.transition.action
+process      / process.transition       / name (char)                   : NEW required: required
+process      / process.transition       / note (text)                   : NEW 
+process      / process.transition       / role_ids (many2many)          : NEW relation: res.roles
+process      / process.transition       / source_node_id (many2one)     : NEW relation: process.node, required: required
+process      / process.transition       / target_node_id (many2one)     : NEW relation: process.node, required: required
+process      / process.transition       / transition_ids (many2many)    : NEW relation: workflow.transition
+process      / process.transition.action / action (char)                 : NEW 
+process      / process.transition.action / name (char)                   : NEW required: required
+process      / process.transition.action / state (selection)             : NEW required: required, selection_keys: ['action', 'dummy', 'object', 'workflow'], req_default: function
+process      / process.transition.action / transition_id (many2one)      : NEW relation: process.transition, required: required
+---XML records in module 'process'---
+NEW ir.actions.act_window: process.action_process_form
+NEW ir.actions.act_window: process.action_process_node_form
+NEW ir.actions.act_window: process.action_process_transition_form
+NEW ir.model.access: process.access_process_condition
+NEW ir.model.access: process.access_process_condition_manager
+NEW ir.model.access: process.access_process_node
+NEW ir.model.access: process.access_process_node_manager
+NEW ir.model.access: process.access_process_process
+NEW ir.model.access: process.access_process_process_manager
+NEW ir.model.access: process.access_process_transition
+NEW ir.model.access: process.access_process_transition_action
+NEW ir.model.access: process.access_process_transition_action_manager
+NEW ir.model.access: process.access_process_transition_manager
+NEW ir.ui.menu: process.menu_process
+NEW ir.ui.menu: process.menu_process_form
+NEW ir.ui.menu: process.menu_process_node_form
+NEW ir.ui.menu: process.menu_process_transition_form
+NEW ir.ui.view: process.view_process_form
+NEW ir.ui.view: process.view_process_node_form
+NEW ir.ui.view: process.view_process_node_tree
+NEW ir.ui.view: process.view_process_transition_form
+NEW ir.ui.view: process.view_process_transition_tree
+NEW ir.ui.view: process.view_process_tree

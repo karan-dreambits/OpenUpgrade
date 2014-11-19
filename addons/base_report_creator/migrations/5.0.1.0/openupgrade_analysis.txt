@@ -1,0 +1,41 @@
+---Fields in module 'base_report_creator'---
+base_report_creator / base_report_creator.report / active (boolean)              : NEW 
+base_report_creator / base_report_creator.report / field_ids (one2many)          : NEW relation: base_report_creator.report.fields
+base_report_creator / base_report_creator.report / filter_ids (one2many)         : NEW relation: base_report_creator.report.filter
+base_report_creator / base_report_creator.report / group_ids (many2many)         : NEW relation: res.groups
+base_report_creator / base_report_creator.report / model_ids (many2many)         : NEW relation: ir.model
+base_report_creator / base_report_creator.report / name (char)                   : NEW required: required
+base_report_creator / base_report_creator.report / state (selection)             : NEW required: required, selection_keys: ['draft', 'valid'], req_default: function
+base_report_creator / base_report_creator.report / type (selection)              : NEW required: required, selection_keys: ['list'], req_default: function
+base_report_creator / base_report_creator.report / view_graph_orientation (selection): NEW required: required, selection_keys: ['horz', 'vert'], req_default: function
+base_report_creator / base_report_creator.report / view_graph_type (selection)   : NEW required: required, selection_keys: ['bar', 'pie'], req_default: function
+base_report_creator / base_report_creator.report / view_type1 (selection)        : NEW required: required, selection_keys: ['calendar', 'form', 'graph', 'tree'], req_default: function
+base_report_creator / base_report_creator.report / view_type2 (selection)        : NEW selection_keys: ['', 'calendar', 'form', 'graph', 'tree']
+base_report_creator / base_report_creator.report / view_type3 (selection)        : NEW selection_keys: ['', 'calendar', 'form', 'graph', 'tree']
+base_report_creator / base_report_creator.report.fields / calendar_mode (selection)     : NEW selection_keys: ['', 'color', 'date_delay', 'date_end', 'date_start', 'date_stop']
+base_report_creator / base_report_creator.report.fields / field_id (many2one)           : NEW relation: ir.model.fields
+base_report_creator / base_report_creator.report.fields / graph_mode (selection)        : NEW selection_keys: ['', 'x', 'y']
+base_report_creator / base_report_creator.report.fields / group_method (selection)      : NEW required: required, selection_keys: ['avg', 'count', 'group', 'max', 'min', 'sum'], req_default: function
+base_report_creator / base_report_creator.report.fields / report_id (many2one)          : NEW relation: base_report_creator.report
+base_report_creator / base_report_creator.report.fields / sequence (integer)            : NEW 
+base_report_creator / base_report_creator.report.filter / condition (selection)         : NEW selection_keys: ['and', 'or']
+base_report_creator / base_report_creator.report.filter / expression (text)             : NEW required: required
+base_report_creator / base_report_creator.report.filter / name (char)                   : NEW required: required
+base_report_creator / base_report_creator.report.filter / report_id (many2one)          : NEW relation: base_report_creator.report
+---XML records in module 'base_report_creator'---
+NEW ir.actions.act_window: base_report_creator.base_report_creator_action
+NEW ir.actions.act_window: base_report_creator.base_report_creator_action_tree
+NEW ir.actions.wizard: base_report_creator.wizard_menu_create
+NEW ir.actions.wizard: base_report_creator.wizard_report_open
+NEW ir.actions.wizard: base_report_creator.wizard_set_filter_fields
+NEW ir.model.access: base_report_creator.access_base_report_creator_report
+NEW ir.model.access: base_report_creator.access_base_report_creator_report_fields
+NEW ir.model.access: base_report_creator.access_base_report_creator_report_filter
+NEW ir.ui.menu: base_report_creator.menu_base_report_creator_action
+NEW ir.ui.menu: base_report_creator.menu_base_report_creator_action_config
+NEW ir.ui.view: base.view_model_fields_tree
+NEW ir.ui.view: base_report_creator.base_report_creator_form
+NEW ir.ui.view: base_report_creator.base_report_creator_tree
+NEW ir.ui.view: base_report_creator.base_report_creator_tree_simple
+NEW ir.values: base_report_creator.ir_open_report
+NEW ir.values: base_report_creator.ir_open_report_multi

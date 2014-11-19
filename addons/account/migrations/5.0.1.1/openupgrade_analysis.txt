@@ -1,0 +1,507 @@
+---Fields in module 'account'---
+account      / account.account          / check_history (boolean)       : NEW 
+account      / account.account          / child_consol_ids (many2many)  : NEW relation: account.account
+account      / account.account          / child_id (many2many)          : now a function
+account      / account.account          / child_parent_ids (one2many)   : NEW relation: account.account
+account      / account.account          / close_method (selection)      : DEL required: required, selection_keys: ['balance', 'detail', 'none', 'unreconciled'], req_default: function
+account      / account.account          / code (char)                   : now required
+account      / account.account          / currency_mode (selection)     : NEW required: required, selection_keys: ['average', 'current'], req_default: function
+account      / account.account          / parent_id (many2many)         : type is now 'many2one' ('many2many')
+account      / account.account          / parent_left (integer)         : NEW 
+account      / account.account          / parent_right (integer)        : NEW 
+account      / account.account          / sign (selection)              : DEL required: required, selection_keys: [-1, 1], req_default: function
+account      / account.account          / type (selection)              : selection_keys is now '['closed', 'consolidation', 'other', 'payable', 'receivable', 'view']' ('function')
+account      / account.account          / user_type (many2one)          : NEW relation: account.account.type, required: required
+account      / account.account.template / child_parent_ids (one2many)   : NEW relation: account.account.template
+account      / account.account.template / code (char)                   : NEW 
+account      / account.account.template / currency_id (many2one)        : NEW relation: res.currency
+account      / account.account.template / name (char)                   : NEW required: required
+account      / account.account.template / note (text)                   : NEW 
+account      / account.account.template / parent_id (many2one)          : NEW relation: account.account.template
+account      / account.account.template / reconcile (boolean)           : NEW 
+account      / account.account.template / shortcut (char)               : NEW 
+account      / account.account.template / tax_ids (many2many)           : NEW relation: account.tax.template
+account      / account.account.template / type (selection)              : NEW required: required, selection_keys: ['closed', 'consolidation', 'other', 'payable', 'receivable', 'view'], req_default: function
+account      / account.account.template / user_type (many2one)          : NEW relation: account.account.type, required: required
+account      / account.account.type     / code_from (char)              : DEL 
+account      / account.account.type     / code_to (char)                : DEL 
+account      / account.account.type     / sign (selection)              : NEW required: required, selection_keys: [-1, 1], req_default: function
+account      / account.bank.statement.reconcile.line / name (char)                   : now required, default = function
+account      / account.budget.post      / account_ids (many2many)       : module is now 'account_budget' ('account')
+account      / account.budget.post      / code (char)                   : module is now 'account_budget' ('account')
+account      / account.budget.post      / dotation_ids (one2many)       : module is now 'account_budget' ('account')
+account      / account.budget.post      / name (char)                   : module is now 'account_budget' ('account')
+account      / account.budget.post      / sens (selection)              : DEL required: required, selection_keys: ['charge', 'produit'], req_default: function
+account      / account.budget.post.dotation / amount (float)                : module is now 'account_budget' ('account')
+account      / account.budget.post.dotation / name (char)                   : module is now 'account_budget' ('account')
+account      / account.budget.post.dotation / period_id (many2one)          : module is now 'account_budget' ('account')
+account      / account.budget.post.dotation / post_id (many2one)            : module is now 'account_budget' ('account')
+account      / account.budget.post.dotation / quantity (float)              : DEL 
+account      / account.chart.template   / account_root_id (many2one)    : NEW relation: account.account.template, required: required
+account      / account.chart.template   / bank_account_view_id (many2one): NEW relation: account.account.template, required: required
+account      / account.chart.template   / name (char)                   : NEW required: required
+account      / account.chart.template   / property_account_expense (many2one): NEW relation: account.account.template
+account      / account.chart.template   / property_account_expense_categ (many2one): NEW relation: account.account.template
+account      / account.chart.template   / property_account_income (many2one): NEW relation: account.account.template
+account      / account.chart.template   / property_account_income_categ (many2one): NEW relation: account.account.template
+account      / account.chart.template   / property_account_payable (many2one): NEW relation: account.account.template
+account      / account.chart.template   / property_account_receivable (many2one): NEW relation: account.account.template
+account      / account.chart.template   / tax_code_root_id (many2one)   : NEW relation: account.tax.code.template, required: required
+account      / account.chart.template   / tax_template_ids (one2many)   : NEW relation: account.tax.template
+account      / account.fiscal.position  / account_ids (one2many)        : NEW relation: account.fiscal.position.account
+account      / account.fiscal.position  / company_id (many2one)         : NEW relation: res.company
+account      / account.fiscal.position  / name (char)                   : NEW required: required
+account      / account.fiscal.position  / note (text)                   : NEW 
+account      / account.fiscal.position  / tax_ids (one2many)            : NEW relation: account.fiscal.position.tax
+account      / account.fiscal.position.account / account_dest_id (many2one)    : NEW relation: account.account, required: required
+account      / account.fiscal.position.account / account_src_id (many2one)     : NEW relation: account.account, required: required
+account      / account.fiscal.position.account / position_id (many2one)        : NEW relation: account.fiscal.position, required: required
+account      / account.fiscal.position.account.template / account_dest_id (many2one)    : NEW relation: account.account.template, required: required
+account      / account.fiscal.position.account.template / account_src_id (many2one)     : NEW relation: account.account.template, required: required
+account      / account.fiscal.position.account.template / position_id (many2one)        : NEW relation: account.fiscal.position.template, required: required
+account      / account.fiscal.position.tax / position_id (many2one)        : NEW relation: account.fiscal.position, required: required
+account      / account.fiscal.position.tax / tax_dest_id (many2one)        : NEW relation: account.tax
+account      / account.fiscal.position.tax / tax_src_id (many2one)         : NEW relation: account.tax, required: required
+account      / account.fiscal.position.tax.template / position_id (many2one)        : NEW relation: account.fiscal.position.template, required: required
+account      / account.fiscal.position.tax.template / tax_dest_id (many2one)        : NEW relation: account.tax.template
+account      / account.fiscal.position.tax.template / tax_src_id (many2one)         : NEW relation: account.tax.template, required: required
+account      / account.fiscal.position.template / account_ids (one2many)        : NEW relation: account.fiscal.position.account.template
+account      / account.fiscal.position.template / chart_template_id (many2one)  : NEW relation: account.chart.template, required: required
+account      / account.fiscal.position.template / name (char)                   : NEW required: required
+account      / account.fiscal.position.template / tax_ids (one2many)            : NEW relation: account.fiscal.position.tax.template
+account      / account.fiscalyear       / end_journal_period_id (many2one): NEW relation: account.journal.period
+account      / account.invoice          / fiscal_position (many2one)    : NEW relation: account.fiscal.position
+account      / account.invoice          / move_name (char)              : NEW 
+account      / account.invoice          / partner_bank (many2one)       : NEW relation: res.partner.bank
+account      / account.invoice          / state (selection)             : selection_keys is now '['cancel', 'draft', 'open', 'paid', 'proforma', 'proforma2']' ('['cancel', 'draft', 'open', 'paid', 'proforma']')
+account      / account.invoice.line     / origin (char)                 : NEW 
+account      / account.journal          / analytic_journal_id (many2one): NEW relation: account.analytic.journal
+account      / account.journal          / entry_posted (boolean)        : NEW 
+account      / account.journal          / group_invoice_lines (boolean) : NEW 
+account      / account.journal          / invoice_sequence_id (many2one): NEW relation: ir.sequence
+account      / account.journal          / refund_journal (boolean)      : NEW 
+account      / account.journal.period   / icon (string)                 : type is now 'char' ('string')
+account      / account.model            / legend (text)                 : NEW 
+account      / account.move             / date (date)                   : NEW required: required, req_default: function
+account      / account.move             / to_check (boolean)            : NEW 
+account      / account.move             / type (selection)              : NEW selection_keys: ['bank_pay_voucher', 'bank_rec_voucher', 'cont_voucher', 'journal_pur_voucher', 'journal_sale_vou', 'journal_voucher', 'pay_voucher', 'rec_voucher']
+account      / account.move.line        / account_tax_id (many2one)     : NEW relation: account.tax
+account      / account.move.line        / active (boolean)              : DEL 
+account      / account.move.line        / amount_taxed (float)          : NEW 
+account      / account.move.line        / analytic_account_id (many2one): NEW relation: account.analytic.account
+account      / account.move.line        / date (date)                   : now a function
+account      / account.move.line        / product_id (many2one)         : NEW relation: product.product
+account      / account.move.line        / product_uom_id (many2one)     : NEW relation: product.uom
+account      / account.move.line        / reconcile_partial_id (many2one): NEW relation: account.move.reconcile
+account      / account.move.reconcile   / line_partial_ids (one2many)   : NEW relation: account.move.line
+account      / account.payment.term     / name (char)                   : now required
+account      / account.payment.term.line / condition (selection)         : DEL required: required, selection_keys: ['end of month', 'net days'], req_default: function
+account      / account.payment.term.line / days2 (integer)               : NEW required: required, req_default: function
+account      / account.period           / special (boolean)             : NEW 
+account      / account.sequence.fiscalyear / fiscalyear_id (many2one)      : NEW relation: account.fiscalyear, required: required
+account      / account.sequence.fiscalyear / sequence_id (many2one)        : NEW relation: ir.sequence, required: required
+account      / account.sequence.fiscalyear / sequence_main_id (many2one)   : NEW relation: ir.sequence, required: required
+account      / account.tax              / description (char)            : NEW 
+account      / account.tax              / price_include (boolean)       : NEW 
+account      / account.tax              / type (selection)              : selection_keys is now '['balance', 'code', 'fixed', 'none', 'percent']' ('['code', 'fixed', 'none', 'percent']')
+account      / account.tax              / type_tax_use (selection)      : NEW required: required, selection_keys: ['all', 'purchase', 'sale'], req_default: function
+account      / account.tax.code         / notprintable (boolean)        : NEW 
+account      / account.tax.code.template / child_ids (one2many)          : NEW relation: account.tax.code.template
+account      / account.tax.code.template / code (char)                   : NEW 
+account      / account.tax.code.template / info (text)                   : NEW 
+account      / account.tax.code.template / name (char)                   : NEW required: required
+account      / account.tax.code.template / notprintable (boolean)        : NEW 
+account      / account.tax.code.template / parent_id (many2one)          : NEW relation: account.tax.code.template
+account      / account.tax.code.template / sign (float)                  : NEW required: required, req_default: function
+account      / account.tax.template     / account_collected_id (many2one): NEW relation: account.account.template
+account      / account.tax.template     / account_paid_id (many2one)    : NEW relation: account.account.template
+account      / account.tax.template     / amount (float)                : NEW required: required, req_default: function
+account      / account.tax.template     / applicable_type (selection)   : NEW required: required, selection_keys: ['code', 'true'], req_default: function
+account      / account.tax.template     / base_code_id (many2one)       : NEW relation: account.tax.code.template
+account      / account.tax.template     / base_sign (float)             : NEW 
+account      / account.tax.template     / chart_template_id (many2one)  : NEW relation: account.chart.template, required: required
+account      / account.tax.template     / child_depend (boolean)        : NEW 
+account      / account.tax.template     / description (char)            : NEW 
+account      / account.tax.template     / domain (char)                 : NEW 
+account      / account.tax.template     / include_base_amount (boolean) : NEW 
+account      / account.tax.template     / name (char)                   : NEW required: required
+account      / account.tax.template     / parent_id (many2one)          : NEW relation: account.tax.template
+account      / account.tax.template     / python_applicable (text)      : NEW 
+account      / account.tax.template     / python_compute (text)         : NEW 
+account      / account.tax.template     / python_compute_inv (text)     : NEW 
+account      / account.tax.template     / ref_base_code_id (many2one)   : NEW relation: account.tax.code.template
+account      / account.tax.template     / ref_base_sign (float)         : NEW 
+account      / account.tax.template     / ref_tax_code_id (many2one)    : NEW relation: account.tax.code.template
+account      / account.tax.template     / ref_tax_sign (float)          : NEW 
+account      / account.tax.template     / sequence (integer)            : NEW required: required, req_default: function
+account      / account.tax.template     / tax_code_id (many2one)        : NEW relation: account.tax.code.template
+account      / account.tax.template     / tax_group (selection)         : NEW selection_keys: ['other', 'vat']
+account      / account.tax.template     / tax_sign (float)              : NEW 
+account      / account.tax.template     / type (selection)              : NEW required: required, selection_keys: ['code', 'fixed', 'none', 'percent'], req_default: function
+account      / account.tax.template     / type_tax_use (selection)      : NEW required: required, selection_keys: ['all', 'purchase', 'sale'], req_default: function
+account      / fiscalyear.seq           / fiscalyear_id (many2one)      : NEW relation: account.fiscalyear, required: required
+account      / fiscalyear.seq           / journal_id (many2one)         : NEW relation: account.journal
+account      / fiscalyear.seq           / sequence_id (many2one)        : NEW relation: ir.sequence, required: required
+account      / ir.sequence              / fiscal_ids (one2many)         : NEW relation: account.sequence.fiscalyear
+account      / res.company              / overdue_msg (text)            : NEW 
+account      / res.partner              / property_account_payable (many2one): now required
+account      / res.partner              / property_account_receivable (many2one): now required
+account      / res.partner              / ref_companies (one2many)      : NEW relation: res.company
+---XML records in module 'account'---
+DEL account.account: account.a_expense
+DEL account.account: account.a_pay
+DEL account.account: account.a_recv
+DEL account.account: account.a_sale
+DEL account.account: account.cash
+DEL account.account: account.minimal_0
+DEL account.account.type: account.account_type_asset
+DEL account.account.type: account.account_type_cash
+DEL account.account.type: account.account_type_closed
+DEL account.account.type: account.account_type_equity
+DEL account.account.type: account.account_type_expense
+DEL account.account.type: account.account_type_income
+DEL account.account.type: account.account_type_payable
+DEL account.account.type: account.account_type_receivable
+DEL account.account.type: account.account_type_tax
+DEL account.account.type: account.account_type_view
+DEL account.journal: account.bank_journal
+DEL account.journal: account.expenses_journal
+DEL account.journal: account.sales_journal
+DEL account.journal: account.stock_journal
+NEW account.journal.column: account.bank_col10_multi
+NEW account.journal.column: account.bank_col11
+NEW account.journal.column: account.bank_col12
+NEW account.journal.column: account.bank_col17_multi
+NEW account.journal.column: account.bank_col18_multi
+NEW account.journal.column: account.bank_col1_multi
+NEW account.journal.column: account.bank_col23_multi
+NEW account.journal.column: account.bank_col2_multi
+NEW account.journal.column: account.bank_col3_multi
+NEW account.journal.column: account.bank_col4_multi
+NEW account.journal.column: account.bank_col5_multi
+NEW account.journal.column: account.bank_col6_multi
+NEW account.journal.column: account.bank_col7_multi
+NEW account.journal.column: account.bank_col9_multi
+NEW account.journal.column: account.journal_col10
+NEW account.journal.column: account.journal_col11
+NEW account.journal.view: account.account_journal_bank_view_multi
+NEW ir.actions.act_window: account.act_acc_analytic_acc_5_report_hr_timesheet_invoice_journal
+NEW ir.actions.act_window: account.act_account_invoice_account_move_unreconciled
+NEW ir.actions.act_window: account.act_account_partner_account_move_all
+NEW ir.actions.act_window: account.action_account_chart_template_form
+NEW ir.actions.act_window: account.action_account_config_wizard_form
+NEW ir.actions.act_window: account.action_account_fiscal_position_form
+NEW ir.actions.act_window: account.action_account_fiscal_position_template_form
+NEW ir.actions.act_window: account.action_account_tax_code_template_form
+NEW ir.actions.act_window: account.action_account_tax_template_form
+NEW ir.actions.act_window: account.action_account_template_form
+NEW ir.actions.act_window: account.action_bank_statement_tree2
+NEW ir.actions.act_window: account.action_invoice_tree1_new
+NEW ir.actions.act_window: account.action_invoice_tree2_new
+NEW ir.actions.act_window: account.action_invoice_tree3_new
+NEW ir.actions.act_window: account.action_invoice_tree4_new
+NEW ir.actions.act_window: account.action_move_line_form_encode_by_move
+NEW ir.actions.act_window: account.action_subscription_form_new
+NEW ir.actions.act_window: account.action_wizard_company_setup_form
+NEW ir.actions.act_window: account.action_wizard_multi_chart
+NEW ir.actions.act_window: account.analytic_account_form
+DEL ir.actions.act_window: account.action_account_budget_post_tree
+DEL ir.actions.act_window: account.action_account_tree2
+DEL ir.actions.act_window: account.action_move_journal_period_line_form
+DEL ir.actions.act_window: account.action_subscription_line_form_running
+DEL ir.actions.act_window: account.action_tax_tree
+DEL ir.actions.act_window: account.open_account_analytic_budget_post_form
+DEL ir.actions.act_window: account.open_budget_post_form
+DEL ir.actions.act_window: account.open_module_fiscal
+DEL ir.actions.act_window: account.open_module_journal
+DEL ir.actions.act_window: account.open_module_plan_ctbl
+DEL ir.actions.act_window: account.open_module_tree_accounting
+DEL ir.actions.act_window: account.open_module_tree_tva
+NEW ir.actions.act_window.view: account.act_res_partner_2_account_invoice_opened_view1
+NEW ir.actions.act_window.view: account.act_res_partner_2_account_invoice_opened_view2
+NEW ir.actions.act_window.view: account.action_invoice_tree1_view1
+NEW ir.actions.act_window.view: account.action_invoice_tree1_view2
+NEW ir.actions.act_window.view: account.action_invoice_tree3_view1
+NEW ir.actions.act_window.view: account.action_invoice_tree3_view2
+NEW ir.actions.report.xml: account.account_3rdparty_ledger_other
+DEL ir.actions.report.xml: account.account_analytic_budget_print
+DEL ir.actions.report.xml: account.account_budget
+NEW ir.actions.todo: account.config_fiscalyear
+NEW ir.actions.todo: account.config_wizard_account_base_setup_form
+NEW ir.actions.wizard: account.action_account_analytic_line
+NEW ir.actions.wizard: account.wizard_account_balance_report
+NEW ir.actions.wizard: account.wizard_account_use_model
+NEW ir.actions.wizard: account.wizard_analytic_account_chart
+NEW ir.actions.wizard: account.wizard_central_journal
+NEW ir.actions.wizard: account.wizard_fiscalyear_close_state
+NEW ir.actions.wizard: account.wizard_general_journal
+NEW ir.actions.wizard: account.wizard_general_ledger
+NEW ir.actions.wizard: account.wizard_line_account_use_model
+NEW ir.actions.wizard: account.wizard_open_closed_fiscalyear
+NEW ir.actions.wizard: account.wizard_paid_open
+NEW ir.actions.wizard: account.wizard_populate_statement_from_inv
+NEW ir.actions.wizard: account.wizard_print_journal
+NEW ir.actions.wizard: account.wizard_validate_account_moves
+NEW ir.actions.wizard: account.wizard_validate_account_moves_line
+DEL ir.actions.wizard: account.account_wizard_upgrade
+DEL ir.actions.wizard: account.wizard_account_analytic_budget_report
+DEL ir.actions.wizard: account.wizard_account_analytic_budget_spread
+DEL ir.actions.wizard: account.wizard_account_duplicate
+DEL ir.actions.wizard: account.wizard_budget_report
+DEL ir.actions.wizard: account.wizard_budget_spread
+DEL ir.actions.wizard: account.wizard_populate_payment_from_inv
+NEW ir.model.access: account.access_account_account
+NEW ir.model.access: account.access_account_account_manager
+NEW ir.model.access: account.access_account_account_partner_manager
+NEW ir.model.access: account.access_account_account_product_manager
+NEW ir.model.access: account.access_account_account_template
+NEW ir.model.access: account.access_account_account_type
+NEW ir.model.access: account.access_account_account_type_manager
+NEW ir.model.access: account.access_account_account_user
+NEW ir.model.access: account.access_account_analytic_account
+NEW ir.model.access: account.access_account_analytic_account_manager
+NEW ir.model.access: account.access_account_analytic_journal
+NEW ir.model.access: account.access_account_analytic_journal_manager
+NEW ir.model.access: account.access_account_analytic_line
+NEW ir.model.access: account.access_account_analytic_line_uinvoice
+NEW ir.model.access: account.access_account_bank_accounts_wizard
+NEW ir.model.access: account.access_account_bank_statement
+NEW ir.model.access: account.access_account_bank_statement_line
+NEW ir.model.access: account.access_account_bank_statement_reconcile
+NEW ir.model.access: account.access_account_bank_statement_reconcile_line
+NEW ir.model.access: account.access_account_chart_template
+NEW ir.model.access: account.access_account_config_wizard_account_manager
+NEW ir.model.access: account.access_account_config_wizard_system_manager
+NEW ir.model.access: account.access_account_fiscal_position
+NEW ir.model.access: account.access_account_fiscal_position_account
+NEW ir.model.access: account.access_account_fiscal_position_account_product_manager
+NEW ir.model.access: account.access_account_fiscal_position_account_template
+NEW ir.model.access: account.access_account_fiscal_position_product_manager
+NEW ir.model.access: account.access_account_fiscal_position_tax
+NEW ir.model.access: account.access_account_fiscal_position_tax_product_manager
+NEW ir.model.access: account.access_account_fiscal_position_tax_template
+NEW ir.model.access: account.access_account_fiscal_position_template
+NEW ir.model.access: account.access_account_fiscalyear
+NEW ir.model.access: account.access_account_fiscalyear_invoice
+NEW ir.model.access: account.access_account_fiscalyear_partner_manager
+NEW ir.model.access: account.access_account_fiscalyear_user
+NEW ir.model.access: account.access_account_invoice_group_invoice
+NEW ir.model.access: account.access_account_invoice_line_uinvoice
+NEW ir.model.access: account.access_account_invoice_tax_uinvoice
+NEW ir.model.access: account.access_account_invoice_uinvoice
+NEW ir.model.access: account.access_account_invoice_user
+NEW ir.model.access: account.access_account_journal
+NEW ir.model.access: account.access_account_journal_column
+NEW ir.model.access: account.access_account_journal_column_manager
+NEW ir.model.access: account.access_account_journal_invoice
+NEW ir.model.access: account.access_account_journal_manager
+NEW ir.model.access: account.access_account_journal_period
+NEW ir.model.access: account.access_account_journal_period_manager
+NEW ir.model.access: account.access_account_journal_period_uinvoice
+NEW ir.model.access: account.access_account_journal_product_manager
+NEW ir.model.access: account.access_account_journal_view
+NEW ir.model.access: account.access_account_journal_view_manager
+NEW ir.model.access: account.access_account_model
+NEW ir.model.access: account.access_account_model_line
+NEW ir.model.access: account.access_account_move
+NEW ir.model.access: account.access_account_move_line
+NEW ir.model.access: account.access_account_move_line_uinvoice
+NEW ir.model.access: account.access_account_move_reconcile
+NEW ir.model.access: account.access_account_move_reconcile_uinvoice
+NEW ir.model.access: account.access_account_move_uinvoice
+NEW ir.model.access: account.access_account_payment_term
+NEW ir.model.access: account.access_account_payment_term_line
+NEW ir.model.access: account.access_account_payment_term_line_manager
+NEW ir.model.access: account.access_account_payment_term_line_partner_manager
+NEW ir.model.access: account.access_account_payment_term_manager
+NEW ir.model.access: account.access_account_payment_term_partner_manager
+NEW ir.model.access: account.access_account_period
+NEW ir.model.access: account.access_account_period_invoice
+NEW ir.model.access: account.access_account_period_manager
+NEW ir.model.access: account.access_account_sequence_fiscal_year
+NEW ir.model.access: account.access_account_sequence_fiscal_year_user
+NEW ir.model.access: account.access_account_subscription
+NEW ir.model.access: account.access_account_subscription_line
+NEW ir.model.access: account.access_account_tax
+NEW ir.model.access: account.access_account_tax_code_manager
+NEW ir.model.access: account.access_account_tax_code_template
+NEW ir.model.access: account.access_account_tax_code_uinvoice
+NEW ir.model.access: account.access_account_tax_manager
+NEW ir.model.access: account.access_account_tax_template
+NEW ir.model.access: account.access_account_tax_uinvoice
+NEW ir.model.access: account.access_fiscalyear_seq
+NEW ir.model.access: account.access_report_hr_timesheet_invoice_journal
+NEW ir.model.access: account.access_res_currency_account_manager
+NEW ir.model.access: account.access_res_currency_rate_account_manager
+NEW ir.model.access: account.access_wizard_company_setup
+NEW ir.model.access: account.access_wizard_company_setup_manager
+NEW ir.model.access: account.access_wizard_company_setup_user
+NEW ir.model.access: account.access_wizard_multi_charts_accounts
+DEL ir.property: account.property_account_expense_categ
+DEL ir.property: account.property_account_expense_prd
+DEL ir.property: account.property_account_income_categ
+DEL ir.property: account.property_account_income_prd
+DEL ir.property: account.property_account_payable
+DEL ir.property: account.property_account_receivable
+DEL ir.property: account.property_account_tax
+NEW ir.sequence: account.sequence_purchase_journal
+NEW ir.sequence: account.sequence_sale_journal
+NEW ir.ui.menu: account.account_account_menu
+NEW ir.ui.menu: account.account_analytic_form
+NEW ir.ui.menu: account.account_template_folder
+NEW ir.ui.menu: account.menu_account_balance_report
+NEW ir.ui.menu: account.menu_account_end_year_treatments
+NEW ir.ui.menu: account.menu_account_use_model
+NEW ir.ui.menu: account.menu_action_account_chart_template_form
+NEW ir.ui.menu: account.menu_action_account_fiscal_position_form
+NEW ir.ui.menu: account.menu_action_account_fiscal_position_form_template
+NEW ir.ui.menu: account.menu_action_account_tax_code_template_form
+NEW ir.ui.menu: account.menu_action_account_tax_template_form
+NEW ir.ui.menu: account.menu_action_account_template_form
+NEW ir.ui.menu: account.menu_action_analytic_account_tree2
+NEW ir.ui.menu: account.menu_action_invoice_tree1_new
+NEW ir.ui.menu: account.menu_action_invoice_tree2_new
+NEW ir.ui.menu: account.menu_action_invoice_tree3_new
+NEW ir.ui.menu: account.menu_action_invoice_tree4_new
+NEW ir.ui.menu: account.menu_action_subscription_form_new
+NEW ir.ui.menu: account.menu_analytic_accounting
+NEW ir.ui.menu: account.menu_bank_statement_tree2
+NEW ir.ui.menu: account.menu_central_journal
+NEW ir.ui.menu: account.menu_encode_entries_by_move
+NEW ir.ui.menu: account.menu_finance
+NEW ir.ui.menu: account.menu_finance_accounting
+NEW ir.ui.menu: account.menu_finance_charts
+NEW ir.ui.menu: account.menu_finance_configuration
+NEW ir.ui.menu: account.menu_finance_entries
+NEW ir.ui.menu: account.menu_finance_invoice
+NEW ir.ui.menu: account.menu_finance_legal_statement
+NEW ir.ui.menu: account.menu_finance_periodical_processing
+NEW ir.ui.menu: account.menu_finance_recurrent_entries
+NEW ir.ui.menu: account.menu_finance_reporting
+NEW ir.ui.menu: account.menu_general_journal
+NEW ir.ui.menu: account.menu_general_ledger
+NEW ir.ui.menu: account.menu_generic_report
+NEW ir.ui.menu: account.menu_print_journal
+NEW ir.ui.menu: account.menu_tax_report
+NEW ir.ui.menu: account.menu_validate_account_moves
+NEW ir.ui.menu: account.menu_wizard
+NEW ir.ui.menu: account.menu_wizard_fy_close_state
+NEW ir.ui.menu: account.menu_wizard_open_closed_fy
+NEW ir.ui.menu: account.next_id_20
+NEW ir.ui.menu: account.next_id_22
+NEW ir.ui.menu: account.next_id_23
+NEW ir.ui.menu: account.next_id_27
+NEW ir.ui.menu: account.next_id_29
+NEW ir.ui.menu: account.next_id_30
+NEW ir.ui.menu: account.next_id_40
+NEW ir.ui.menu: account.next_id_41
+NEW ir.ui.menu: account.next_id_42
+NEW ir.ui.menu: account.next_id_43
+NEW ir.ui.menu: base.menu_action_currency_form
+DEL ir.ui.menu: account.account_analytic_chart
+DEL ir.ui.menu: account.menu_account_analytic_budget_post_form
+DEL ir.ui.menu: account.menu_accounting_modules
+DEL ir.ui.menu: account.menu_action_account_budget_post_tree
+DEL ir.ui.menu: account.menu_action_account_tree3
+DEL ir.ui.menu: account.menu_action_invoice_tree
+DEL ir.ui.menu: account.menu_action_move_journal_period_line_form
+DEL ir.ui.menu: account.menu_action_subscription_line_form_running
+DEL ir.ui.menu: account.menu_action_tax_tree
+DEL ir.ui.menu: account.menu_budget_post_form
+DEL ir.ui.menu: account.menu_fiscal_def
+DEL ir.ui.menu: account.menu_install_module
+DEL ir.ui.menu: account.menu_journal_def
+DEL ir.ui.menu: account.menu_plan_ctbl
+DEL ir.ui.menu: account.menu_tva_def
+NEW ir.ui.view: account.account_account_graph
+NEW ir.ui.view: account.analytic_accounts_graph
+NEW ir.ui.view: account.sequence_inherit_form
+NEW ir.ui.view: account.view_account_chart_template_form
+NEW ir.ui.view: account.view_account_chart_template_tree
+NEW ir.ui.view: account.view_account_config_wizard_form
+NEW ir.ui.view: account.view_account_journal_1
+NEW ir.ui.view: account.view_account_position_form
+NEW ir.ui.view: account.view_account_position_template_form
+NEW ir.ui.view: account.view_account_position_template_tree
+NEW ir.ui.view: account.view_account_position_tree
+NEW ir.ui.view: account.view_account_tax_template_form
+NEW ir.ui.view: account.view_account_tax_template_tree
+NEW ir.ui.view: account.view_account_template_form
+NEW ir.ui.view: account.view_account_template_tree
+NEW ir.ui.view: account.view_category_property_form
+NEW ir.ui.view: account.view_company_inherit_form
+NEW ir.ui.view: account.view_invoice_graph
+NEW ir.ui.view: account.view_invoice_line_calendar
+NEW ir.ui.view: account.view_partner_property_form
+NEW ir.ui.view: account.view_tax_code_template_form
+NEW ir.ui.view: account.view_tax_code_template_tree
+NEW ir.ui.view: account.view_wizard_multi_chart
+NEW ir.ui.view: account.wizard_company_setup_form
+DEL ir.ui.view: account.view_account_analytic_budget_post_dotation_form
+DEL ir.ui.view: account.view_account_analytic_budget_post_form
+DEL ir.ui.view: account.view_account_analytic_budget_post_tree
+DEL ir.ui.view: account.view_account_list
+DEL ir.ui.view: account.view_analytic_budget_post_dotation_tree
+DEL ir.ui.view: account.view_budget_post_dotation_form
+DEL ir.ui.view: account.view_budget_post_dotation_tree
+DEL ir.ui.view: account.view_budget_post_form
+DEL ir.ui.view: account.view_budget_post_tree
+DEL ir.ui.view: account.view_company_from_invoice
+DEL ir.ui.view: account.view_partner_form
+NEW process.node: account.process_node_accountingentries0
+NEW process.node: account.process_node_accountingstatemententries0
+NEW process.node: account.process_node_analytic0
+NEW process.node: account.process_node_analyticcost0
+NEW process.node: account.process_node_bankstatement0
+NEW process.node: account.process_node_draftinvoices0
+NEW process.node: account.process_node_draftstatement0
+NEW process.node: account.process_node_electronicfile0
+NEW process.node: account.process_node_importinvoice0
+NEW process.node: account.process_node_invoiceinvoice0
+NEW process.node: account.process_node_manually0
+NEW process.node: account.process_node_paidinvoice0
+NEW process.node: account.process_node_paymententries0
+NEW process.node: account.process_node_reconciliation0
+NEW process.node: account.process_node_supplieraccountingentries0
+NEW process.node: account.process_node_supplierbankstatement0
+NEW process.node: account.process_node_supplierdraftinvoices0
+NEW process.node: account.process_node_supplierinvoiceinvoice0
+NEW process.node: account.process_node_supplierpaidinvoice0
+NEW process.node: account.process_node_supplierpaymentorder0
+NEW process.node: account.process_node_supplierreconciliation0
+NEW process.process: account.process_process_invoiceprocess0
+NEW process.process: account.process_process_statementprocess0
+NEW process.process: account.process_process_supplierinvoiceprocess0
+NEW process.transition: account.process_transition_analyticinvoice0
+NEW process.transition: account.process_transition_confirmstatementfromdraft0
+NEW process.transition: account.process_transition_customerinvoice0
+NEW process.transition: account.process_transition_entriesreconcile0
+NEW process.transition: account.process_transition_filestatement0
+NEW process.transition: account.process_transition_invoiceimport0
+NEW process.transition: account.process_transition_invoicemanually0
+NEW process.transition: account.process_transition_paymentorderbank0
+NEW process.transition: account.process_transition_paymentorderreconcilation0
+NEW process.transition: account.process_transition_paymentreconcile0
+NEW process.transition: account.process_transition_reconcilepaid0
+NEW process.transition: account.process_transition_statemententries0
+NEW process.transition: account.process_transition_supplieranalyticcost0
+NEW process.transition: account.process_transition_suppliercustomerinvoice0
+NEW process.transition: account.process_transition_supplierentriesreconcile0
+NEW process.transition: account.process_transition_supplierreconcilepaid0
+NEW process.transition: account.process_transition_suppliervalidentries0
+NEW process.transition: account.process_transition_validentries0
+NEW process.transition.action: account.process_transition_action_createentries0
+NEW res.groups: account.group_account_invoice
+NEW res.groups: account.group_account_manager
+NEW res.groups: account.group_account_user
+NEW res.roles: account.res_role_period
+NEW res.roles: account.res_roles_invoice0
+NEW workflow.activity: account.act_open_test
+NEW workflow.activity: account.act_proforma2
+NEW workflow.transition: account.draft_to_pro2
+NEW workflow.transition: account.open_test_to_paid
+NEW workflow.transition: account.pro2_to_cancel
+NEW workflow.transition: account.pro2_to_open
+NEW workflow.transition: account.pro2_to_paid
+NEW workflow.transition: account.t13
+NEW workflow.transition: account.t14

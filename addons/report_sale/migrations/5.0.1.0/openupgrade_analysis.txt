@@ -1,0 +1,45 @@
+---Fields in module 'report_sale'---
+report_sale  / report.sale.order.created / amount_untaxed (float)        : NEW 
+report_sale  / report.sale.order.created / create_date (datetime)        : NEW 
+report_sale  / report.sale.order.created / date_order (date)             : NEW 
+report_sale  / report.sale.order.created / name (char)                   : NEW 
+report_sale  / report.sale.order.created / partner_id (many2one)         : NEW relation: res.partner
+report_sale  / report.sale.order.created / partner_shipping_id (many2one): NEW relation: res.partner.address
+report_sale  / report.sale.order.created / state (selection)             : NEW selection_keys: ['cancel', 'done', 'draft', 'invoice_except', 'manual', 'progress', 'shipping_except', 'waiting_date']
+report_sale  / report.turnover.per.month / name (date)                   : NEW 
+report_sale  / report.turnover.per.month / turnover (float)              : NEW 
+report_sale  / report.turnover.per.product / product_id (many2one)         : NEW relation: product.product
+report_sale  / report.turnover.per.product / turnover (float)              : NEW 
+---XML records in module 'report_sale'---
+NEW ir.actions.act_window: report_sale.action_so_pipeline
+NEW ir.actions.act_window: report_sale.action_turnover_month_tree
+NEW ir.actions.act_window: report_sale.action_turnover_product_tree
+NEW ir.actions.act_window: report_sale.action_view_created_sale_order_dashboard
+DEL ir.actions.act_window: report_sale.action_order_sale_quotation
+DEL ir.actions.act_window: report_sale.action_order_sale_uninvoiced
+DEL ir.actions.act_window: report_sale.action_order_sale_uninvoiced_shipped
+NEW ir.model.access: report_sale.access_report_sale_order_category
+NEW ir.model.access: report_sale.access_report_sale_order_category_user
+NEW ir.model.access: report_sale.access_report_sale_order_created
+NEW ir.model.access: report_sale.access_report_sale_order_created_user
+NEW ir.model.access: report_sale.access_report_sale_order_product
+NEW ir.model.access: report_sale.access_report_sale_order_product_user
+NEW ir.model.access: report_sale.access_report_turnover_per_month
+NEW ir.model.access: report_sale.access_report_turnover_per_month_user
+NEW ir.model.access: report_sale.access_report_turnover_per_product
+NEW ir.model.access: report_sale.access_report_turnover_per_product_user
+NEW ir.ui.menu: report_sale.next_id_80
+NEW ir.ui.menu: report_sale.next_id_81
+NEW ir.ui.menu: report_sale.next_id_82
+NEW ir.ui.menu: report_sale.next_id_83
+DEL ir.ui.menu: report_sale.menu_report_order_sale_quotation
+DEL ir.ui.menu: report_sale.menu_report_order_sale_uninvoiced
+DEL ir.ui.menu: report_sale.menu_report_order_sale_uninvoiced_shipped
+NEW ir.ui.view: report_sale.board_view_created_sale_order
+NEW ir.ui.view: report_sale.view_order_graph
+NEW ir.ui.view: report_sale.view_order_product_graph
+NEW ir.ui.view: report_sale.view_so_pipeline_graph
+NEW ir.ui.view: report_sale.view_turnover_month_graph
+NEW ir.ui.view: report_sale.view_turnover_month_tree
+NEW ir.ui.view: report_sale.view_turnover_product_graph
+NEW ir.ui.view: report_sale.view_turnover_product_tree

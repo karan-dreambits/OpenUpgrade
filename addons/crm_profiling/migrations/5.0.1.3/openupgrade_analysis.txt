@@ -1,0 +1,36 @@
+---Fields in module 'crm_profiling'---
+crm_profiling / crm.segmentation         / answer_no (many2many)         : NEW relation: crm_profiling.answer
+crm_profiling / crm.segmentation         / answer_yes (many2many)        : NEW relation: crm_profiling.answer
+crm_profiling / crm.segmentation         / child_ids (one2many)          : NEW relation: crm.segmentation
+crm_profiling / crm.segmentation         / parent_id (many2one)          : NEW relation: crm.segmentation
+crm_profiling / crm.segmentation         / profiling_active (boolean)    : NEW 
+crm_profiling / crm_profiling.answer     / name (char)                   : NEW required: required
+crm_profiling / crm_profiling.answer     / question_id (many2one)        : NEW relation: crm_profiling.question
+crm_profiling / crm_profiling.question   / answers_ids (one2many)        : NEW relation: crm_profiling.answer
+crm_profiling / crm_profiling.question   / name (char)                   : NEW required: required
+crm_profiling / crm_profiling.questionnaire / description (text)            : NEW required: required
+crm_profiling / crm_profiling.questionnaire / name (char)                   : NEW required: required
+crm_profiling / crm_profiling.questionnaire / questions_ids (many2many)     : NEW relation: crm_profiling.question
+crm_profiling / res.partner              / answers_ids (many2many)       : NEW relation: crm_profiling.answer
+---XML records in module 'crm_profiling'---
+NEW ir.actions.act_window: crm_profiling.open_questionnaires
+NEW ir.actions.act_window: crm_profiling.open_questions
+NEW ir.actions.wizard: crm_profiling.wizard_open_questionnaire
+NEW ir.model.access: crm_profiling.access_crm_profiling_answer
+NEW ir.model.access: crm_profiling.access_crm_profiling_answer_all
+NEW ir.model.access: crm_profiling.access_crm_profiling_answer_manager
+NEW ir.model.access: crm_profiling.access_crm_profiling_question
+NEW ir.model.access: crm_profiling.access_crm_profiling_question_manager
+NEW ir.model.access: crm_profiling.access_crm_profiling_questionnaire
+NEW ir.model.access: crm_profiling.access_crm_profiling_questionnaire_manager
+NEW ir.ui.menu: crm_profiling.menu_segm_answer
+NEW ir.ui.menu: crm_profiling.menu_segm_questionnaire
+NEW ir.ui.view: crm.crm_segmentation-view
+NEW ir.ui.view: crm_profiling.view_answer
+NEW ir.ui.view: crm_profiling.view_answer_form
+NEW ir.ui.view: crm_profiling.view_partner_crm_segmentation_tree
+NEW ir.ui.view: crm_profiling.view_partner_form
+NEW ir.ui.view: crm_profiling.view_question_form
+NEW ir.ui.view: crm_profiling.view_question_tree
+NEW ir.ui.view: crm_profiling.view_questionnaire_form
+NEW ir.ui.view: crm_profiling.view_questionnaire_tree

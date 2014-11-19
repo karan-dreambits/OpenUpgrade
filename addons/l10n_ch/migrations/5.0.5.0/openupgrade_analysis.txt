@@ -1,0 +1,72 @@
+---Fields in module 'l10n_ch'---
+l10n_ch      / account.journal.todo     / default_credit_account_id (many2one): NEW relation: account.account
+l10n_ch      / account.journal.todo     / default_debit_account_id (many2one): NEW relation: account.account
+l10n_ch      / account.journal.todo     / name (many2one)               : NEW relation: account.journal
+l10n_ch      / res.bank                 / clearing (char)               : NEW 
+l10n_ch      / res.company              / bvr_delta_horz (float)        : NEW 
+l10n_ch      / res.company              / bvr_delta_vert (float)        : NEW 
+l10n_ch      / res.partner.bank         / bvr_adherent_num (char)       : NEW 
+l10n_ch      / res.partner.bank         / bvr_number (char)             : NEW 
+l10n_ch      / res.partner.bank         / dta_code (char)               : NEW 
+l10n_ch      / res.partner.bank         / name (False)                  : NEW required: required, mode: modify
+l10n_ch      / res.partner.bank         / post_number (char)            : NEW 
+l10n_ch      / res.partner.bank         / printaccount (boolean)        : NEW 
+l10n_ch      / res.partner.bank         / printbank (boolean)           : NEW 
+---XML records in module 'l10n_ch'---
+NEW account.journal: account.bank_journal
+NEW account.journal: account.bilan_journal
+NEW account.journal: account.expenses_journal
+NEW account.journal: account.refund_sales_journal
+NEW account.journal: account.sales_journal
+NEW ir.actions.act_window: l10n_ch.action_config_journal
+NEW ir.actions.report.xml: l10n_ch.account_invoice_bvr
+NEW ir.actions.report.xml: l10n_ch.invoice_bvr
+NEW ir.actions.todo: l10n_ch.action_config_journal_todo
+NEW ir.actions.wizard: l10n_ch.wizard_account_dta_create
+NEW ir.actions.wizard: l10n_ch.wizard_account_opae_create
+NEW ir.actions.wizard: l10n_ch.wizard_bvr_check_report
+NEW ir.actions.wizard: l10n_ch.wizard_bvr_import
+NEW ir.actions.wizard: l10n_ch.wizard_invoice_bvr_check_report
+NEW ir.model.access: l10n_ch.account_journal_todo
+NEW ir.model.access: l10n_ch.account_journal_todo_erp
+NEW ir.ui.view: l10n_ch.company_form_view
+NEW ir.ui.view: l10n_ch.invoice_form
+NEW ir.ui.view: l10n_ch.invoice_supplier_form6
+NEW ir.ui.view: l10n_ch.invoice_supplier_form8
+NEW ir.ui.view: l10n_ch.l10nch_view_res_bank_tree
+NEW ir.ui.view: l10n_ch.l10nch_view_res_partner_bank
+NEW ir.ui.view: l10n_ch.view_account_journal_form_todo
+NEW ir.ui.view: l10n_ch.view_bank_statement_form
+NEW ir.ui.view: l10n_ch.view_partner_bank_form
+NEW ir.ui.view: l10n_ch.view_partner_bank_form2
+NEW ir.ui.view: l10n_ch.view_res_bank_form
+NEW payment.type: l10n_ch.payment_type_dta
+NEW payment.type: l10n_ch.payment_type_opae
+NEW res.partner.bank.type: l10n_ch.bank_dta
+NEW res.partner.bank.type: l10n_ch.bvbank
+NEW res.partner.bank.type: l10n_ch.bvpost
+NEW res.partner.bank.type: l10n_ch.bvrbank
+NEW res.partner.bank.type: l10n_ch.bvrpost
+NEW res.partner.bank.type: l10n_ch.dta_iban
+NEW res.partner.bank.type.field: l10n_ch.acc_num_field_bvbank
+NEW res.partner.bank.type.field: l10n_ch.bank_field_bvbank
+NEW res.partner.bank.type.field: l10n_ch.bank_field_bvpost
+NEW res.partner.bank.type.field: l10n_ch.bank_field_bvrbank
+NEW res.partner.bank.type.field: l10n_ch.bank_field_bvrpost
+NEW res.partner.bank.type.field: l10n_ch.bank_field_iban
+NEW res.partner.bank.type.field: l10n_ch.bvr_num_field_bvrbank
+NEW res.partner.bank.type.field: l10n_ch.bvr_num_field_bvrpost
+NEW res.partner.bank.type.field: l10n_ch.iban_field
+NEW res.partner.bank.type.field: l10n_ch.iban_field_bvbank
+NEW res.partner.bank.type.field: l10n_ch.iban_field_iban
+NEW res.partner.bank.type.field: l10n_ch.post_field_bvpost
+NEW res.partner.title: l10n_ch.res_c_partner_title_madame
+NEW res.partner.title: l10n_ch.res_c_partner_title_mlle
+NEW res.partner.title: l10n_ch.res_c_partner_title_mme_m
+NEW res.partner.title: l10n_ch.res_c_partner_title_sir
+NEW res.partner.title: l10n_ch.res_c_partner_title_societe
+NEW res.partner.title: l10n_ch.res_partner_title_madame
+NEW res.partner.title: l10n_ch.res_partner_title_mlle
+NEW res.partner.title: l10n_ch.res_partner_title_mme_m
+NEW res.partner.title: l10n_ch.res_partner_title_sir
+NEW res.partner.title: l10n_ch.res_partner_title_societe

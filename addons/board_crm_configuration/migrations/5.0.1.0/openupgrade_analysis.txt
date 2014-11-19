@@ -1,0 +1,23 @@
+---Fields in module 'board_crm_configuration'---
+---XML records in module 'board_crm_configuration'---
+NEW board.note.type: board_crm_configuration.note_crm_type
+NEW ir.actions.act_window: board_crm_configuration.act_jobs_categ
+NEW ir.actions.act_window: board_crm_configuration.act_jobs_requests
+NEW ir.actions.act_window: board_crm_configuration.act_leads_month_user
+NEW ir.actions.act_window: board_crm_configuration.act_leads_state
+NEW ir.actions.act_window: board_crm_configuration.act_my_cases
+NEW ir.actions.act_window: board_crm_configuration.act_my_leads
+NEW ir.actions.act_window: board_crm_configuration.act_my_leads_stage
+NEW ir.actions.act_window: board_crm_configuration.act_my_meetings
+NEW ir.actions.act_window: board_crm_configuration.act_oppor_categ
+NEW ir.actions.act_window: board_crm_configuration.act_sales_pipeline
+NEW ir.actions.act_window: board_crm_configuration.open_board_crm
+NEW ir.actions.act_window: board_crm_configuration.open_board_statistical_dash
+NEW ir.ui.menu: board_crm_configuration.menu_board_crm
+NEW ir.ui.menu: board_crm_configuration.menu_board_crm_config
+NEW ir.ui.menu: board_crm_configuration.menu_board_statistics_dash
+NEW ir.ui.view: board_crm_configuration.board_crm_form
+NEW ir.ui.view: board_crm_configuration.board_crm_statistical_form
+NEW ir.ui.view: board_crm_configuration.view_crm_case_categ_graph
+NEW ir.ui.view: board_crm_configuration.view_crm_case_user_graph1
+NEW ir.ui.view: board_crm_configuration.view_crm_lead_stage_graph1

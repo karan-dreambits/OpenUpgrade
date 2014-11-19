@@ -1,0 +1,3 @@
+---Fields in module 'report_analytic'---
+---XML records in module 'report_analytic'---
+NEW ir.model.access: report_analytic.access_report_analytic_account_close

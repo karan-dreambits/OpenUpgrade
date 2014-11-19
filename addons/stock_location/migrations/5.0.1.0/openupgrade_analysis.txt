@@ -1,0 +1,15 @@
+---Fields in module 'stock_location'---
+stock_location / product.product          / path_ids (one2many)           : NEW relation: stock.location.path
+stock_location / stock.location.path      / auto (selection)              : NEW required: required, selection_keys: ['auto', 'manual', 'transparent'], req_default: function
+stock_location / stock.location.path      / delay (integer)               : NEW 
+stock_location / stock.location.path      / location_dest_id (many2one)   : NEW relation: stock.location
+stock_location / stock.location.path      / location_from_id (many2one)   : NEW relation: stock.location
+stock_location / stock.location.path      / name (char)                   : NEW 
+stock_location / stock.location.path      / product_id (many2one)         : NEW relation: product.product
+---XML records in module 'stock_location'---
+NEW ir.model.access: stock_location.access_stock_location_path_manager
+NEW ir.model.access: stock_location.access_stock_location_path_partner_manager
+NEW ir.model.access: stock_location.access_stock_location_path_user
+NEW ir.ui.view: stock_location.product_normal_form_inherit_location
+NEW ir.ui.view: stock_location.stock_location_path_form
+NEW ir.ui.view: stock_location.stock_location_path_tree

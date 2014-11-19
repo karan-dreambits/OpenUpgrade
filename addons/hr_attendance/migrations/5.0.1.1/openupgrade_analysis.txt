@@ -1,0 +1,22 @@
+---Fields in module 'hr_attendance'---
+---XML records in module 'hr_attendance'---
+NEW ir.actions.act_window: hr_attendance.open_view_attendance
+NEW ir.actions.act_window: hr_attendance.open_view_attendance_reason
+NEW ir.actions.report.xml: hr_attendance.attendance_error_report
+NEW ir.actions.wizard: hr_attendance.print_month
+NEW ir.actions.wizard: hr_attendance.print_week
+NEW ir.actions.wizard: hr_attendance.si_so
+NEW ir.actions.wizard: hr_attendance.wizard_attendance_error
+NEW ir.model.access: hr_attendance.access_hr_action_reason_employee
+NEW ir.model.access: hr_attendance.access_hr_attendance_employee
+NEW ir.ui.menu: hr_attendance.menu_hr_attendance
+NEW ir.ui.menu: hr_attendance.menu_open_view_attendance
+NEW ir.ui.menu: hr_attendance.menu_open_view_attendance_reason
+NEW ir.ui.menu: hr_attendance.menu_si_so
+NEW ir.ui.view: hr_attendance.edit_attendance_reason
+NEW ir.ui.view: hr_attendance.hr_attendance_employee
+NEW ir.ui.view: hr_attendance.view_attendance_form
+NEW ir.ui.view: hr_attendance.view_attendance_reason
+NEW ir.ui.view: hr_attendance.view_attendance_tree
+NEW ir.ui.view: hr_attendance.view_attendance_who
+NEW res.groups: hr_attendance.group_hr_attendance

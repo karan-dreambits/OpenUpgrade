@@ -1,0 +1,45 @@
+---Fields in module 'audittrail'---
+audittrail   / audittrail.log           / line_ids (one2many)           : NEW relation: audittrail.log.line
+audittrail   / audittrail.log           / method (selection)            : NEW selection_keys: ['create', 'read', 'unlink', 'write']
+audittrail   / audittrail.log           / name (char)                   : NEW 
+audittrail   / audittrail.log           / object_id (many2one)          : NEW relation: ir.model
+audittrail   / audittrail.log           / res_id (integer)              : NEW 
+audittrail   / audittrail.log           / timestamp (datetime)          : NEW 
+audittrail   / audittrail.log           / user_id (many2one)            : NEW relation: res.users
+audittrail   / audittrail.log.line      / field_description (char)      : NEW 
+audittrail   / audittrail.log.line      / field_id (many2one)           : NEW relation: ir.model.fields, required: required
+audittrail   / audittrail.log.line      / log (integer)                 : NEW 
+audittrail   / audittrail.log.line      / log_id (many2one)             : NEW relation: audittrail.log
+audittrail   / audittrail.log.line      / new_value (text)              : NEW 
+audittrail   / audittrail.log.line      / new_value_text (text)         : NEW 
+audittrail   / audittrail.log.line      / old_value (text)              : NEW 
+audittrail   / audittrail.log.line      / old_value_text (text)         : NEW 
+audittrail   / audittrail.rule          / action_id (many2one)          : NEW relation: ir.actions.act_window
+audittrail   / audittrail.rule          / log_create (boolean)          : NEW 
+audittrail   / audittrail.rule          / log_read (boolean)            : NEW 
+audittrail   / audittrail.rule          / log_unlink (boolean)          : NEW 
+audittrail   / audittrail.rule          / log_write (boolean)           : NEW 
+audittrail   / audittrail.rule          / name (char)                   : NEW required: required
+audittrail   / audittrail.rule          / object_id (many2one)          : NEW relation: ir.model, required: required
+audittrail   / audittrail.rule          / state (selection)             : NEW required: required, selection_keys: ['draft', 'subscribed'], req_default: function
+audittrail   / audittrail.rule          / user_id (many2many)           : NEW relation: res.users
+---XML records in module 'audittrail'---
+NEW ir.actions.act_window: audittrail.action_audittrail_log_tree
+NEW ir.actions.act_window: audittrail.action_audittrail_rule_tree
+NEW ir.actions.act_window: audittrail.action_audittrail_rule_tree_sub
+NEW ir.actions.wizard: audittrail.wizard_audittrail_log
+NEW ir.model.access: audittrail.access_audittrail_log_all_users
+NEW ir.model.access: audittrail.access_audittrail_log_group_system
+NEW ir.model.access: audittrail.access_audittrail_log_line_all_users
+NEW ir.model.access: audittrail.access_audittrail_logline_group_system
+NEW ir.model.access: audittrail.access_audittrail_rule_all_users
+NEW ir.model.access: audittrail.access_audittrail_rule_group_system
+NEW ir.ui.menu: audittrail.menu_action_audittrail
+NEW ir.ui.menu: audittrail.menu_action_audittrail_log_tree
+NEW ir.ui.menu: audittrail.menu_action_audittrail_rule_tree
+NEW ir.ui.menu: audittrail.menu_action_audittrail_rule_tree_sub
+NEW ir.ui.menu: audittrail.menu_action_log_tree2
+NEW ir.ui.view: audittrail.view_audittrail_log_form
+NEW ir.ui.view: audittrail.view_audittrail_log_tree
+NEW ir.ui.view: audittrail.view_audittrail_rule_form
+NEW ir.ui.view: audittrail.view_audittrail_rule_tree

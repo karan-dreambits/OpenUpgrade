@@ -1,0 +1,21 @@
+---Fields in module 'delivery'---
+delivery     / sale.order               / id (integer)                  : NEW 
+delivery     / stock.picking            / weight (float)                : now a function
+---XML records in module 'delivery'---
+NEW ir.actions.act_window: delivery.action_picking_tree5
+NEW ir.model.access: delivery.access_delivery_carrier
+NEW ir.model.access: delivery.access_delivery_carrier_manager
+NEW ir.model.access: delivery.access_delivery_carrier_partner_manager
+NEW ir.model.access: delivery.access_delivery_carrier_stock_worker
+NEW ir.model.access: delivery.access_delivery_grid
+NEW ir.model.access: delivery.access_delivery_grid_line
+NEW ir.model.access: delivery.access_delivery_grid_line_manager
+NEW ir.model.access: delivery.access_delivery_grid_manager
+NEW ir.ui.menu: delivery.menu_action_picking_tree5
+NEW ir.ui.menu: delivery.menu_delivery
+NEW ir.ui.view: delivery.view_partner_property_form
+NEW ir.ui.view: delivery.view_picking_withcarrier_delivery_form
+NEW ir.ui.view: delivery.view_picking_withcarrier_out_form
+NEW ir.ui.view: delivery.view_picking_withweight_in_form
+NEW ir.ui.view: delivery.view_picking_withweight_internal_form
+DEL ir.ui.view: delivery.view_picking_withcarrier_form

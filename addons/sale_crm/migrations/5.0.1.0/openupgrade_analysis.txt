@@ -1,0 +1,13 @@
+---Fields in module 'sale_crm'---
+---XML records in module 'sale_crm'---
+NEW ir.actions.wizard: sale_crm.sale_crm_make_case_wizard
+NEW ir.actions.wizard: sale_crm.sale_crm_wizard
+NEW ir.ui.view: sale_crm.crm_case_form_view_oppor
+NEW process.node: sale_crm.process_node_contractanalytic0
+NEW process.node: sale_crm.process_node_contractpricelist0
+NEW process.node: sale_crm.process_node_crmopportunity0
+NEW process.node: sale_crm.process_node_crmquotation0
+NEW process.transition: sale_crm.process_transition_crmopportunityquotation
+NEW process.transition: sale_crm.process_transition_opportunityanalytic0
+NEW process.transition: sale_crm.process_transition_opportunitypricelist0
+NEW process.transition: sale_crm.process_transition_opportunityquotation0

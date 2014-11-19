@@ -1,0 +1,28 @@
+---Fields in module 'hr_expense'---
+hr_expense   / hr.expense.expense       / state (selection)             : selection_keys is now '['accepted', 'cancelled', 'confirm', 'draft', 'invoiced', 'paid']' ('['accepted', 'canceled', 'confirm', 'draft', 'invoiced', 'paid']')
+hr_expense   / product.product          / hr_expense_ok (boolean)       : NEW 
+---XML records in module 'hr_expense'---
+NEW ir.actions.act_window: hr_expense.expense_my_new
+NEW ir.model.access: hr_expense.access_hr_expense_expense
+NEW ir.model.access: hr_expense.access_hr_expense_line
+NEW ir.ui.menu: hr_expense.menu_expense_my_new
+NEW ir.ui.menu: hr_expense.next_id_49
+NEW ir.ui.view: hr_expense.view_product_hr_expense_form
+NEW process.node: hr_expense.process_node_approved0
+NEW process.node: hr_expense.process_node_confirmedexpenses0
+NEW process.node: hr_expense.process_node_draftexpenses0
+NEW process.node: hr_expense.process_node_refused0
+NEW process.node: hr_expense.process_node_reimbursement0
+NEW process.node: hr_expense.process_node_reinvoicing0
+NEW process.node: hr_expense.process_node_supplierinvoice0
+NEW process.process: hr_expense.process_process_expenseprocess0
+NEW process.transition: hr_expense.process_transition_approveexpense0
+NEW process.transition: hr_expense.process_transition_approveinvoice0
+NEW process.transition: hr_expense.process_transition_confirmexpense0
+NEW process.transition: hr_expense.process_transition_refuseexpense0
+NEW process.transition: hr_expense.process_transition_reimburseexpense0
+NEW process.transition: hr_expense.process_transition_reimbursereinvoice0
+NEW process.transition.action: hr_expense.process_transition_action_accept0
+NEW process.transition.action: hr_expense.process_transition_action_confirm0
+NEW process.transition.action: hr_expense.process_transition_action_refuse0
+NEW process.transition.action: hr_expense.process_transition_action_supplierinvoice0

@@ -1,0 +1,6 @@
+---Fields in module 'profile_manufacturing'---
+---XML records in module 'profile_manufacturing'---
+NEW ir.actions.act_window: profile_manufacturing.action_config_install_module
+NEW ir.actions.todo: profile_manufacturing.config_install_module
+NEW ir.model.access: profile_manufacturing.access_profile_manufacturing_wizard_install
+NEW ir.ui.view: profile_manufacturing.view_confirm_install_module_form

@@ -1,0 +1,458 @@
+---Fields in module 'base'---
+base         / ir.actions.act_window    / groups_id (many2many)         : NEW relation: res.groups
+base         / ir.actions.act_window    / target (selection)            : NEW selection_keys: ['current', 'new']
+base         / ir.actions.act_window.view / view_mode (selection)         : selection_keys is now '['calendar', 'form', 'gantt', 'graph', 'tree']' ('['calendar', 'form', 'graph', 'tree']')
+base         / ir.actions.act_window_close / name (char)                   : NEW required: required
+base         / ir.actions.act_window_close / type (char)                   : NEW required: required, req_default: function
+base         / ir.actions.act_window_close / usage (char)                  : NEW 
+base         / ir.actions.report.xml    / attachment (char)             : NEW 
+base         / ir.actions.report.xml    / attachment_use (boolean)      : NEW 
+base         / ir.actions.report.xml    / groups_id (many2many)         : NEW relation: res.groups
+base         / ir.actions.report.xml    / report_type (selection)       : selection_keys is now '['html', 'html2html', 'odt', 'pdf', 'raw', 'sxw']' ('['html', 'pdf', 'raw', 'sxw']')
+base         / ir.actions.server        / action_id (many2one)          : NEW relation: ir.actions.actions
+base         / ir.actions.server        / child_ids (many2many)         : NEW relation: ir.actions.server
+base         / ir.actions.server        / code (text)                   : NEW 
+base         / ir.actions.server        / condition (char)              : NEW required: required, req_default: function
+base         / ir.actions.server        / email (char)                  : NEW 
+base         / ir.actions.server        / expression (char)             : NEW 
+base         / ir.actions.server        / fields_lines (one2many)       : NEW relation: ir.server.object.lines
+base         / ir.actions.server        / loop_action (many2one)        : NEW relation: ir.actions.server
+base         / ir.actions.server        / message (text)                : NEW 
+base         / ir.actions.server        / mobile (char)                 : NEW 
+base         / ir.actions.server        / model_id (many2one)           : NEW relation: ir.model, required: required
+base         / ir.actions.server        / name (char)                   : NEW required: required
+base         / ir.actions.server        / record_id (many2one)          : NEW relation: ir.model.fields
+base         / ir.actions.server        / sequence (integer)            : NEW 
+base         / ir.actions.server        / sms (char)                    : NEW 
+base         / ir.actions.server        / srcmodel_id (many2one)        : NEW relation: ir.model
+base         / ir.actions.server        / state (selection)             : NEW required: required, selection_keys: ['client_action', 'code', 'dummy', 'email', 'loop', 'object_create', 'object_write', 'other', 'sms', 'trigger'], req_default: function
+base         / ir.actions.server        / subject (char)                : NEW 
+base         / ir.actions.server        / trigger_name (selection)      : NEW selection_keys: function
+base         / ir.actions.server        / trigger_obj_id (many2one)     : NEW relation: ir.model.fields
+base         / ir.actions.server        / type (char)                   : NEW required: required, req_default: function
+base         / ir.actions.server        / usage (char)                  : NEW 
+base         / ir.actions.server        / wkf_model_id (many2one)       : NEW relation: ir.model
+base         / ir.actions.server        / write_id (char)               : NEW 
+base         / ir.actions.todo          / action_id (many2one)          : NEW relation: ir.actions.act_window, required: required
+base         / ir.actions.todo          / active (boolean)              : NEW 
+base         / ir.actions.todo          / end_date (datetime)           : NEW 
+base         / ir.actions.todo          / groups_id (many2many)         : NEW relation: res.groups
+base         / ir.actions.todo          / name (char)                   : NEW required: required
+base         / ir.actions.todo          / note (text)                   : NEW 
+base         / ir.actions.todo          / sequence (integer)            : NEW 
+base         / ir.actions.todo          / start_date (datetime)         : NEW 
+base         / ir.actions.todo          / start_on (selection)          : NEW selection_keys: ['at_once', 'auto', 'manual']
+base         / ir.actions.todo          / state (selection)             : NEW required: required, selection_keys: ['cancel', 'done', 'open', 'skip'], req_default: function
+base         / ir.actions.todo          / type (selection)              : NEW required: required, selection_keys: ['configure', 'other', 'service'], req_default: function
+base         / ir.actions.todo          / users_id (many2many)          : NEW relation: res.users
+base         / ir.actions.url           / name (char)                   : NEW 
+base         / ir.actions.url           / target (selection)            : NEW required: required, selection_keys: ['new', 'self'], req_default: function
+base         / ir.actions.url           / type (char)                   : NEW required: required, req_default: function
+base         / ir.actions.url           / url (text)                    : NEW required: required
+base         / ir.actions.wizard        / groups_id (many2many)         : NEW relation: res.groups
+base         / ir.actions.wizard        / model (char)                  : NEW 
+base         / ir.actions.wizard        / usage (char)                  : NEW 
+base         / ir.attachment            / create_date (datetime)        : NEW 
+base         / ir.attachment            / create_uid (many2one)         : NEW relation: res.users
+base         / ir.cron                  / interval_type (selection)     : selection_keys is now '['days', 'hours', 'minutes', 'months', 'weeks', 'work_days']' ('['days', 'hours', 'minutes', 'months', 'weeks']')
+base         / ir.model                 / access_ids (one2many)         : NEW relation: ir.model.access
+base         / ir.model                 / name (char)                   : now required
+base         / ir.model                 / state (selection)             : NEW selection_keys: ['base', 'manual']
+base         / ir.model.config          / password (char)               : NEW 
+base         / ir.model.config          / password_check (char)         : NEW 
+base         / ir.model.fields          / complete_name (char)          : NEW 
+base         / ir.model.fields          / domain (char)                 : NEW 
+base         / ir.model.fields          / field_description (char)      : now required, default = function
+base         / ir.model.fields          / group_name (char)             : DEL 
+base         / ir.model.fields          / name (char)                   : now required, default = function
+base         / ir.model.fields          / on_delete (selection)         : NEW selection_keys: ['cascade', 'set null']
+base         / ir.model.fields          / readonly (boolean)            : NEW 
+base         / ir.model.fields          / relate (boolean)              : DEL 
+base         / ir.model.fields          / relation_field (char)         : NEW 
+base         / ir.model.fields          / required (boolean)            : NEW 
+base         / ir.model.fields          / select_level (selection)      : NEW required: required, selection_keys: ['0', '1', '2'], req_default: function
+base         / ir.model.fields          / selection (char)              : NEW 
+base         / ir.model.fields          / size (integer)                : NEW 
+base         / ir.model.fields          / state (selection)             : NEW required: required, selection_keys: ['base', 'manual'], req_default: function
+base         / ir.model.fields          / translate (boolean)           : NEW 
+base         / ir.model.fields          / ttype (char)                  : now required
+base         / ir.model.fields          / ttype (char)                  : selection_keys is now 'function' ('False')
+base         / ir.model.fields          / ttype (char)                  : type is now 'selection' ('char')
+base         / ir.model.grid            / access_ids (one2many)         : NEW relation: ir.model.access
+base         / ir.model.grid            / field_id (one2many)           : NEW relation: ir.model.fields, required: required
+base         / ir.model.grid            / info (text)                   : NEW 
+base         / ir.model.grid            / model (char)                  : NEW required: required, req_default: function
+base         / ir.model.grid            / name (char)                   : NEW required: required
+base         / ir.model.grid            / state (selection)             : NEW selection_keys: ['base', 'manual']
+base         / ir.module.module         / certificate (char)            : NEW 
+base         / ir.module.module         / license (selection)           : selection_keys is now '['AGPL-3', 'GPL-2', 'GPL-2 or any later version', 'GPL-3', 'GPL-3 or any later version', 'Other OSI approved licence', 'Other proprietary']' ('['GPL-2', 'Other proprietary']')
+base         / ir.rule                  / domain_force (char)           : NEW 
+base         / ir.server.object.lines   / col1 (many2one)               : NEW relation: ir.model.fields, required: required
+base         / ir.server.object.lines   / server_id (many2one)          : NEW relation: ir.actions.server
+base         / ir.server.object.lines   / type (selection)              : NEW required: required, selection_keys: ['equation', 'value'], req_default: function
+base         / ir.server.object.lines   / value (text)                  : NEW required: required
+base         / ir.translation           / type (selection)              : selection_keys is now '['code', 'constraint', 'field', 'help', 'model', 'rml', 'selection', 'sql_constraint', 'view', 'wizard_button', 'wizard_field', 'wizard_view', 'xsl']' ('['field', 'help', 'model', 'rml', 'selection', 'view', 'wizard_button', 'wizard_field', 'wizard_view', 'xsl']')
+base         / ir.ui.view               / type (selection)              : selection_keys is now '['calendar', 'form', 'gantt', 'graph', 'mdx', 'tree']' ('['calendar', 'form', 'graph', 'tree']')
+base         / ir.ui.view.custom        / arch (text)                   : NEW required: required
+base         / ir.ui.view.custom        / ref_id (many2one)             : NEW relation: ir.ui.view
+base         / ir.ui.view.custom        / user_id (many2one)            : NEW relation: res.users
+base         / ir.ui.view_sc            / res_id (integer)              : relation is now 'ir.ui.menu' ('False')
+base         / ir.ui.view_sc            / res_id (integer)              : type is now 'many2one' ('integer')
+base         / ir.values                / action_id (many2one)          : NEW relation: ir.actions.actions
+base         / ir.values                / key (char)                    : selection_keys is now '['action', 'default']' ('False')
+base         / ir.values                / key (char)                    : type is now 'selection' ('char')
+base         / ir.values                / model_id (many2one)           : NEW relation: ir.model
+base         / maintenance.contract     / date_start (date)             : NEW 
+base         / maintenance.contract     / date_stop (date)              : NEW 
+base         / maintenance.contract     / kind (selection)              : NEW required: required, selection_keys: ['full', 'partial']
+base         / maintenance.contract     / module_ids (many2many)        : NEW relation: maintenance.contract.module
+base         / maintenance.contract     / name (char)                   : NEW required: required
+base         / maintenance.contract     / password (char)               : NEW required: required, req_default: function
+base         / maintenance.contract.module / name (char)                   : NEW required: required
+base         / maintenance.contract.module / version (char)                : NEW 
+base         / res.company              / logo (binary)                 : NEW 
+base         / res.company              / rml_header (text)             : NEW 
+base         / res.company              / rml_header2 (text)            : NEW 
+base         / res.groups               / comment (text)                : NEW 
+base         / res.lang                 / date_format (char)            : NEW required: required, req_default: function
+base         / res.lang                 / decimal_point (char)          : NEW required: required, req_default: function
+base         / res.lang                 / direction (selection)         : now required, default = function
+base         / res.lang                 / grouping (char)               : NEW required: required, req_default: function
+base         / res.lang                 / thousands_sep (char)          : NEW 
+base         / res.lang                 / time_format (char)            : NEW required: required, req_default: function
+base         / res.partner              / customer (boolean)            : NEW 
+base         / res.partner              / responsible (many2one)        : DEL relation: res.users
+base         / res.partner              / supplier (boolean)            : NEW 
+base         / res.partner.function     / code (char)                   : now required
+base         / res.partner.function     / ref (char)                    : NEW 
+base         / res.roles                / users (many2many)             : NEW relation: res.users
+base         / res.users                / context_lang (selection)      : NEW required: required, selection_keys: function, req_default: function
+base         / res.users                / context_tz (selection)        : NEW selection_keys: function
+base         / res.users                / rule_groups (many2many)       : DEL relation: ir.rule.group
+base         / res.users                / rules_id (many2many)          : NEW relation: ir.rule.group
+base         / workflow.activity        / action (char)                 : type is now 'text' ('char')
+base         / workflow.activity        / action_id (many2one)          : NEW relation: ir.actions.server
+---XML records in module 'base'---
+NEW ir.actions.act_window: base.act_ir_actions_todo_form
+NEW ir.actions.act_window: base.act_menu_create
+NEW ir.actions.act_window: base.act_res_partner_event
+NEW ir.actions.act_window: base.act_values_form_action
+NEW ir.actions.act_window: base.action_config_simple_view_form
+NEW ir.actions.act_window: base.action_config_user_form
+NEW ir.actions.act_window: base.action_config_wizard_form
+NEW ir.actions.act_window: base.action_maintenance_contract_add_wizard
+NEW ir.actions.act_window: base.action_maintenance_contract_form
+NEW ir.actions.act_window: base.action_model_grid_security
+NEW ir.actions.act_window: base.action_partner_customer_form
+NEW ir.actions.act_window: base.action_partner_customer_form_new
+NEW ir.actions.act_window: base.action_partner_other_form
+NEW ir.actions.act_window: base.action_partner_supplier_form
+NEW ir.actions.act_window: base.action_partner_title_contact
+NEW ir.actions.act_window: base.action_partner_title_partner
+NEW ir.actions.act_window: base.action_server_action
+NEW ir.actions.act_window: base.action_translation_untrans
+NEW ir.actions.act_window: base.action_wizard_lang_export
+NEW ir.actions.act_window: base.action_wizard_update_translations
+NEW ir.actions.act_window: base.res_lang_act_window
+DEL ir.actions.act_window: base.action_lang
+DEL ir.actions.act_window: base.ir_action_execute
+DEL ir.actions.act_window: base.ir_action_group
+DEL ir.actions.act_window: base.open_module_def_partenaire
+DEL ir.actions.act_window: base.open_module_tree_company
+DEL ir.actions.act_window: base.open_module_type_partenaire
+DEL ir.actions.act_window: base.open_module_users_list
+DEL ir.actions.act_window.view: base.open_module_users_list_view1
+DEL ir.actions.act_window.view: base.open_module_users_list_view2
+NEW ir.actions.todo: base.config_wizard_simple_view
+NEW ir.actions.todo: base.config_wizard_step_user
+NEW ir.actions.wizard: base.wizard_server_action_create
+DEL ir.actions.wizard: base.wizard_lang_export
+NEW ir.model.access: base.access_actions_report_custom_all
+NEW ir.model.access: base.access_actions_report_custom_group_system
+NEW ir.model.access: base.access_ir_actions_act_window_all
+NEW ir.model.access: base.access_ir_actions_act_window_close_all
+NEW ir.model.access: base.access_ir_actions_act_window_close_group_system
+NEW ir.model.access: base.access_ir_actions_act_window_system
+NEW ir.model.access: base.access_ir_actions_act_window_view_all
+NEW ir.model.access: base.access_ir_actions_act_window_view_group_system
+NEW ir.model.access: base.access_ir_actions_all
+NEW ir.model.access: base.access_ir_actions_config_wiz_group_system
+NEW ir.model.access: base.access_ir_actions_group_system
+NEW ir.model.access: base.access_ir_actions_report_xml_all
+NEW ir.model.access: base.access_ir_actions_report_xml_group_system
+NEW ir.model.access: base.access_ir_actions_server_all
+NEW ir.model.access: base.access_ir_actions_server_group_system
+NEW ir.model.access: base.access_ir_actions_todo_group_system
+NEW ir.model.access: base.access_ir_actions_url_all
+NEW ir.model.access: base.access_ir_actions_url_group_system
+NEW ir.model.access: base.access_ir_actions_wizard_all
+NEW ir.model.access: base.access_ir_actions_wizard_group_system
+NEW ir.model.access: base.access_ir_attachment_group_system
+NEW ir.model.access: base.access_ir_cron_group_cron
+NEW ir.model.access: base.access_ir_cron_user
+NEW ir.model.access: base.access_ir_default_group_system
+NEW ir.model.access: base.access_ir_exports_group_system
+NEW ir.model.access: base.access_ir_exports_line_group_system
+NEW ir.model.access: base.access_ir_model_access_all
+NEW ir.model.access: base.access_ir_model_access_group_erp_manager
+NEW ir.model.access: base.access_ir_model_all
+NEW ir.model.access: base.access_ir_model_config_all
+NEW ir.model.access: base.access_ir_model_config_group_erp_manager
+NEW ir.model.access: base.access_ir_model_data_all
+NEW ir.model.access: base.access_ir_model_data_group_erp_manager
+NEW ir.model.access: base.access_ir_model_fields_all
+NEW ir.model.access: base.access_ir_model_fields_group_erp_manager
+NEW ir.model.access: base.access_ir_model_grid_all
+NEW ir.model.access: base.access_ir_model_grid_group_erp_manager
+NEW ir.model.access: base.access_ir_model_group_erp_manager
+NEW ir.model.access: base.access_ir_module_category_group_user
+NEW ir.model.access: base.access_ir_module_module_dependency_group_system
+NEW ir.model.access: base.access_ir_module_module_group_user
+NEW ir.model.access: base.access_ir_module_repository_group_system
+NEW ir.model.access: base.access_ir_property_group_user
+NEW ir.model.access: base.access_ir_property_group_user_manager
+NEW ir.model.access: base.access_ir_report_custom_fields_group_system
+NEW ir.model.access: base.access_ir_report_custom_group_system
+NEW ir.model.access: base.access_ir_rule_group_erp_manager
+NEW ir.model.access: base.access_ir_rule_group_group_erp_manager
+NEW ir.model.access: base.access_ir_rule_group_group_user
+NEW ir.model.access: base.access_ir_rule_group_user
+NEW ir.model.access: base.access_ir_sequence_group_user
+NEW ir.model.access: base.access_ir_sequence_type_group_user
+NEW ir.model.access: base.access_ir_server_object_lines_all
+NEW ir.model.access: base.access_ir_server_object_lines_group_system
+NEW ir.model.access: base.access_ir_translation_group_system
+NEW ir.model.access: base.access_ir_ui_menu_group_system
+NEW ir.model.access: base.access_ir_ui_menu_group_user
+NEW ir.model.access: base.access_ir_ui_view_custom_group_system
+NEW ir.model.access: base.access_ir_ui_view_custom_group_user
+NEW ir.model.access: base.access_ir_ui_view_group_system
+NEW ir.model.access: base.access_ir_ui_view_group_user
+NEW ir.model.access: base.access_ir_ui_view_sc_group_user
+NEW ir.model.access: base.access_ir_values_group_all
+NEW ir.model.access: base.access_ir_values_group_erp_manager
+NEW ir.model.access: base.access_maintenance_contract_module
+NEW ir.model.access: base.access_maintenance_contract_wizard
+NEW ir.model.access: base.access_maintenance_group_user
+NEW ir.model.access: base.access_module_update_translations_group_user
+NEW ir.model.access: base.access_res_bank_group_partner_manager
+NEW ir.model.access: base.access_res_bank_group_system
+NEW ir.model.access: base.access_res_bank_user
+NEW ir.model.access: base.access_res_company_group_erp_manager
+NEW ir.model.access: base.access_res_company_group_user
+NEW ir.model.access: base.access_res_config_view_all
+NEW ir.model.access: base.access_res_config_view_group_erpmanager
+NEW ir.model.access: base.access_res_country_group_all
+NEW ir.model.access: base.access_res_country_group_user
+NEW ir.model.access: base.access_res_country_state_group_all
+NEW ir.model.access: base.access_res_country_state_group_user
+NEW ir.model.access: base.access_res_currency_group_all
+NEW ir.model.access: base.access_res_currency_group_system
+NEW ir.model.access: base.access_res_currency_rate_group_all
+NEW ir.model.access: base.access_res_currency_rate_group_system
+NEW ir.model.access: base.access_res_groups_group_erp_manager
+NEW ir.model.access: base.access_res_groups_group_user
+NEW ir.model.access: base.access_res_lang_group_all
+NEW ir.model.access: base.access_res_lang_group_user
+NEW ir.model.access: base.access_res_partner_address_group_partner_manager
+NEW ir.model.access: base.access_res_partner_address_group_user
+NEW ir.model.access: base.access_res_partner_bank_group_partner_manager
+NEW ir.model.access: base.access_res_partner_bank_group_user
+NEW ir.model.access: base.access_res_partner_bank_type_field_group_partner_manager
+NEW ir.model.access: base.access_res_partner_bank_type_field_group_user
+NEW ir.model.access: base.access_res_partner_bank_type_group_partner_manager
+NEW ir.model.access: base.access_res_partner_bank_type_group_user
+NEW ir.model.access: base.access_res_partner_canal_group_partner_manager
+NEW ir.model.access: base.access_res_partner_canal_group_user
+NEW ir.model.access: base.access_res_partner_category_group_partner_manager
+NEW ir.model.access: base.access_res_partner_category_group_user
+NEW ir.model.access: base.access_res_partner_event_group_partner_manager
+NEW ir.model.access: base.access_res_partner_event_group_user
+NEW ir.model.access: base.access_res_partner_event_type_group_partner_manager
+NEW ir.model.access: base.access_res_partner_event_type_group_user
+NEW ir.model.access: base.access_res_partner_function_group_partner_manager
+NEW ir.model.access: base.access_res_partner_function_group_user
+NEW ir.model.access: base.access_res_partner_group_partner_manager
+NEW ir.model.access: base.access_res_partner_group_user
+NEW ir.model.access: base.access_res_partner_som_group_partner_manager
+NEW ir.model.access: base.access_res_partner_som_group_user
+NEW ir.model.access: base.access_res_partner_title_group_partner_manager
+NEW ir.model.access: base.access_res_partner_title_group_user
+NEW ir.model.access: base.access_res_payterm_group_system
+NEW ir.model.access: base.access_res_request_group_user
+NEW ir.model.access: base.access_res_request_history_group_user
+NEW ir.model.access: base.access_res_request_link_group_system
+NEW ir.model.access: base.access_res_request_link_group_user
+NEW ir.model.access: base.access_res_roles_all
+NEW ir.model.access: base.access_res_roles_group_erpmanager
+NEW ir.model.access: base.access_res_users_all
+NEW ir.model.access: base.access_res_users_group_erp_manager
+NEW ir.model.access: base.access_wizard_ir_model_menu_create_group_system
+NEW ir.model.access: base.access_wizard_ir_model_menu_create_line_group_system
+NEW ir.model.access: base.access_wizard_module_lang_export_group_system
+NEW ir.model.access: base.access_workflow_activity_all
+NEW ir.model.access: base.access_workflow_activity_group_system
+NEW ir.model.access: base.access_workflow_all
+NEW ir.model.access: base.access_workflow_group_system
+NEW ir.model.access: base.access_workflow_instance_all
+NEW ir.model.access: base.access_workflow_transition_all
+NEW ir.model.access: base.access_workflow_transition_group_system
+NEW ir.model.access: base.access_workflow_triggers_all
+NEW ir.model.access: base.access_workflow_triggers_group_system
+NEW ir.model.access: base.access_workflow_workitem_all
+NEW ir.module.repository: base.module_repository_openerp
+DEL ir.module.repository: base.module_repository_tiny
+NEW ir.rule.group: base.property_rule_group2
+NEW ir.ui.menu: base.maintenance
+NEW ir.ui.menu: base.menu_action_translation_untrans
+NEW ir.ui.menu: base.menu_administration
+NEW ir.ui.menu: base.menu_config_module
+NEW ir.ui.menu: base.menu_custom_action
+NEW ir.ui.menu: base.menu_ir_access_grid
+NEW ir.ui.menu: base.menu_ir_actions_todo_form
+NEW ir.ui.menu: base.menu_localisation
+NEW ir.ui.menu: base.menu_low_workflow
+NEW ir.ui.menu: base.menu_maintenance_contract
+NEW ir.ui.menu: base.menu_maintenance_contract_add
+NEW ir.ui.menu: base.menu_partner_customer_form
+NEW ir.ui.menu: base.menu_partner_customer_form_new
+NEW ir.ui.menu: base.menu_partner_other_form
+NEW ir.ui.menu: base.menu_partner_supplier_form
+NEW ir.ui.menu: base.menu_partner_title_contact
+NEW ir.ui.menu: base.menu_partner_title_partner
+NEW ir.ui.menu: base.menu_res_lang_act_window
+NEW ir.ui.menu: base.menu_security_access
+NEW ir.ui.menu: base.menu_server_action
+NEW ir.ui.menu: base.menu_translation_app
+NEW ir.ui.menu: base.menu_translation_export
+NEW ir.ui.menu: base.menu_values_form_action
+NEW ir.ui.menu: base.menu_wizard_update_translations
+NEW ir.ui.menu: base.menu_workflow_root
+NEW ir.ui.menu: base.next_id_10
+NEW ir.ui.menu: base.next_id_11
+NEW ir.ui.menu: base.next_id_12
+NEW ir.ui.menu: base.next_id_14
+NEW ir.ui.menu: base.next_id_15
+NEW ir.ui.menu: base.next_id_2
+NEW ir.ui.menu: base.next_id_4
+NEW ir.ui.menu: base.next_id_5
+NEW ir.ui.menu: base.next_id_6
+NEW ir.ui.menu: base.next_id_9
+DEL ir.ui.menu: base.menu_action_lang
+DEL ir.ui.menu: base.menu_action_res_users_my
+DEL ir.ui.menu: base.menu_adm_conf_user
+DEL ir.ui.menu: base.menu_company_def
+DEL ir.ui.menu: base.menu_currency_def
+DEL ir.ui.menu: base.menu_finance_main
+DEL ir.ui.menu: base.menu_ir_action_execute
+DEL ir.ui.menu: base.menu_ir_action_group
+DEL ir.ui.menu: base.menu_partenaire_def
+DEL ir.ui.menu: base.menu_partner_category
+DEL ir.ui.menu: base.menu_type_partenaire
+DEL ir.ui.menu: base.menu_users_list
+NEW ir.ui.view: base.act_wizard_view_tree
+NEW ir.ui.view: base.config_wizard_step_view_form
+NEW ir.ui.view: base.ir_actions_todo_tree
+NEW ir.ui.view: base.maintenance_contract_add_wizard
+NEW ir.ui.view: base.maintenance_contract_form_view
+NEW ir.ui.view: base.maintenance_contract_tree_view
+NEW ir.ui.view: base.res_lang_form
+NEW ir.ui.view: base.res_lang_tree
+NEW ir.ui.view: base.values_view_form_action
+NEW ir.ui.view: base.view_config_wizard_form
+NEW ir.ui.view: base.view_confirm_simple_view_form
+NEW ir.ui.view: base.view_model_menu_create
+NEW ir.ui.view: base.view_server_action_form
+NEW ir.ui.view: base.view_server_action_tree
+NEW ir.ui.view: base.view_users_configuration_form
+NEW ir.ui.view: base.wizard_lang_export
+NEW ir.ui.view: base.wizard_update_translations
+DEL ir.ui.view: base.act_execute_view
+DEL ir.ui.view: base.act_execute_view_tree
+DEL ir.ui.view: base.act_group_view_form
+DEL ir.ui.view: base.act_group_view_tree
+DEL ir.ui.view: base.view_lang
+DEL ir.ui.view: base.view_users_form_simple
+NEW ir.ui.view_sc: base.ir_ui_view_sc_modules0
+NEW res.country: base.me
+NEW res.country: base.rs
+DEL res.country: base.cs
+DEL res.country.state: base.us-ak
+DEL res.country.state: base.us-al
+DEL res.country.state: base.us-ar
+DEL res.country.state: base.us-az
+DEL res.country.state: base.us-ca
+DEL res.country.state: base.us-co
+DEL res.country.state: base.us-ct
+DEL res.country.state: base.us-dc
+DEL res.country.state: base.us-de
+DEL res.country.state: base.us-fl
+DEL res.country.state: base.us-ga
+DEL res.country.state: base.us-hi
+DEL res.country.state: base.us-ia
+DEL res.country.state: base.us-id
+DEL res.country.state: base.us-il
+DEL res.country.state: base.us-in
+DEL res.country.state: base.us-ks
+DEL res.country.state: base.us-ky
+DEL res.country.state: base.us-la
+DEL res.country.state: base.us-ma
+DEL res.country.state: base.us-md
+DEL res.country.state: base.us-me
+DEL res.country.state: base.us-mi
+DEL res.country.state: base.us-mn
+DEL res.country.state: base.us-mo
+DEL res.country.state: base.us-ms
+DEL res.country.state: base.us-mt
+DEL res.country.state: base.us-nc
+DEL res.country.state: base.us-nd
+DEL res.country.state: base.us-ne
+DEL res.country.state: base.us-nh
+DEL res.country.state: base.us-nj
+DEL res.country.state: base.us-nm
+DEL res.country.state: base.us-nv
+DEL res.country.state: base.us-ny
+DEL res.country.state: base.us-oh
+DEL res.country.state: base.us-ok
+DEL res.country.state: base.us-or
+DEL res.country.state: base.us-pa
+DEL res.country.state: base.us-ri
+DEL res.country.state: base.us-sc
+DEL res.country.state: base.us-sd
+DEL res.country.state: base.us-tn
+DEL res.country.state: base.us-tx
+DEL res.country.state: base.us-ut
+DEL res.country.state: base.us-va
+DEL res.country.state: base.us-vt
+DEL res.country.state: base.us-wa
+DEL res.country.state: base.us-wi
+DEL res.country.state: base.us-wv
+DEL res.country.state: base.us-wy
+NEW res.currency: base.INR
+NEW res.currency.rate: base.rateARS
+NEW res.currency.rate: base.rateCOP
+NEW res.currency.rate: base.rateCZK
+NEW res.currency.rate: base.rateHUF
+NEW res.currency.rate: base.rateIDR
+NEW res.currency.rate: base.rateINR
+NEW res.currency.rate: base.rateINR2001
+NEW res.currency.rate: base.rateINR2002
+NEW res.currency.rate: base.ratePLN
+NEW res.currency.rate: base.rateSEK
+NEW res.groups: base.group_erp_manager
+NEW res.groups: base.group_extended
+NEW res.groups: base.group_maintenance_manager
+NEW res.groups: base.group_no_one
+NEW res.groups: base.group_partner_manager
+NEW res.groups: base.group_system
+DEL res.groups: base.group_admin
+NEW res.partner.function: base.function_director
+NEW res.partner.function: base.function_it
+NEW res.partner.function: base.function_sale
+NEW res.partner.title: base.res_partner_title_ltd
+NEW res.partner.title: base.res_partner_title_madam
+NEW res.partner.title: base.res_partner_title_miss
+NEW res.partner.title: base.res_partner_title_pvt_ltd
+NEW res.partner.title: base.res_partner_title_sir
+NEW res.users: base.user_root
+DEL res.users: base.user_admin

@@ -1,0 +1,10 @@
+---Fields in module 'project_mrp'---
+project_mrp  / project.task             / procurement_id (many2one)     : NEW relation: mrp.procurement
+---XML records in module 'project_mrp'---
+NEW process.node: project_mrp.process_node_mrptask0
+NEW process.node: project_mrp.process_node_procuretasktask0
+NEW process.node: project_mrp.process_node_saleordertask0
+NEW process.transition: project_mrp.process_transition_createtask0
+NEW process.transition: project_mrp.process_transition_ordertask0
+NEW process.transition: project_mrp.process_transition_procuretask0
+NEW workflow.transition: mrp.trans_produce_service_make_done

@@ -1,0 +1,94 @@
+---Fields in module 'account_voucher'---
+account_voucher / account.account          / journal_id (many2one)         : NEW relation: account.journal
+account_voucher / account.account          / open_bal (float)              : NEW 
+account_voucher / account.account          / type1 (selection)             : NEW selection_keys: ['cr', 'dr', 'none']
+account_voucher / account.account.template / type1 (selection)             : NEW selection_keys: ['cr', 'dr', 'none']
+account_voucher / account.move             / narration (text)              : NEW 
+account_voucher / account.voucher          / account_id (many2one)         : NEW relation: account.account, required: required
+account_voucher / account.voucher          / amount (float)                : NEW 
+account_voucher / account.voucher          / company_id (many2one)         : NEW relation: res.company, required: required, req_default: function
+account_voucher / account.voucher          / currency_id (many2one)        : NEW relation: res.currency, required: required, req_default: function
+account_voucher / account.voucher          / date (date)                   : NEW 
+account_voucher / account.voucher          / journal_id (many2one)         : NEW relation: account.journal, required: required, req_default: function
+account_voucher / account.voucher          / move_id (many2one)            : NEW relation: account.move
+account_voucher / account.voucher          / move_ids (many2many)          : NEW relation: account.move.line
+account_voucher / account.voucher          / name (char)                   : NEW required: required
+account_voucher / account.voucher          / narration (text)              : NEW required: required
+account_voucher / account.voucher          / number (char)                 : NEW 
+account_voucher / account.voucher          / partner_id (many2one)         : NEW relation: res.partner
+account_voucher / account.voucher          / payment_ids (one2many)        : NEW relation: account.voucher.line
+account_voucher / account.voucher          / period_id (many2one)          : NEW relation: account.period, required: required, req_default: function
+account_voucher / account.voucher          / reference (char)              : NEW 
+account_voucher / account.voucher          / reference_type (selection)    : NEW required: required, selection_keys: function, req_default: function
+account_voucher / account.voucher          / state (selection)             : NEW selection_keys: ['cancel', 'draft', 'posted', 'proforma']
+account_voucher / account.voucher          / type (selection)              : NEW selection_keys: ['bank_pay_voucher', 'bank_rec_voucher', 'cont_voucher', 'journal_pur_voucher', 'journal_sale_vou', 'journal_voucher', 'pay_voucher', 'rec_voucher']
+account_voucher / account.voucher.line     / account_analytic_id (many2one): NEW relation: account.analytic.account
+account_voucher / account.voucher.line     / account_id (many2one)         : NEW relation: account.account, required: required
+account_voucher / account.voucher.line     / amount (float)                : NEW 
+account_voucher / account.voucher.line     / name (char)                   : NEW required: required
+account_voucher / account.voucher.line     / partner_id (many2one)         : NEW relation: res.partner
+account_voucher / account.voucher.line     / ref (char)                    : NEW 
+account_voucher / account.voucher.line     / type (selection)              : NEW selection_keys: ['cr', 'dr']
+account_voucher / account.voucher.line     / voucher_id (many2one)         : NEW relation: account.voucher
+account_voucher / res.currency             / sub_name (char)               : NEW required: required, req_default: function
+---XML records in module 'account_voucher'---
+NEW ir.actions.act_window: account_voucher.act_account_acount_move_line_open1
+NEW ir.actions.act_window: account_voucher.action_other_voucher_list
+NEW ir.actions.act_window: account_voucher.action_payments_bankpay_voucher_list
+NEW ir.actions.act_window: account_voucher.action_payments_cashpay_voucher_list
+NEW ir.actions.act_window: account_voucher.action_payments_voucher_list
+NEW ir.actions.act_window: account_voucher.action_receipt_bakreceipt_voucher_list
+NEW ir.actions.act_window: account_voucher.action_receipt_cashreceipt_voucher_list
+NEW ir.actions.act_window: account_voucher.action_receipt_vou_voucher_list
+NEW ir.actions.act_window: account_voucher.action_view_bank_pay_voucher_form
+NEW ir.actions.act_window: account_voucher.action_view_bank_rec_voucher_form
+NEW ir.actions.act_window: account_voucher.action_view_cash_pay_voucher_form
+NEW ir.actions.act_window: account_voucher.action_view_cash_rec_voucher_form
+NEW ir.actions.act_window: account_voucher.action_view_cont_voucher_form
+NEW ir.actions.act_window: account_voucher.action_view_jour_pur_voucher_form
+NEW ir.actions.act_window: account_voucher.action_view_jour_sale_voucher_form
+NEW ir.actions.act_window: account_voucher.action_view_jour_voucher_form
+NEW ir.actions.act_window: account_voucher.action_voucher_list
+NEW ir.actions.report.xml: account_voucher.report_account_voucher
+NEW ir.actions.report.xml: account_voucher.report_account_voucher_amt
+NEW ir.actions.wizard: account_voucher.wizard_account_voucher_open
+NEW ir.sequence: account_voucher.seq_bank_pay_voucher
+NEW ir.sequence: account_voucher.seq_bank_rec_voucher
+NEW ir.sequence: account_voucher.seq_cash_pay_voucher
+NEW ir.sequence: account_voucher.seq_cash_rec_voucher
+NEW ir.sequence: account_voucher.seq_contra_voucher
+NEW ir.sequence: account_voucher.seq_jou_pur_voucher
+NEW ir.sequence: account_voucher.seq_jou_sale_voucher
+NEW ir.sequence.type: account_voucher.seq_type_bank_pay_voucher
+NEW ir.sequence.type: account_voucher.seq_type_bank_rec_voucher
+NEW ir.sequence.type: account_voucher.seq_type_cash_pay_voucher
+NEW ir.sequence.type: account_voucher.seq_type_cash_rec_voucher
+NEW ir.sequence.type: account_voucher.seq_type_contra_voucher
+NEW ir.sequence.type: account_voucher.seq_type_jou_pur_voucher
+NEW ir.sequence.type: account_voucher.seq_type_jou_sale_voucher
+NEW ir.ui.menu: account_voucher.menu_action_other_voucher_list
+NEW ir.ui.menu: account_voucher.menu_action_payments_bankpay_voucher_list
+NEW ir.ui.menu: account_voucher.menu_action_payments_cashpay_voucher_list
+NEW ir.ui.menu: account_voucher.menu_action_payments_voucher_list
+NEW ir.ui.menu: account_voucher.menu_action_receipt_bakreceipt_voucher_list
+NEW ir.ui.menu: account_voucher.menu_action_receipt_cashreceipt_voucher_list
+NEW ir.ui.menu: account_voucher.menu_action_receipt_vou_voucher_list
+NEW ir.ui.menu: account_voucher.menu_action_view_bank_pay_voucher_form
+NEW ir.ui.menu: account_voucher.menu_action_view_bank_rec_voucher_form
+NEW ir.ui.menu: account_voucher.menu_action_view_cash_pay_voucher_form
+NEW ir.ui.menu: account_voucher.menu_action_view_cash_rec_voucher_form
+NEW ir.ui.menu: account_voucher.menu_action_view_cont_voucher_form
+NEW ir.ui.menu: account_voucher.menu_action_view_jour_pur_voucher_form
+NEW ir.ui.menu: account_voucher.menu_action_view_jour_sale_voucher_form
+NEW ir.ui.menu: account_voucher.menu_action_view_jour_voucher_form
+NEW ir.ui.menu: account_voucher.menu_action_voucher_list
+NEW ir.ui.menu: account_voucher.menu_wizard_account_voucher_open
+NEW ir.ui.view: account_voucher.account_form1
+NEW ir.ui.view: account_voucher.account_form2
+NEW ir.ui.view: account_voucher.account_move_inherit_new
+NEW ir.ui.view: account_voucher.account_tree1
+NEW ir.ui.view: account_voucher.account_tree2
+NEW ir.ui.view: account_voucher.sub_currency_form
+NEW ir.ui.view: account_voucher.view_voucher_form
+NEW ir.ui.view: account_voucher.view_voucher_tree
+NEW res.request.link: account_voucher.req_link_voucher

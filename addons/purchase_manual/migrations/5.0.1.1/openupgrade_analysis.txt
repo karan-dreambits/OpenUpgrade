@@ -1,0 +1,17 @@
+---Fields in module 'purchase_manual'---
+purchase_manual / purchase.order.line      / invoice_lines (many2many)     : NEW relation: account.invoice.line
+purchase_manual / purchase.order.line      / invoiced (boolean)            : NEW 
+purchase_manual / purchase.order.line      / state (selection)             : NEW required: required, selection_keys: ['cancel', 'confirmed', 'done', 'draft'], req_default: function
+---XML records in module 'purchase_manual'---
+NEW ir.actions.act_window: purchase_manual.purchase_line_form_action
+NEW ir.actions.act_window: purchase_manual.purchase_line_form_action2
+NEW ir.actions.act_window.view: purchase_manual.purchase_line_form_action_form
+NEW ir.actions.act_window.view: purchase_manual.purchase_line_form_action_form2
+NEW ir.actions.act_window.view: purchase_manual.purchase_line_form_action_tree
+NEW ir.actions.act_window.view: purchase_manual.purchase_line_form_action_tree2
+NEW ir.actions.wizard: purchase_manual.wizard_purchase_order_line_invoice
+NEW ir.ui.menu: purchase_manual.menu_purchase_line_form_action
+NEW ir.ui.menu: purchase_manual.menu_purchase_line_order_draft
+NEW ir.ui.view: purchase_manual.purchase_order_form
+NEW ir.ui.view: purchase_manual.purchase_order_line_form
+NEW ir.ui.view: purchase_manual.purchase_order_line_tree

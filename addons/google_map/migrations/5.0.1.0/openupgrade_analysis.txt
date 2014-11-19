@@ -1,0 +1,6 @@
+---Fields in module 'google_map'---
+---XML records in module 'google_map'---
+NEW ir.actions.wizard: google_map.wizard_google_map
+NEW ir.ui.view: google_map.view_partner_address_form1_inheritg
+NEW ir.ui.view: google_map.view_partner_address_form2_inheritg
+NEW ir.ui.view: google_map.view_partner_form_inheritg

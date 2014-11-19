@@ -1,0 +1,3 @@
+---Fields in module 'board_sale'---
+---XML records in module 'board_sale'---
+NEW ir.ui.menu: board_sale.next_id_88

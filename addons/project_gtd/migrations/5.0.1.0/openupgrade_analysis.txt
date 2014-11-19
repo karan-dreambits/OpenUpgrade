@@ -1,0 +1,63 @@
+---Fields in module 'project_gtd'---
+project_gtd  / project.gtd.context      / name (char)                   : NEW required: required
+project_gtd  / project.gtd.context      / project_default_id (many2one) : NEW relation: project.project, required: required
+project_gtd  / project.gtd.context      / sequence (integer)            : NEW 
+project_gtd  / project.gtd.timebox      / child_ids (one2many)          : NEW relation: project.gtd.timebox
+project_gtd  / project.gtd.timebox      / col_date_start (boolean)      : NEW 
+project_gtd  / project.gtd.timebox      / col_deadline (boolean)        : NEW 
+project_gtd  / project.gtd.timebox      / col_effective_hours (boolean) : NEW 
+project_gtd  / project.gtd.timebox      / col_planned_hours (boolean)   : NEW 
+project_gtd  / project.gtd.timebox      / col_priority (boolean)        : NEW 
+project_gtd  / project.gtd.timebox      / col_project (boolean)         : NEW 
+project_gtd  / project.gtd.timebox      / context1_id (many2one)        : NEW relation: project.gtd.context, required: required
+project_gtd  / project.gtd.timebox      / context2_id (many2one)        : NEW relation: project.gtd.context
+project_gtd  / project.gtd.timebox      / context3_id (many2one)        : NEW relation: project.gtd.context
+project_gtd  / project.gtd.timebox      / context4_id (many2one)        : NEW relation: project.gtd.context
+project_gtd  / project.gtd.timebox      / context5_id (many2one)        : NEW relation: project.gtd.context
+project_gtd  / project.gtd.timebox      / context6_id (many2one)        : NEW relation: project.gtd.context
+project_gtd  / project.gtd.timebox      / name (char)                   : NEW required: required
+project_gtd  / project.gtd.timebox      / parent_id (many2one)          : NEW relation: project.gtd.timebox
+project_gtd  / project.gtd.timebox      / task1_ids (one2many)          : NEW relation: project.task
+project_gtd  / project.gtd.timebox      / task2_ids (one2many)          : NEW relation: project.task
+project_gtd  / project.gtd.timebox      / task3_ids (one2many)          : NEW relation: project.task
+project_gtd  / project.gtd.timebox      / task4_ids (one2many)          : NEW relation: project.task
+project_gtd  / project.gtd.timebox      / task5_ids (one2many)          : NEW relation: project.task
+project_gtd  / project.gtd.timebox      / task6_ids (one2many)          : NEW relation: project.task
+project_gtd  / project.gtd.timebox      / task_ids (one2many)           : NEW relation: project.task
+project_gtd  / project.gtd.timebox      / type (selection)              : NEW required: required, selection_keys: ['daily', 'monthly', 'other', 'weekly'], req_default: function
+project_gtd  / project.gtd.timebox      / user_id (many2one)            : NEW relation: res.users, required: required
+project_gtd  / project.task             / context_id (many2one)         : NEW relation: project.gtd.context
+project_gtd  / project.task             / timebox_id (many2one)         : NEW relation: project.gtd.timebox
+---XML records in module 'project_gtd'---
+NEW ir.actions.act_window: project_gtd.act_timebox_tasks
+NEW ir.actions.act_window: project_gtd.act_timebox_tasks_my_deadline_open
+NEW ir.actions.act_window: project_gtd.act_timebox_tasks_my_inbox
+NEW ir.actions.act_window: project_gtd.act_timebox_tasks_my_open
+NEW ir.actions.act_window: project_gtd.act_timebox_tasks_my_pending
+NEW ir.actions.act_window: project_gtd.open_gtd_context_tree
+NEW ir.actions.act_window: project_gtd.open_gtd_task_inbox
+NEW ir.actions.act_window: project_gtd.open_gtd_timebox_all
+NEW ir.actions.act_window: project_gtd.open_gtd_timebox_tree
+NEW ir.actions.act_window: project_gtd.open_gtd_timebox_tree_my
+NEW ir.actions.act_window: project_gtd.project_normal_action_tree
+NEW ir.actions.wizard: project_gtd.open_gtd_timebox_daily
+NEW ir.actions.wizard: project_gtd.open_gtd_timebox_empty
+NEW ir.actions.wizard: project_gtd.open_gtd_timebox_fill
+NEW ir.model.access: project_gtd.access_project_gtd_context
+NEW ir.model.access: project_gtd.access_project_gtd_timebox
+NEW ir.ui.menu: project_gtd.menu_open_gtd_time
+NEW ir.ui.menu: project_gtd.menu_open_gtd_time_contexts
+NEW ir.ui.menu: project_gtd.menu_open_gtd_time_my_timeboxes
+NEW ir.ui.menu: project_gtd.menu_open_gtd_time_timeboxes
+NEW ir.ui.menu: project_gtd.menu_open_time
+NEW ir.ui.menu: project_gtd.menu_open_time_allinbox
+NEW ir.ui.menu: project_gtd.menu_open_time_daily_inbox
+NEW ir.ui.menu: project_gtd.menu_open_time_myinbox
+NEW ir.ui.view: project_gtd.project_task
+NEW ir.ui.view: project_gtd.task_inbox_view
+NEW ir.ui.view: project_gtd.view_gtd_context_form
+NEW ir.ui.view: project_gtd.view_gtd_context_tree
+NEW ir.ui.view: project_gtd.view_gtd_timebox_form
+NEW ir.ui.view: project_gtd.view_gtd_timebox_tree
+NEW ir.ui.view: project_gtd.view_gtd_timebox_treelist
+NEW ir.values: project_gtd.ir_project_category_open

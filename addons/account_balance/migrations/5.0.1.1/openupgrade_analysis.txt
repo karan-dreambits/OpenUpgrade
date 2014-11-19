@@ -1,0 +1,5 @@
+---Fields in module 'account_balance'---
+---XML records in module 'account_balance'---
+NEW ir.actions.report.xml: account_balance.account_account_balance
+NEW ir.actions.report.xml: account_balance.account_account_balance_landscape
+NEW ir.actions.wizard: account_balance.wizard_account_balance_report

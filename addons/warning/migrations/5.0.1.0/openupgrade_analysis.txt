@@ -1,0 +1,16 @@
+---Fields in module 'warning'---
+warning      / product.product          / purchase_line_warn (selection): NEW selection_keys: ['block', 'no-message', 'warning']
+warning      / product.product          / purchase_line_warn_msg (text) : NEW 
+warning      / product.product          / sale_line_warn (selection)    : NEW selection_keys: ['block', 'no-message', 'warning']
+warning      / product.product          / sale_line_warn_msg (text)     : NEW 
+warning      / res.partner              / invoice_warn (selection)      : NEW selection_keys: ['block', 'no-message', 'warning']
+warning      / res.partner              / invoice_warn_msg (text)       : NEW 
+warning      / res.partner              / picking_warn (selection)      : NEW selection_keys: ['block', 'no-message', 'warning']
+warning      / res.partner              / picking_warn_msg (text)       : NEW 
+warning      / res.partner              / purchase_warn (selection)     : NEW selection_keys: ['block', 'no-message', 'warning']
+warning      / res.partner              / purchase_warn_msg (text)      : NEW 
+warning      / res.partner              / sale_warn (selection)         : NEW selection_keys: ['block', 'no-message', 'warning']
+warning      / res.partner              / sale_warn_msg (text)          : NEW 
+---XML records in module 'warning'---
+NEW ir.ui.view: warning.product_warning_form_view
+NEW ir.ui.view: warning.view_partner_warning_form

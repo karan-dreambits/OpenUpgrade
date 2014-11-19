@@ -1,0 +1,11 @@
+---Fields in module 'mrp_subproduct'---
+mrp_subproduct / mrp.bom                  / sub_products (one2many)       : NEW relation: mrp.subproduct
+mrp_subproduct / mrp.subproduct           / bom_id (many2one)             : NEW relation: mrp.bom
+mrp_subproduct / mrp.subproduct           / product_id (many2one)         : NEW relation: product.product, required: required
+mrp_subproduct / mrp.subproduct           / product_qty (float)           : NEW required: required
+mrp_subproduct / mrp.subproduct           / product_uom (many2one)        : NEW relation: product.uom, required: required
+mrp_subproduct / mrp.subproduct           / subproduct_type (selection)   : NEW required: required, selection_keys: ['fixed', 'variable'], req_default: function
+---XML records in module 'mrp_subproduct'---
+NEW ir.model.access: mrp_subproduct.access_mrp_subproduct_manager
+NEW ir.model.access: mrp_subproduct.access_mrp_subproduct_user
+NEW ir.ui.view: mrp_subproduct.mrp_subproduct_view

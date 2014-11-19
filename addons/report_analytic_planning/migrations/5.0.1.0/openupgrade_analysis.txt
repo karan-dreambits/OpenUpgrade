@@ -1,0 +1,15 @@
+---Fields in module 'report_analytic_planning'---
+---XML records in module 'report_analytic_planning'---
+NEW ir.actions.act_window: report_analytic_planning.action_account_analytic_planning_form_new
+NEW ir.model.access: report_analytic_planning.access_account_analytic_account_project_manager
+NEW ir.model.access: report_analytic_planning.access_report_account_analytic_planning
+NEW ir.model.access: report_analytic_planning.access_report_account_analytic_planning_line
+NEW ir.model.access: report_analytic_planning.access_report_account_analytic_planning_stat
+NEW ir.model.access: report_analytic_planning.access_report_account_analytic_planning_stat_account
+NEW ir.model.access: report_analytic_planning.access_report_account_analytic_planning_stat_account_manager
+NEW ir.model.access: report_analytic_planning.access_report_account_analytic_planning_stat_manager
+NEW ir.model.access: report_analytic_planning.access_report_account_analytic_planning_stat_user
+NEW ir.model.access: report_analytic_planning.access_report_account_analytic_planning_stat_user_manager
+NEW ir.ui.menu: report_analytic_planning.menu_report_account_analytic_planning_new
+NEW ir.ui.menu: report_analytic_planning.next_id_85
+NEW ir.ui.menu: report_analytic_planning.planning_main

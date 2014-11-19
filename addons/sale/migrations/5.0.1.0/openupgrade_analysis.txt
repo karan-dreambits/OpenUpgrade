@@ -1,0 +1,81 @@
+---Fields in module 'sale'---
+sale         / res.partner              / property_product_pricelist (many2one): module is now 'product' ('sale')
+sale         / res.partner              / sales (one2many)              : DEL relation: sale.order
+sale         / sale.order               / fiscal_position (many2one)    : NEW relation: account.fiscal.position
+sale         / sale.order               / invoice_quantity (selection)  : now required, default = function
+sale         / sale.order               / partner_id (many2one)         : now required
+sale         / sale.order               / payment_term (many2one)       : NEW relation: account.payment.term
+sale         / sale.order.line          / state (selection)             : selection_keys is now '['cancel', 'confirmed', 'done', 'draft', 'exception']' ('['cancel', 'confirmed', 'done', 'draft']')
+---XML records in module 'sale'---
+NEW ir.actions.act_window: sale.action_config_picking_policy
+NEW ir.actions.act_window: sale.action_order_tree_new
+DEL ir.actions.act_window: sale.action_order_tree6
+DEL ir.actions.report.xml: sale.report_shipping
+NEW ir.actions.todo: sale.config_wizard_step_sale_picking_policy
+NEW ir.actions.wizard: sale.advance_payment
+NEW ir.model.access: sale.access_account_analytic_account_salesman
+NEW ir.model.access: sale.access_account_invoice_line_salesman
+NEW ir.model.access: sale.access_account_invoice_salesman
+NEW ir.model.access: sale.access_account_payment_term_salesman
+NEW ir.model.access: sale.access_mrp_procurement_salesman
+NEW ir.model.access: sale.access_mrp_property_salesman
+NEW ir.model.access: sale.access_sale_config_picking_policy
+NEW ir.model.access: sale.access_sale_config_picking_policy_manager
+NEW ir.model.access: sale.access_sale_order
+NEW ir.model.access: sale.access_sale_order_line
+NEW ir.model.access: sale.access_sale_order_line_manager
+NEW ir.model.access: sale.access_sale_order_line_mrp_user
+NEW ir.model.access: sale.access_sale_order_line_stock_worker
+NEW ir.model.access: sale.access_sale_order_manager
+NEW ir.model.access: sale.access_sale_order_mrp_user
+NEW ir.model.access: sale.access_sale_order_stock_worker
+NEW ir.model.access: sale.access_sale_shop
+NEW ir.model.access: sale.access_sale_shop_admin
+NEW ir.model.access: sale.access_stock_move_salesman
+NEW ir.model.access: sale.access_stock_picking_salesman
+DEL ir.property: sale.property_product_pricelist
+NEW ir.ui.menu: sale.menu_action_order_tree_new
+NEW ir.ui.menu: sale.menu_shop_configuration
+DEL ir.ui.menu: sale.menu_action_order_tree6
+NEW ir.ui.view: sale.stock_picking_out_inherit_sale
+NEW ir.ui.view: sale.view_config_picking_policy
+NEW ir.ui.view: sale.view_mrp_production_form_inherit
+NEW ir.ui.view: sale.view_sale_order_calendar
+NEW ir.ui.view: sale.view_sale_order_graph
+NEW process.condition: sale.process_condition_conditionafterdelivery0
+NEW process.node: sale.process_node_deliveryorder0
+NEW process.node: sale.process_node_invoice0
+NEW process.node: sale.process_node_invoiceafterdelivery0
+NEW process.node: sale.process_node_order0
+NEW process.node: sale.process_node_packinglist0
+NEW process.node: sale.process_node_quotation0
+NEW process.node: sale.process_node_saleorder0
+NEW process.node: sale.process_node_saleorderprocurement0
+NEW process.node: sale.process_node_saleprocurement0
+NEW process.process: sale.process_process_salesprocess0
+NEW process.transition: sale.process_transition_confirmquotation0
+NEW process.transition: sale.process_transition_deliver0
+NEW process.transition: sale.process_transition_invoice0
+NEW process.transition: sale.process_transition_invoiceafterdelivery0
+NEW process.transition: sale.process_transition_packing0
+NEW process.transition: sale.process_transition_saleinvoice0
+NEW process.transition: sale.process_transition_saleorderprocurement0
+NEW process.transition: sale.process_transition_saleprocurement0
+NEW process.transition.action: sale.process_transition_action_assign0
+NEW process.transition.action: sale.process_transition_action_cancel0
+NEW process.transition.action: sale.process_transition_action_cancel1
+NEW process.transition.action: sale.process_transition_action_cancel2
+NEW process.transition.action: sale.process_transition_action_cancelassignation0
+NEW process.transition.action: sale.process_transition_action_cancelorder0
+NEW process.transition.action: sale.process_transition_action_confirm0
+NEW process.transition.action: sale.process_transition_action_createinvoice0
+NEW process.transition.action: sale.process_transition_action_forceassignation0
+NEW process.transition.action: sale.process_transition_action_validate0
+DEL product.pricelist: sale.list0
+DEL product.pricelist.item: sale.item0
+DEL product.pricelist.type: sale.pricelist_type_sale
+DEL product.pricelist.version: sale.ver0
+NEW res.groups: sale.group_sale_manager
+NEW res.groups: sale.group_sale_user
+NEW res.roles: sale.res_roles_salesman0
+NEW workflow.transition: sale.trans_wait_invoice_all_lines_invoiced

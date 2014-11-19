@@ -1,0 +1,77 @@
+---Fields in module 'idea'---
+idea         / idea.category            / child_ids (one2many)          : NEW relation: idea.category
+idea         / idea.category            / name (char)                   : NEW required: required
+idea         / idea.category            / parent_id (many2one)          : NEW relation: idea.category
+idea         / idea.category            / summary (text)                : NEW 
+idea         / idea.comment             / content (text)                : NEW required: required
+idea         / idea.comment             / create_date (datetime)        : NEW 
+idea         / idea.comment             / idea_id (many2one)            : NEW relation: idea.idea, required: required
+idea         / idea.comment             / user_id (many2one)            : NEW relation: res.users, required: required, req_default: function
+idea         / idea.idea                / category_id (many2one)        : NEW relation: idea.category, required: required
+idea         / idea.idea                / comment_ids (one2many)        : NEW relation: idea.comment
+idea         / idea.idea                / create_date (datetime)        : NEW 
+idea         / idea.idea                / description (text)            : NEW required: required
+idea         / idea.idea                / stat_vote_ids (one2many)      : NEW relation: idea.vote.stat
+idea         / idea.idea                / state (selection)             : NEW selection_keys: ['cancel', 'close', 'draft', 'open']
+idea         / idea.idea                / title (char)                  : NEW required: required
+idea         / idea.idea                / user_id (many2one)            : NEW relation: res.users, required: required, req_default: function
+idea         / idea.idea                / vote_ids (one2many)           : NEW relation: idea.vote
+idea         / idea.vote                / idea_id (many2one)            : NEW relation: idea.idea, required: required
+idea         / idea.vote                / score (selection)             : NEW required: required, selection_keys: ['-1', '0', '100', '25', '50', '75'], req_default: function
+idea         / idea.vote                / user_id (many2one)            : NEW relation: res.users
+idea         / idea.vote.stat           / idea_id (many2one)            : NEW relation: idea.idea
+idea         / idea.vote.stat           / nbr (integer)                 : NEW 
+idea         / idea.vote.stat           / score (selection)             : NEW selection_keys: ['-1', '0', '100', '25', '50', '75']
+---XML records in module 'idea'---
+NEW ir.actions.act_window: idea.action_idea_category
+NEW ir.actions.act_window: idea.action_idea_category_tree
+NEW ir.actions.act_window: idea.action_idea_idea
+NEW ir.actions.act_window: idea.action_idea_idea_categ_open
+NEW ir.actions.act_window: idea.action_idea_idea_draft_my
+NEW ir.actions.act_window: idea.action_idea_idea_my_idea
+NEW ir.actions.act_window: idea.action_idea_idea_open
+NEW ir.actions.act_window: idea.action_idea_idea_open_my
+NEW ir.actions.act_window: idea.action_idea_vote
+NEW ir.actions.act_window: idea.action_idea_vote_stat
+NEW ir.model.access: idea.access_idea_category
+NEW ir.model.access: idea.access_idea_category_system
+NEW ir.model.access: idea.access_idea_comment
+NEW ir.model.access: idea.access_idea_idea
+NEW ir.model.access: idea.access_idea_vote
+NEW ir.model.access: idea.access_idea_vote_stat
+NEW ir.ui.menu: idea.menu_config
+NEW ir.ui.menu: idea.menu_idea_category
+NEW ir.ui.menu: idea.menu_idea_category_tree
+NEW ir.ui.menu: idea.menu_idea_idea
+NEW ir.ui.menu: idea.menu_idea_idea_draft_my
+NEW ir.ui.menu: idea.menu_idea_idea_my_idea
+NEW ir.ui.menu: idea.menu_idea_idea_open
+NEW ir.ui.menu: idea.menu_idea_idea_open_my
+NEW ir.ui.menu: idea.menu_idea_vote
+NEW ir.ui.menu: idea.menu_idea_vote_stat
+NEW ir.ui.menu: idea.menu_ideas
+NEW ir.ui.menu: idea.menu_ideas1
+NEW ir.ui.menu: idea.menu_reporting
+NEW ir.ui.menu: idea.menu_tools
+NEW ir.ui.view: idea.view_idea_category_form
+NEW ir.ui.view: idea.view_idea_category_tree
+NEW ir.ui.view: idea.view_idea_comment_tree
+NEW ir.ui.view: idea.view_idea_idea_form
+NEW ir.ui.view: idea.view_idea_idea_tree
+NEW ir.ui.view: idea.view_idea_stat_form
+NEW ir.ui.view: idea.view_idea_vote_form
+NEW ir.ui.view: idea.view_idea_vote_stat_form
+NEW ir.ui.view: idea.view_idea_vote_stat_graph
+NEW ir.ui.view: idea.view_idea_vote_stat_tree
+NEW ir.ui.view: idea.view_idea_vote_tree
+NEW ir.values: idea.action_idea_idea_categ_open_val
+NEW workflow: idea.wkf_idea
+NEW workflow.activity: idea.act_cancel
+NEW workflow.activity: idea.act_close
+NEW workflow.activity: idea.act_draft
+NEW workflow.activity: idea.act_open
+NEW workflow.transition: idea.t1
+NEW workflow.transition: idea.t2
+NEW workflow.transition: idea.t3
+NEW workflow.transition: idea.t4
+NEW workflow.transition: idea.t5

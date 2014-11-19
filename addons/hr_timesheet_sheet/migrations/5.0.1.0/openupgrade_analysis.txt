@@ -1,0 +1,37 @@
+---Fields in module 'hr_timesheet_sheet'---
+---XML records in module 'hr_timesheet_sheet'---
+NEW ir.actions.act_window: hr_timesheet_sheet.act_hr_timesheet_sheet_sheet_by_account
+NEW ir.actions.act_window: hr_timesheet_sheet.act_hr_timesheet_sheet_sheet_by_day
+NEW ir.model.access: hr_timesheet_sheet.access_hr_timesheet_sheet_sheet
+NEW ir.model.access: hr_timesheet_sheet.access_hr_timesheet_sheet_sheet_account
+NEW ir.model.access: hr_timesheet_sheet.access_hr_timesheet_sheet_sheet_day
+NEW ir.ui.menu: hr_timesheet_sheet.next_id_60
+NEW ir.ui.view: hr_timesheet_sheet.hr_timesheet_account_form
+NEW ir.ui.view: hr_timesheet_sheet.hr_timesheet_day_form
+NEW ir.ui.view: hr_timesheet_sheet.hr_timesheet_day_tree
+NEW process.node: hr_timesheet_sheet.process_node_analyticcost0
+NEW process.node: hr_timesheet_sheet.process_node_attendance0
+NEW process.node: hr_timesheet_sheet.process_node_confirmedtimesheet0
+NEW process.node: hr_timesheet_sheet.process_node_drafttimesheetsheet0
+NEW process.node: hr_timesheet_sheet.process_node_invoiceonwork0
+NEW process.node: hr_timesheet_sheet.process_node_phonecall0
+NEW process.node: hr_timesheet_sheet.process_node_review0
+NEW process.node: hr_timesheet_sheet.process_node_timesheet0
+NEW process.node: hr_timesheet_sheet.process_node_timesheetconfirming0
+NEW process.node: hr_timesheet_sheet.process_node_timesheetline0
+NEW process.node: hr_timesheet_sheet.process_node_validatedtimesheet0
+NEW process.process: hr_timesheet_sheet.process_process_hrtimesheetprocess0
+NEW process.transition: hr_timesheet_sheet.process_transition_attendancetimesheet0
+NEW process.transition: hr_timesheet_sheet.process_transition_confirmtimesheet0
+NEW process.transition: hr_timesheet_sheet.process_transition_confirmtimesheetsheet0
+NEW process.transition: hr_timesheet_sheet.process_transition_createanalyticcose0
+NEW process.transition: hr_timesheet_sheet.process_transition_invoiceontimesheet0
+NEW process.transition: hr_timesheet_sheet.process_transition_phonecallencoding0
+NEW process.transition: hr_timesheet_sheet.process_transition_reviewofwork0
+NEW process.transition: hr_timesheet_sheet.process_transition_timesheetdraft0
+NEW process.transition: hr_timesheet_sheet.process_transition_validatetimesheet0
+NEW process.transition.action: hr_timesheet_sheet.process_transition_action_draftconfirmtimesheet0
+NEW process.transition.action: hr_timesheet_sheet.process_transition_action_refusetimesheet0
+NEW process.transition.action: hr_timesheet_sheet.process_transition_action_reviewtimesheet0
+NEW process.transition.action: hr_timesheet_sheet.process_transition_action_validatetimesheet0
+NEW res.roles: hr_timesheet_sheet.res_roles_hr0

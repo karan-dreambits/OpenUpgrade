@@ -1,0 +1,132 @@
+---Fields in module 'mrp'---
+mrp          / mrp.bom                  / product_uos (many2one)        : NEW relation: product.uom
+mrp          / mrp.bom                  / product_uos_qty (float)       : NEW 
+mrp          / mrp.procurement          / bom_id (many2one)             : NEW relation: mrp.bom
+mrp          / mrp.procurement          / date_close (date)             : type is now 'datetime' ('date')
+mrp          / mrp.procurement          / date_planned (date)           : type is now 'datetime' ('date')
+mrp          / mrp.procurement          / note (text)                   : NEW 
+mrp          / mrp.procurement          / procure_method (selection)    : now required, default = function
+mrp          / mrp.procurement          / product_uos (many2one)        : NEW relation: product.uom
+mrp          / mrp.procurement          / product_uos_qty (float)       : NEW 
+mrp          / mrp.procurement          / purchase_line_id (many2one)   : DEL relation: purchase.order.line
+mrp          / mrp.procurement          / state (selection)             : now required, default = function
+mrp          / mrp.procurement          / state (selection)             : selection_keys is now '['cancel', 'confirmed', 'done', 'draft', 'exception', 'ready', 'running', 'waiting']' ('['cancel', 'confirmed', 'done', 'draft', 'exception', 'running']')
+mrp          / mrp.production           / date_planned (date)           : type is now 'datetime' ('date')
+mrp          / mrp.production           / product_uom (many2one)        : now required
+mrp          / mrp.production           / product_uos (many2one)        : NEW relation: product.uom
+mrp          / mrp.production           / product_uos_qty (float)       : NEW 
+mrp          / mrp.production           / routing_id (many2one)         : NEW relation: mrp.routing
+mrp          / mrp.production.product.line / product_uos (many2one)        : NEW relation: product.uom
+mrp          / mrp.production.product.line / product_uos_qty (float)       : NEW 
+mrp          / res.company              / manufacturing_lead (float)    : NEW required: required, req_default: function
+mrp          / res.company              / po_lead (float)               : NEW required: required, req_default: function
+mrp          / res.company              / schedule_range (float)        : NEW required: required, req_default: function
+mrp          / res.company              / security_lead (float)         : NEW required: required, req_default: function
+mrp          / stock.warehouse.orderpoint / location_id (many2one)        : NEW relation: stock.location, required: required
+---XML records in module 'mrp'---
+NEW ir.actions.act_window: mrp.action_product_bom_structure
+NEW ir.actions.act_window: mrp.mrp_bom_form_action_new
+NEW ir.actions.act_window: mrp.mrp_procurement_action11
+NEW ir.actions.act_window: mrp.mrp_procurement_new
+NEW ir.actions.act_window: mrp.mrp_production_action2_gantt
+NEW ir.actions.act_window: mrp.mrp_production_new
+DEL ir.actions.act_window: mrp.mrp_procurement_action2
+NEW ir.actions.report.xml: mrp.report_mrp_production_report
+NEW ir.actions.wizard: mrp.product_procurement_wizard
+NEW ir.actions.wizard: mrp.wizard_change_production_qty
+NEW ir.actions.wizard: stock.track_line
+NEW ir.model.access: mrp.access_account_account
+NEW ir.model.access: mrp.access_account_analytic_journal_mrp_worker
+NEW ir.model.access: mrp.access_hr_timesheet_group_mrp_worker
+NEW ir.model.access: mrp.access_mrp_bom
+NEW ir.model.access: mrp.access_mrp_bom_manager
+NEW ir.model.access: mrp.access_mrp_bom_revision
+NEW ir.model.access: mrp.access_mrp_bom_revision_manager
+NEW ir.model.access: mrp.access_mrp_procurement
+NEW ir.model.access: mrp.access_mrp_procurement_stock_worker
+NEW ir.model.access: mrp.access_mrp_production
+NEW ir.model.access: mrp.access_mrp_production_product_line
+NEW ir.model.access: mrp.access_mrp_production_stock_worker
+NEW ir.model.access: mrp.access_mrp_production_workcenter_line
+NEW ir.model.access: mrp.access_mrp_property
+NEW ir.model.access: mrp.access_mrp_property_group
+NEW ir.model.access: mrp.access_mrp_property_group_manager
+NEW ir.model.access: mrp.access_mrp_property_manager
+NEW ir.model.access: mrp.access_mrp_routing
+NEW ir.model.access: mrp.access_mrp_routing_manager
+NEW ir.model.access: mrp.access_mrp_routing_workcenter
+NEW ir.model.access: mrp.access_mrp_routing_workcenter_manager
+NEW ir.model.access: mrp.access_mrp_workcenter
+NEW ir.model.access: mrp.access_mrp_workcenter_manager
+NEW ir.model.access: mrp.access_purchase_order_line_mrp_worker
+NEW ir.model.access: mrp.access_purchase_order_mrp_worker
+NEW ir.model.access: mrp.access_stock_location_mrp_worker
+NEW ir.model.access: mrp.access_stock_move_mrp_worker
+NEW ir.model.access: mrp.access_stock_picking_mrp_worker
+NEW ir.model.access: mrp.access_stock_warehouse
+NEW ir.model.access: mrp.access_stock_warehouse_orderpoint
+NEW ir.model.access: mrp.access_stock_warehouse_orderpoint_manager
+NEW ir.ui.menu: mrp.menu_mrp_bom_form_action_new
+NEW ir.ui.menu: mrp.menu_mrp_configuration
+NEW ir.ui.menu: mrp.menu_mrp_procurement_action11
+NEW ir.ui.menu: mrp.menu_mrp_procurement_new
+NEW ir.ui.menu: mrp.menu_mrp_property_group_action_prop
+NEW ir.ui.menu: mrp.menu_mrp_reordering
+NEW ir.ui.menu: mrp.menu_production_orders_new
+NEW ir.ui.menu: mrp.menu_production_orders_start_gantt
+DEL ir.ui.menu: mrp.menu_mrp_procurement_action2
+NEW ir.ui.view: mrp.mrp_company
+NEW ir.ui.view: mrp.mrp_routing_workcenter_form_view
+NEW ir.ui.view: mrp.mrp_routing_workcenter_tree_view
+NEW ir.ui.view: mrp.view_production_calendar
+NEW ir.ui.view: mrp.view_production_gantt
+NEW ir.ui.view: mrp.view_production_graph
+DEL ir.ui.view: mrp.mrp_production_workcenter_form_view
+DEL ir.ui.view: mrp.mrp_production_workcenter_tree_view
+DEL ir.ui.view: mrp_routing_workcenter_form.view
+DEL ir.ui.view: mrp_routing_workcenter_tree.view
+NEW ir.values: mrp.ir_BOM_structure
+DEL ir.values: mrp.ir_bom_architecture_open
+NEW process.node: mrp.process_node_billofmaterial0
+NEW process.node: mrp.process_node_minimumstockrule0
+NEW process.node: mrp.process_node_mts0
+NEW process.node: mrp.process_node_orderrfq0
+NEW process.node: mrp.process_node_procureproducts0
+NEW process.node: mrp.process_node_production0
+NEW process.node: mrp.process_node_productionorder0
+NEW process.node: mrp.process_node_productminimumstockrule0
+NEW process.node: mrp.process_node_purchaseprocure0
+NEW process.node: mrp.process_node_rfq0
+NEW process.node: mrp.process_node_routing0
+NEW process.node: mrp.process_node_servicemts0
+NEW process.node: mrp.process_node_serviceonorder0
+NEW process.node: mrp.process_node_serviceproduct0
+NEW process.node: mrp.process_node_serviceproduct1
+NEW process.node: mrp.process_node_stock0
+NEW process.node: mrp.process_node_stockproduct0
+NEW process.node: mrp.process_node_stockproduct1
+NEW process.process: mrp.process_process_procurementprocess0
+NEW process.process: mrp.process_process_serviceproductprocess0
+NEW process.process: mrp.process_process_stockableproductprocess0
+NEW process.transition: mrp.process_transition_billofmaterialrouting0
+NEW process.transition: mrp.process_transition_bom0
+NEW process.transition: mrp.process_transition_minimumstockprocure0
+NEW process.transition: mrp.process_transition_procureserviceproduct0
+NEW process.transition: mrp.process_transition_procurestockableproduct0
+NEW process.transition: mrp.process_transition_productionprocureproducts0
+NEW process.transition: mrp.process_transition_producttostockrules0
+NEW process.transition: mrp.process_transition_purchaseprocure0
+NEW process.transition: mrp.process_transition_servicemto0
+NEW process.transition: mrp.process_transition_servicemts0
+NEW process.transition: mrp.process_transition_servicerfq0
+NEW process.transition: mrp.process_transition_stockmts0
+NEW process.transition: mrp.process_transition_stockproduct0
+NEW process.transition: mrp.process_transition_stockproduction0
+NEW process.transition: mrp.process_transition_stockrfq0
+NEW res.groups: mrp.group_mrp_manager
+NEW res.groups: mrp.group_mrp_user
+NEW workflow.activity: mrp.act_wait_done
+NEW workflow.transition: mrp.trans_confirm_cancel2
+NEW workflow.transition: mrp.trans_confirm_wait_done
+NEW workflow.transition: mrp.trans_confirm_waiting_cancel
+DEL workflow.transition: mrp.trans_make_to_stock_cancel
