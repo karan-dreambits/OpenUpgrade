@@ -406,6 +406,10 @@ class module(osv.osv):
 				self._update_dependencies(cr, uid, id, terp.get('depends', []))
 				self._update_category(cr, uid, id, terp.get('category', 'Uncategorized'))
 
+		# OpenUpgrade: don't query obsolete online repositories
+		# because of long timeout and exceptions
+		return res
+
 		for repository in robj.browse(cr, uid, robj.search(cr, uid, [])):
 			try:
 				index_page = urllib.urlopen(repository.url).read()
