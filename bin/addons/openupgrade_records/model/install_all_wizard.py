@@ -51,7 +51,10 @@ class install_all_wizard(osv.osv):
         update, add = module_obj.update_list(cr, uid,)
         print "%s modules added" % add
         module_ids = module_obj.search(
-            cr, uid, [('state', 'not in', ['installed', 'uninstallable', 'unknown'])])
+            cr, uid, [
+                ('state', 'in',
+                 ('uninstalled', 'to upgrade', 'to remove', 'to install')
+                 )])
         res.update(
             {'to_install': module_ids and len(module_ids) or False}
             )
@@ -100,7 +103,10 @@ class install_all_wizard(osv.osv):
         """
         module_obj = self.pool.get('ir.module.module')
         module_ids = module_obj.search(
-            cr, uid, [('state', 'not in', ['installed', 'uninstallable', 'unknown'])])
+            cr, uid, [
+                ('state', 'in',
+                 ('uninstalled', 'to upgrade', 'to remove', 'to install')
+                 )])
         if module_ids:
             module_obj.write(
                 cr, uid, module_ids, {'state': 'to install'})
