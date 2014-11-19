@@ -23,7 +23,7 @@
 #
 ##############################################################################
 
-import openerplib
+import xmlrpclib
 import logging
 
 try:
@@ -62,25 +62,34 @@ class openupgrade_comparison_config(Model):
         'protocol': lambda *a: 'http://',
         }
 
-    def get_connection(self, cr, uid, ids, context=None):
+    def get_proxy(self, cr, uid, ids, context=None):
+        """ Return a lightweight XMLRPC wrapper which passes all the
+        standard arguments """
         if not ids:
             raise except_orm(
                 _("Cannot connect"), _("Invalid id passed."))
         conf = self.read(cr, uid, ids[0], context=None)
-        return openerplib.get_connection(
-            hostname=conf['server'],
-            database=conf['database'],
-            login=conf['username'],
-            password=conf['password'],
-            port=conf['port'],
-            )
+        host = '%(protocol)s%(server)s:%(port)s' % conf
+        openerp_socket = xmlrpclib.ServerProxy(
+            '%s/xmlrpc/common' % host)
+        uid = openerp_socket.login(
+            conf['database'], conf['username'], conf['password'])
+        objects_proxy = xmlrpclib.ServerProxy(
+            '%s/xmlrpc/object' % host)
+
+        def execute(model, method, *args, **kwargs):
+            return objects_proxy.execute(
+                conf['database'], uid, conf['password'],
+                model, method, *args, **kwargs)
+
+        return execute
 
     def test_connection(self, cr, uid, ids, context=None):
         try:
-            connection = self.get_connection(cr, uid, [ids[0]], context)
-            user_model = connection.get_model("res.users")
-            ids = user_model.search([("login", "=", "admin")])
-            user_info = user_model.read(ids[0], ["name"])
+            proxy = self.get_proxy(cr, uid, ids, context=context)
+            user_ids = proxy(
+                'res.users', 'search', [("login", "=", "admin")])
+            user_info = proxy('res.users', 'read', user_ids[0], ["name"])
         except Exception, e:
             raise except_orm(
                 _("Connection failed."), unicode(e))
@@ -114,27 +123,26 @@ class openupgrade_comparison_config(Model):
         """
         Install same modules as in source DB
         """
-        connection = self.get_connection(cr, uid, [ids[0]], context)
-        module_r_obj = connection.get_model("ir.module.module")
-        r_ids = module_r_obj.search([("state", "=", "installed")])
+        proxy = self.get_proxy(cr, uid, [ids[0]], context)
+        remote_module_ids = proxy(
+            'ir.module.module', 'search', [("state", "=", "installed")])
         modules = []
 
-        for id in r_ids:
-            mod = module_r_obj.read(id, ["name"])
-            mod_name = mod['name']
-            if apriori.renamed_modules.get(mod_name):
-                mod_name = apriori.renamed_modules[mod_name]
-            modules.append(mod_name)
+        for module in proxy(
+                'ir.module.module', 'read', remote_module_ids, ['name']):
+            modules.append(
+                apriori.renamed_modules.get(
+                    module['name'], module['name']))
+
         _logger = logging.getLogger(__name__)
         _logger.debug('remote modules %s', modules)
-        module_l_obj = self.pool.get('ir.module.module')
-        l_ids = module_l_obj.search(cr, uid, [('name', 'in', modules),
-                                              ('state', '=', 'uninstalled')])
-        _logger.debug('local modules %s', l_ids)
-        if l_ids:
-            module_l_obj.write(cr, uid, l_ids, {'state': 'to install'})
-
-        result = {}
-        return result
+        module_obj = self.pool.get('ir.module.module')
+        module_ids = module_obj.search(
+            cr, uid, [('name', 'in', modules),
+                      ('state', '=', 'uninstalled')])
+        _logger.debug('local modules %s', module_ids)
+        if module_ids:
+            module_obj.write(cr, uid, module_ids, {'state': 'to install'})
+        return True
 
 openupgrade_comparison_config()

@@ -98,13 +98,12 @@ class openupgrade_analysis_wizard(TransientModel):
         wizard = self.browse(cr, uid, ids[0], context=context)
         # Retrieve connection and access methods
         conf_obj = self.pool.get('openupgrade.comparison.config')
-        connection = conf_obj.get_connection(
+        proxy = conf_obj.get_proxy(
             cr, uid, [wizard.server_config.id], context=context)
-        remote_record_obj = connection.get_model('openupgrade.record')
         local_record_obj = self.pool.get('openupgrade.record')
 
         # Retrieve field representations and compare
-        remote_records = remote_record_obj.field_dump(context)
+        remote_records = proxy('openupgrade.record', 'field_dump', context)
         local_records = local_record_obj.field_dump(cr, uid, context)
         res = compare.compare_sets(remote_records, local_records)
 
@@ -112,8 +111,8 @@ class openupgrade_analysis_wizard(TransientModel):
         fields = ['module', 'model', 'name']
         local_xml_record_ids = local_record_obj.search(
             cr, uid, [('type', '=', 'xmlid')])
-        remote_xml_record_ids = remote_record_obj.search(
-            [('type', '=', 'xmlid')])
+        remote_xml_record_ids = proxy(
+            'openupgrade.record', 'search', [('type', '=', 'xmlid')])
         local_xml_records = [
             dict([(field, x[field]) for field in fields])
             for x in local_record_obj.read(
@@ -121,7 +120,8 @@ class openupgrade_analysis_wizard(TransientModel):
             ]
         remote_xml_records = [
             dict([(field, x[field]) for field in fields])
-            for x in remote_record_obj.read(
+            for x in proxy(
+                'openupgrade.record', 'read',
                 remote_xml_record_ids, fields)
             ]
         res_xml = compare.compare_xml_sets(
