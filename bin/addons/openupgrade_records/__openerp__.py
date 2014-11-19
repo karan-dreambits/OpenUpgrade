@@ -31,10 +31,9 @@
     'description': """Allow OpenUpgrade records to be 
 stored in the database and compare with other servers.
 
-This module depends on OpenERP client lib:
-
-    easy_install openerp-client-lib
-
+This version of the module for TinyERP 4.2 does not contain any views or
+menus. You can use it to map the database layout using an XMLRPC script
+which has been added in this server distribution in the 'scripts' directory.
 """,
     'author': 'OpenUpgrade Community',
     'maintainer': 'OpenUpgrade Community',
