@@ -260,9 +260,9 @@ def load_module_graph(cr, graph, status=None, registry=None, **kwargs):
                                         properties['req_default'] = 'function'
                                 else:
                                         properties['req_default'] = unicode(model._defaults[k])
-                                        for key, value in properties.items():
-                                                if value:
-                                                        model_registry.setdefault(k, {})[key] = value
+                        for key, value in properties.items():
+                            if value:
+                                model_registry.setdefault(k, {})[key] = value
 
         def get_record_id(cr, module, model, field, mode):
             """
