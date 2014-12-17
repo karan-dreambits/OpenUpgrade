@@ -484,6 +484,7 @@ def deactivate_workflow_transitions(cr, model, transitions=None):
         (tuple(transition_ids),))
     return transition_conditions
 
+
 def reactivate_workflow_transitions(cr, transition_conditions):
     """
     Reactivate workflow transition previously deactivated by
@@ -499,6 +500,7 @@ def reactivate_workflow_transitions(cr, transition_conditions):
             'update wkf_transition set condition = %s where id = %s',
             (condition, transition_id))
 
+
 def migrate():
     """
     This is the decorator for the migrate() function
@@ -510,7 +512,7 @@ def migrate():
     """
     def wrap(func):
         def wrapped_function(cr, version):
-            stage =  'unknown'
+            stage = 'unknown'
             module = 'unknown'
             filename = 'unknown'
             try:
@@ -533,7 +535,7 @@ def migrate():
                 func(cr, version)
             except Exception, e:
                 logger.error(
-                    "%s: error in migration script %s: %s" % 
+                    "%s: error in migration script %s: %s" %
                     (module, filename, str(e).decode('utf8')))
                 logger.exception(e)
                 raise
