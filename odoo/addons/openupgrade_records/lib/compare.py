@@ -27,10 +27,7 @@
 import collections
 import copy
 
-try:
-    from openerp.addons.openupgrade_records.lib import apriori
-except ImportError:
-    from openupgrade_records.lib import apriori
+from odoo.addons.openupgrade_records.lib import apriori
 
 
 def module_map(module):
@@ -85,7 +82,8 @@ def search(item, item_list, fields):
         for other in item_list:
             if not item['field'] or item['field'] != other.get('oldname'):
                 continue
-            if compare_records(dict(item, field=other['field']), other, fields):
+            if compare_records(
+                    dict(item, field=other['field']), other, fields):
                 return other
     return None
 
