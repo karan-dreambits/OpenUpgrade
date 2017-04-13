@@ -4,7 +4,7 @@
 from openupgradelib import openupgrade
 
 
-@openupgrade.migrate()
+@openupgrade.migrate(use_env=False)
 def migrate(cr, version):
     cr.execute(
         # we rely on the ORM to write this value
