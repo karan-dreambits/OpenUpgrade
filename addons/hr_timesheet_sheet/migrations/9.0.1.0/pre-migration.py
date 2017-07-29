@@ -6,6 +6,18 @@
 from openupgradelib import openupgrade
 
 
+xmlid_renames = [
+    (
+        'hr_timesheet_notifications.subtype_confirm',
+        'hr_timesheet_sheet.mt_timesheet_confirmed'
+    ),
+    (
+        'hr_timesheet_notifications.subtype_done',
+        'hr_timesheet_sheet.mt_timesheet_approved'
+    ),
+]
+
+
 def prepopulate_fields(cr):
 
     cr.execute("""SELECT column_name
@@ -41,3 +53,11 @@ def migrate(cr, version):
     DROP VIEW IF EXISTS hr_timesheet_sheet_sheet_account;
     """)
     prepopulate_fields(cr)
+
+    # Migrate from hr_timesheet_notifications 7.0
+    openupgrade.rename_xmlids(cr, xmlid_renames)
+    cr.execute(
+        """ UPDATE ir_module_module SET state='to remove'
+        WHERE NAME='hr_timesheet_notifications'
+            AND state IN ('to upgrade', 'to install', 'installed', 'unknown')
+        """)
