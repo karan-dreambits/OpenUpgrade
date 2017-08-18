@@ -17,6 +17,16 @@ def map_priority(cr):
 
 
 def map_template_state(cr):
+    # CUSTOM: migrate template state to custom boolean field
+    if not openupgrade.column_exists(
+            cr, 'project_project', 'template'):
+        cr.execute(
+            """ ALTER TABLE project_project
+            ADD COLUMN template BOOLEAN""")
+    cr.execute(
+        """  UPDATE project_project SET template = TRUE
+        WHERE state = 'template'""")
+
     openupgrade.map_values(
         cr,
         openupgrade.get_legacy_name('state'),
