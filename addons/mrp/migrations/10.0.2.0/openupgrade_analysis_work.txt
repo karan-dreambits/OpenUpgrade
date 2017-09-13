@@ -22,13 +22,13 @@ mrp          / mrp.bom                  / product_rounding (float)      : DEL
 # NOTHING TO DO: Rounding is taken from the product.uom now
 
 mrp          / mrp.bom                  / product_uom (many2one)        : was renamed to product_uom_id
-# TODO: Rename column in pre-migration
+# DONE: Renamed column in pre-migration
 
 mrp          / mrp.bom                  / property_ids (many2many)      : DEL relation: mrp.property
 # NOTHING TO DO
 
 mrp          / mrp.bom                  / ready_to_produce (selection)  : NEW required: required, selection_keys: ['all_available', 'asap'], req_default: function
-# DONE: Use the default value
+# DONE: Used the default value
 
 mrp          / mrp.bom                  / website_message_ids (one2many): DEL relation: mail.message
 # NOTHING TO DO
@@ -69,17 +69,17 @@ mrp          / mrp.production           / move_prod_id (many2one)       : DEL re
 # NOTHING TO DO
 
 mrp          / mrp.production           / picking_type_id (many2one)    : NEW relation: stock.picking.type, required: required, req_default: function
-# TODO: Pre-migration: pre-create the field
-# TODO: Post-migration: Update all mrp.production records trying to find
+# DONE: Pre-migration: pre-created the field
+# DONE: Post-migration: Updated all mrp.production records trying to find
 # first the most suitable picking_type_id based on the destination location,
 # and fall back to the default picking type search if none found previously.
 
 mrp          / mrp.production           / procurement_group_id (many2one): NEW relation: procurement.group
-# NOTHING TO DO. Remainder: this change affects to OCA module 'mrp_production_raw_material_procurement_group' in v9, where probably
+# NOTHING TO DO. Reminder: this change affects to OCA module 'mrp_production_raw_material_procurement_group' in v9, where probably
 # the field 'raw_material_procurement_group_id' will need to be renamed.
 
 mrp          / mrp.production           / state (selection)             : selection_keys is now '['cancel', 'confirmed', 'done', 'planned', 'progress']' ('['cancel', 'confirmed', 'done', 'draft', 'in_production', 'ready']')
-# TODO: Map statuses
+# DONE: Post-migration. Mapped some values
 
 mrp          / mrp.production           / procurement_ids (one2many)    : NEW relation: procurement.order
 mrp          / mrp.production           / product_lines (one2many)      : DEL relation: mrp.production.product.line
@@ -96,14 +96,14 @@ mrp          / mrp.routing              / workcenter_lines (one2many)   : was re
 # NOTHING TO DO
 
 mrp          / mrp.routing.workcenter   / batch (selection)             : NEW required: required, selection_keys: ['no', 'yes'], req_default: function
-# TODO: Post-migration: Default value
+# DONE: Used the default value
 
 mrp          / mrp.routing.workcenter   / batch_size (float)            : NEW
 mrp          / mrp.routing.workcenter   / cycle_nbr (float)             : DEL required: required, req_default: function
 mrp          / mrp.routing.workcenter   / hour_nbr (float)              : DEL required: required, req_default: function
 
 mrp          / mrp.routing.workcenter   / routing_id (many2one)         : now required
-# TODO: If not set, search for an existing routing in the company. If not found, create a dummy routing and assign it.
+# DONE: Post-migration: If not set, search for an existing routing in the company. If not found, created a dummy routing and assign it.
 
 mrp          / mrp.routing.workcenter   / time_cycle_manual (float)     : NEW
 mrp          / mrp.routing.workcenter   / time_mode (selection)         : NEW selection_keys: ['auto', 'manual']
@@ -147,7 +147,7 @@ mrp          / mrp.workcenter           / time_ids (one2many)           : NEW re
 # NOTHING TO DO
 
 mrp          / mrp.workcenter           / sequence (integer)            : NEW required: required, req_default: function
-# TODO: post-migration: Default value
+# DONE: Used the default value
 
 
 ##### THIS IS A NEW MODEL. NOTHING TO DO #######
@@ -163,7 +163,7 @@ mrp          / mrp.workcenter.productivity.loss / manual (boolean)              
 mrp          / mrp.workcenter.productivity.loss / name (char)                   : NEW required: required
 mrp          / mrp.workcenter.productivity.loss / sequence (integer)            : NEW
 
-####### TODO: Rename table 'mrp_production_workcenter_line' to 'mrp_workorder' ################
+####### DONE: Renamed table 'mrp_production_workcenter_line' to 'mrp_workorder' ################
 mrp          / mrp.workorder            / active_move_lot_ids (one2many): NEW relation: stock.move.lots
 mrp          / mrp.workorder            / capacity (float)              : NEW
 mrp          / mrp.workorder            / date_finished (datetime)      : NEW
@@ -194,7 +194,7 @@ mrp          / procurement.order        / property_ids (many2many)      : DEL re
 
 
 mrp          / stock.move               / consumed_for (many2one)       : DEL relation: stock.move
-# TODO: Pre-migration: Copy this column
+# DONE: Pre-migration: Copied this column
 
 mrp          / stock.move               / active_move_lot_ids (one2many): NEW relation: stock.move.lots
 mrp          / stock.move               / bom_line_id (many2one)        : NEW relation: mrp.bom.line
@@ -224,7 +224,7 @@ mrp          / stock.picking.type       / code (False)                  : NEW se
 # NOTHING TO DO
 
 mrp          / stock.quant              / consumed_quant_ids (many2many): NEW relation: stock.quant
-# TODO: Post-migration: Use the 'consumed_for' column of stock_move to find the relation and insert into the relations table
+# DONE: Post-migration: Used the 'consumed_for' column of stock_move to find the relation and insert into the relations table
 
 mrp          / stock.quant              / produced_quant_ids (many2many): NEW relation: stock.quant
 # NOTHING TO DO. Used in the new unbuild process
@@ -235,7 +235,7 @@ mrp          / stock.scrap              / workorder_id (many2one)       : NEW re
 # NOTHING TO DO
 
 mrp          / stock.warehouse          / manu_type_id (many2one)       : NEW relation: stock.picking.type
-# TODO: Post-migration: for all warehouses, write on 'manufacture_to_resupply' to True, so as to force
+# DONE: Post-migration: for all warehouses, wrote on 'manufacture_to_resupply' to True, so as to force
 # the creation of the default picking types and pull rules for manufacturing on that warehouse
 
 ---XML records in module 'mrp'---
@@ -333,7 +333,7 @@ NEW ir.ui.menu: mrp.menu_mrp_config
 DEL ir.ui.menu: base.menu_mrp_config
 NEW ir.ui.menu: mrp.menu_mrp_root
 DEL ir.ui.menu: base.menu_mrp_root
-# TODO: Rename XML-IDs
+# DONE: Renamed XML-IDs
 
 NEW ir.ui.view: mrp.assets_backend
 NEW ir.ui.view: mrp.mrp_bom_cost_report
