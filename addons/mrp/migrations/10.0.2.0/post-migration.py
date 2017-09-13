@@ -10,9 +10,10 @@ def migrate_bom(env):
     default_specs = {
         'mrp.bom': [('ready_to_produce', None)]
     }
-    openupgrade.set_defaults(env.cr, env.pool, default_specs=default_specs)
+    openupgrade.set_defaults(env.cr, env.pool, default_specs)
 
 
 @openupgrade.migrate(use_env=True)
 def migrate(env, version):
+    cr = env.cr
     migrate_bom(env)
