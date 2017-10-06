@@ -19,11 +19,14 @@
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 ##############################################################################
-
+import logging
 from itertools import groupby
 
 from openerp import pooler, SUPERUSER_ID
 from openerp.openupgrade import openupgrade, openupgrade_80
+
+
+_logger = logging.getLogger('openupgrade.account')
 
 
 def update_link_to_moves(cr):
@@ -35,7 +38,11 @@ def update_link_to_moves(cr):
     rows = cr.fetchall()
     for k, v in groupby(rows, key=lambda r: r[0]):
         v = list(v)
-        assert len(v) == 1
+        assert v
+        if len(v) > 1:
+            v.sort(key=lambda r: r[1])
+            _logger.warn('Multiple links between statement line and move: %s',
+                         str(v))
         openupgrade.logged_query(
             cr,
             '''UPDATE account_bank_statement_line

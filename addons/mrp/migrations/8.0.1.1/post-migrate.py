@@ -112,7 +112,7 @@ def update_stock_moves(env):
             # don't rely on many2manys with domain ignoring it on search
             ('move_lines', '=', move.id),
             ('move_lines2', '=', move.id),
-        ])
+        ]) or move.move_dest_id.production_id
         if len(productions) == 1:
             env.cr.execute(
                 'UPDATE stock_move SET raw_material_production_id=%s '
@@ -120,7 +120,6 @@ def update_stock_moves(env):
         else:
             logger.warning("Couldn't find unique production order for %s "
                            "(candidates are %s)", move.id, productions.ids)
-
 
 def update_stock_picking_name(cr, pool):
     picking_obj = pool['stock.picking']

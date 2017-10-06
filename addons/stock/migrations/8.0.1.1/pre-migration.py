@@ -173,6 +173,43 @@ def create_stock_move_fields(cr):
 def migrate(cr, version):
     openupgrade.rename_columns(cr, column_renames)
     openupgrade.rename_xmlids(cr, xmlid_renames)
+    # Custom: correct inventory lines for products that were moved from
+    # PCE to meters UOM
+    openupgrade.logged_query(
+        cr, """\
+        UPDATE stock_inventory_line SET product_uom_id = 7
+        WHERE product_uom_id = 1 AND product_id IN (
+            SELECT pp.id FROM product_product pp
+            JOIN product_template pt ON pt.id = pp.product_tmpl_id
+            WHERE pt.uom_id = 7);""")
+    openupgrade.logged_query(
+        cr, """\
+        UPDATE stock_move SET product_uom = 7
+        WHERE product_uom = 1 AND product_id IN (
+            SELECT pp.id FROM product_product pp
+            JOIN product_template pt ON pt.id = pp.product_tmpl_id
+            WHERE pt.uom_id = 7);""")
+    openupgrade.logged_query(
+        cr, """\
+        UPDATE purchase_order_line SET product_uom = 7
+        WHERE product_uom = 1 AND product_id IN (
+            SELECT pp.id FROM product_product pp
+            JOIN product_template pt ON pt.id = pp.product_tmpl_id
+            WHERE pt.uom_id = 7);""")
+    openupgrade.logged_query(
+        cr, """\
+        UPDATE sale_order_line SET product_uom = 7
+        WHERE product_uom = 1 AND product_id IN (
+            SELECT pp.id FROM product_product pp
+            JOIN product_template pt ON pt.id = pp.product_tmpl_id
+            WHERE pt.uom_id = 7);""")
+    openupgrade.logged_query(
+        cr, """\
+        UPDATE account_invoice_line SET uos_id = 7
+        WHERE uos_id = 1 AND product_id IN (
+            SELECT pp.id FROM product_product pp
+            JOIN product_template pt ON pt.id = pp.product_tmpl_id
+            WHERE pt.uom_id = 7);""")
     initialize_location_inventory(cr)
     openupgrade.rename_tables(cr, [('stock_inventory_move_rel', None)])
 
