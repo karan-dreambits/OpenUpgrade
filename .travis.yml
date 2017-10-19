@@ -49,6 +49,8 @@ script:
     # Loading and committing test data without triggering post tests needs https://github.com/odoo/odoo/pull/13146. This is now included in OpenUpgrade.
     - git fetch --depth 2 origin 9.0
     - git reset --hard `git ls-remote |grep refs/heads/9.0 |awk '{print $1}'`
+    # Remove obsolete directories with .pyc files to prevent them from being imported (such as 'openerp')
+    - git clean -xfdq
     - pip install -q -r requirements.txt
     # this crashes if there is no test data
     - if [ -s ../test_data90.yml ]; then ./openerp-server --database=$DB --test-file=`readlink -f ../test_data90.yml` --test-commit --stop-after-init; fi
