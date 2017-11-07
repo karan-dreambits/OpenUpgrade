@@ -26,6 +26,16 @@ def map_mrp_production_state(cr):
          ], table='mrp_production', write='sql')
 
 
+def map_mrp_workorder_state(cr):
+    openupgrade.map_values(
+        cr,
+        openupgrade.get_legacy_name('state'), 'state',
+        [('draft', 'pending'),
+         ('starworking', 'progress'),
+         ('pause', 'ready'),
+         ], table='mrp_workorder', write='sql')
+
+
 def update_stock_warehouse(cr):
     cr.execute(
         """
@@ -121,6 +131,7 @@ def migrate(env, version):
     cr = env.cr
     fill_defaults(env)
     map_mrp_production_state(cr)
+    map_mrp_workorder_state(cr)
     update_stock_warehouse(cr)
     populate_production_picking_type_id(cr)
     populate_routing_workcenter_routing_id(cr)

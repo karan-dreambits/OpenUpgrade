@@ -194,7 +194,7 @@ mrp          / procurement.order        / property_ids (many2many)      : DEL re
 
 
 mrp          / stock.move               / consumed_for (many2one)       : DEL relation: stock.move
-# DONE: Pre-migration: Copied this column
+# DONE: Pre-migration: Renamed to None and copied this column
 
 mrp          / stock.move               / active_move_lot_ids (one2many): NEW relation: stock.move.lots
 mrp          / stock.move               / bom_line_id (many2one)        : NEW relation: mrp.bom.line
