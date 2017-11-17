@@ -47,7 +47,10 @@ def disable_invalid_filters(cr):
 
 
 def migrate_deferred(cr, pool):
-    """ Convert attachment style binary fields """
+    """
+    - Convert attachment style binary fields
+    - Remove harmful views from obsolete modules
+    """
     logger.info('Deferred migration step called')
     field_spec = {}
     for model_name, model in pool.items():
@@ -67,4 +70,18 @@ def migrate_deferred(cr, pool):
         with api.Environment.manage():
             env = api.Environment(cr, SUPERUSER_ID, {})
             openupgrade_90.convert_binary_field_to_attachment(env, field_spec)
+
+    with api.Environment.manage():
+        env = api.Environment(cr, SUPERUSER_ID, {})
+        ref = 'account_analytic_analysis.assets_backend'
+        view = env.ref(ref, False)
+        if view:
+            try:
+                with env.cr.savepoint():
+                    view.unlink()
+            except Exception as e:
+                logger.warn(
+                    'Could not unlink the view %s: %s. Your interface will '
+                    'be broken because of missing assets.', ref, e)
+
     disable_invalid_filters(cr)
