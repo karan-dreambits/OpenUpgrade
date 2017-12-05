@@ -361,6 +361,22 @@ def migrate_account_sequence_fiscalyear(cr):
         """)
 
 
+def delete_inherited_views(env):
+    """ Known views that cannot be deleted because of inheriting views """
+    def delete_view(view):
+        if not view:
+            return
+        for inheriting in env['ir.ui.view'].search(
+                [('inherit_id', '=', view.id)]):
+            delete_view(inheriting)
+        view.unlink()
+
+    for ref in ('account.view_account_analytic_line_tree',
+                'account.view_account_analytic_line_filter',
+                'account.view_account_analytic_line_form'):
+        delete_view(env.ref(ref))
+
+
 def migrate_account_auto_fy_sequence(env):
     """As now Odoo implements a feature for having several sequence numbers
     per date range, we don't need anymore this module. This handles a smooth
@@ -994,6 +1010,7 @@ def migrate(env, version):
     update_account_invoice_date(cr)
     update_move_date(cr)
     fill_bank_accounts(cr)
+    delete_inherited_views(env)
     openupgrade.load_data(
         cr, 'account', 'migrations/9.0.1.1/noupdate_changes.xml',
     )
