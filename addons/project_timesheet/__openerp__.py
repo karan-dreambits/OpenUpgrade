@@ -45,7 +45,7 @@ with the effect of creating, editing and deleting either ways.
         'test/worktask_entry_to_timesheetline_entry.yml',
         'test/work_timesheet.yml',
     ],
-    'installable': True,
-    'auto_install': True,
+    'installable': False,
+    'auto_install': False,
 }
 # vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:
