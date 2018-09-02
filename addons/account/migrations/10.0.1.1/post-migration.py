@@ -122,3 +122,4 @@ def migrate(env, version):
     openupgrade.load_data(
         cr, 'account', 'migrations/10.0.1.1/noupdate_changes.xml',
     )
+    env.ref('account.wkf').unlink()
