@@ -6,6 +6,7 @@ renamed_modules = {
 }
 
 merged_modules = {
+    'auth_crypt': 'base',
 }
 
 renamed_models = {
